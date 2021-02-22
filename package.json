@@ -33,7 +33,7 @@
     "gatsby-plugin-robots-txt": "1.5.3",
     "gatsby-plugin-sass": "2.8.0",
     "gatsby-plugin-sharp": "2.11.1",
-    "gatsby-plugin-sitemap": "2.9.0",
+    "gatsby-plugin-sitemap": "2.12.0",
     "gatsby-plugin-styled-components": "3.7.0",
     "gatsby-plugin-typography": "2.9.0",
     "gatsby-remark-autolink-headers": "2.8.0",
