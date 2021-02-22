@@ -39,7 +39,7 @@
     "gatsby-remark-autolink-headers": "2.8.0",
     "gatsby-remark-classes": "^1.0.0",
     "gatsby-remark-code-titles": "1.1.0",
-    "gatsby-remark-copy-linked-files": "2.7.0",
+    "gatsby-remark-copy-linked-files": "2.10.0",
     "gatsby-remark-embed-gist": "1.2.1",
     "gatsby-remark-embed-video": "3.0.10",
     "gatsby-remark-external-links": "0.0.4",
