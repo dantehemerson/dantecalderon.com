@@ -28,7 +28,7 @@
     "gatsby-plugin-netlify": "2.8.0",
     "gatsby-plugin-netlify-cms": "4.7.0",
     "gatsby-plugin-nprogress": "2.7.0",
-    "gatsby-plugin-offline": "3.7.0",
+    "gatsby-plugin-offline": "3.10.2",
     "gatsby-plugin-react-helmet": "3.7.0",
     "gatsby-plugin-robots-txt": "1.5.3",
     "gatsby-plugin-sass": "2.8.0",
