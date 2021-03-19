@@ -7145,10 +7145,10 @@ gatsby-plugin-netlify-cms@4.7.0:
     netlify-identity-widget "^1.9.1"
     webpack "^4.44.2"
 
-gatsby-plugin-netlify@2.8.0:
-  version "2.8.0"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-netlify/-/gatsby-plugin-netlify-2.8.0.tgz#686323c18d920e0091f6df03c9e35b819f03ae72"
-  integrity sha512-Nz38dvPBAwqVQdoRWZLip1ITzgZB6noiZq9NbpiVX/GW3e1dFaLPZH0bnwp0rCkt6MIjxgqELSjR5YzhRzaERA==
+gatsby-plugin-netlify@2.11.1:
+  version "2.11.1"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-netlify/-/gatsby-plugin-netlify-2.11.1.tgz#73b21a3dfdea4abd5ac7569e3003868c55591c27"
+  integrity sha512-mvMYgiVsASU48loQJuexGmvddo3lUJhwMeJQF3lkEx8V7ATt5lHVHzxwko5fypwrVc40ZBGiNsIQ08MiIu3rYg==
   dependencies:
     "@babel/runtime" "^7.12.5"
     fs-extra "^8.1.0"
