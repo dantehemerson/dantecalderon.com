@@ -1,0 +1,127 @@
+version: 2
+updates:
+- package-ecosystem: npm
+  directory: "/"
+  schedule:
+    interval: daily
+    time: "10:00"
+  open-pull-requests-limit: 10
+  ignore:
+  - dependency-name: netlify-cms-app
+    versions:
+    - 2.14.14
+    - 2.14.15
+    - 2.14.17
+    - 2.14.18
+    - 2.14.20
+    - 2.14.21
+    - 2.14.22
+    - 2.14.23
+    - 2.14.24
+    - 2.14.25
+    - 2.14.26
+    - 2.14.27
+    - 2.14.29
+    - 2.14.30
+    - 2.14.32
+    - 2.14.34
+    - 2.14.35
+    - 2.14.37
+    - 2.14.38
+    - 2.14.40
+    - 2.14.41
+    - 2.14.44
+    - 2.14.45
+  - dependency-name: sweetalert2
+    versions:
+    - 10.13.3
+    - 10.14.0
+    - 10.14.1
+    - 10.15.0
+    - 10.15.1
+    - 10.15.2
+    - 10.15.4
+    - 10.15.5
+    - 10.15.6
+    - 10.15.7
+    - 10.16.0
+    - 10.16.2
+    - 10.16.4
+    - 10.16.5
+  - dependency-name: immer
+    versions:
+    - 8.0.1
+    - 8.0.2
+    - 8.0.3
+  - dependency-name: "@types/react-dom"
+    versions:
+    - 17.0.1
+    - 17.0.2
+  - dependency-name: gatsby-plugin-sharp
+    versions:
+    - 2.14.1
+    - 2.14.2
+  - dependency-name: gatsby-plugin-offline
+    versions:
+    - 3.10.1
+  - dependency-name: gatsby-plugin-netlify
+    versions:
+    - 2.11.0
+  - dependency-name: gatsby-plugin-feed
+    versions:
+    - 2.13.0
+  - dependency-name: gatsby-transformer-remark
+    versions:
+    - 2.16.0
+  - dependency-name: react-slick
+    versions:
+    - 0.28.0
+  - dependency-name: gatsby
+    versions:
+    - 2.31.1
+    - 2.32.0
+    - 2.32.1
+    - 2.32.2
+    - 2.32.3
+    - 2.32.4
+  - dependency-name: "@types/node"
+    versions:
+    - 14.14.22
+    - 14.14.25
+    - 14.14.27
+    - 14.14.28
+    - 14.14.30
+  - dependency-name: gatsby-plugin-nprogress
+    versions:
+    - 2.10.0
+    - 2.9.0
+  - dependency-name: gatsby-remark-responsive-iframe
+    versions:
+    - 2.10.0
+    - 2.11.0
+  - dependency-name: gatsby-remark-images
+    versions:
+    - 3.10.0
+    - 3.11.0
+  - dependency-name: gatsby-image
+    versions:
+    - 2.10.0
+    - 2.11.0
+  - dependency-name: gatsby-plugin-google-analytics
+    versions:
+    - 2.10.0
+    - 2.11.0
+  - dependency-name: gatsby-plugin-styled-components
+    versions:
+    - 3.10.0
+    - 3.9.0
+  - dependency-name: gatsby-plugin-typography
+    versions:
+    - 2.11.0
+    - 2.12.0
+  - dependency-name: socket.io
+    versions:
+    - 2.4.1
+  - dependency-name: prismjs
+    versions:
+    - 1.23.0
