@@ -53,7 +53,7 @@
     "gatsby-transformer-sharp": "2.9.0",
     "gatsby-transformer-yaml": "2.8.0",
     "javascript-time-ago": "^2.3.3",
-    "lodash": "4.17.20",
+    "lodash": "4.17.21",
     "netlify-cms-app": "2.14.6",
     "node-sass": "4.13.1",
     "object-merge-advanced": "^10.12.1",
