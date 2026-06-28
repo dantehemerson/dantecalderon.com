@@ -1,9 +1,13 @@
 ---
 import Layout from '../components/Layout.astro'
 import HeaderHome from '../components/Home/HeaderHome.astro'
+import AboutContent from '../../content/sections/about.mdx'
 import { siteConfig } from '../config'
 ---
 
 <Layout title="Dante Calderon" url={siteConfig.siteUrl}>
   <HeaderHome />
+  <div class="Post__content container mx-auto px-3">
+    <AboutContent />
+  </div>
 </Layout>

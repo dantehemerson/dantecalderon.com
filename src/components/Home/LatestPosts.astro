@@ -1,0 +1,32 @@
+---
+import { getCollection } from 'astro:content'
+
+const posts = await getCollection('blog')
+const latestPosts = posts
+  .filter(post => post.data.published)
+  .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime())
+  .slice(0, 3)
+---
+
+<div>
+  <p class="md-p">
+    <strong>📖 Latest Posts:</strong>
+  </p>
+  <ul>
+    {latestPosts.map((post, index) => {
+      const slug = post.data.slug || post.slug
+      return (
+        <li id={String(index)} key={index}>
+          <p class="md-p">
+            <a href={`/blog/${slug}`}>{post.data.title}</a>
+          </p>
+        </li>
+      )
+    })}
+    <li id="more">
+      <p class="md-p">
+        <a href="/blog">more...</a>
+      </p>
+    </li>
+  </ul>
+</div>

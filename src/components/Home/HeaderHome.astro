@@ -14,7 +14,7 @@ import { siteConfig } from '../../config'
         {siteConfig.subtitle}
       </h2>
       <SocialHome />
-      <Info client:load />
+      <Info client:only="react" />
     </div>
   </div>
 </div>

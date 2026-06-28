@@ -15,6 +15,12 @@
 }
 
 @layer base {
+  html {
+    font-size: 16px;
+    line-height: 1.5;
+    font-family: 'Gentium Book Basic', 'Times New Roman', Times, serif;
+  }
+
   body {
     margin: 0;
     padding: 0;
@@ -22,7 +28,53 @@
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
     color: #052d3f;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Gentium Book Basic', 'Times New Roman', Times, serif;
+  }
+
+  /* Typography.js heading & body styles restored */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Gentium Book Basic', 'Times New Roman', Times, serif;
+    color: #052d3f;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+    font-weight: 700;
+  }
+
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.5rem; }
+  h3 { font-size: 1.25rem; }
+  h4 { font-size: 1.125rem; }
+  h5 { font-size: 1rem; }
+  h6 { font-size: 0.875rem; }
+
+  p {
+    margin-bottom: 1rem;
+    line-height: 1.58;
+    font-family: 'Gentium Book Basic', 'Times New Roman', Times, serif;
+  }
+
+  ul, ol {
+    margin-bottom: 1rem;
+    padding-left: 1.5rem;
+  }
+
+  li {
+    margin-bottom: 0.25rem;
+  }
+
+  strong, b {
+    font-weight: 700;
+    color: #052d3f;
+  }
+
+  a {
+    color: #4a90e2;
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
   }
 
   a.default {
@@ -33,6 +85,7 @@
 
   a.default:hover {
     border-bottom-style: solid;
+    text-decoration: none;
   }
 
   .Dyamic-container {
@@ -55,6 +108,7 @@
     padding: 15px 1.6rem;
     padding-right: 4.7rem;
     font-weight: 400;
+    font-family: 'Open Sans', sans-serif;
   }
 
   input[type="text"]:focus, input[type="email"]:focus, textarea:focus {
@@ -66,6 +120,7 @@
     -o-tab-size: 2 !important;
     tab-size: 2 !important;
     text-shadow: none !important;
+    font-family: 'Fira Code', Consolas, monospace;
   }
 
   code.language-text {
@@ -76,6 +131,34 @@
     color: inherit !important;
     border: 1px solid #acd1ff !important;
     background: #ecf4fc !important;
+  }
+
+  pre {
+    background: #fafafa;
+    border: 1px solid #cbcbcb;
+    padding: 0.6em 0.7em;
+    overflow: auto;
+    margin-bottom: 27px;
+  }
+
+  pre code {
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+    font-size: 12px;
+    font-family: 'Fira Code', Consolas, monospace;
+  }
+
+  blockquote {
+    border-left: 3px solid #e8e8e8;
+    padding-left: 1rem;
+    margin-left: 0;
+    color: #656565;
+    font-style: italic;
+  }
+
+  img.medium-zoom-image--opened {
+    border: 1px solid #eee;
   }
 }
 
@@ -102,6 +185,64 @@
     padding-right: 12px;
     margin-left: auto;
     margin-right: auto;
+  }
+
+  /* Post content styles (from old styled-components global styles) */
+  .Post__content {
+    font-size: 15px;
+    line-height: 1.65;
+    font-family: 'Gentium Book Basic', 'Times New Roman', Times, serif;
+  }
+
+  .Post__content a {
+    color: #4a90e2;
+    border-bottom: 1px dotted #5b9fef;
+    text-decoration: none;
+  }
+
+  .Post__content a:hover {
+    border-bottom-style: solid;
+  }
+
+  .Post__content a.anchor {
+    border-bottom: none;
+  }
+
+  .Post__content img {
+    margin: 0 auto;
+    display: block;
+    max-width: 100%;
+  }
+
+  .Post__content p {
+    margin-bottom: 1.2rem;
+    font-family: 'Gentium Book Basic', 'Times New Roman', Times, serif;
+  }
+
+  .Post__content ul,
+  .Post__content ol {
+    margin-bottom: 1.2rem;
+    padding-left: 1.5rem;
+  }
+
+  .Post__content li {
+    margin-bottom: 0.3rem;
+  }
+
+  .Post__content h2,
+  .Post__content h3,
+  .Post__content h4 {
+    font-family: 'Gentium Book Basic', 'Times New Roman', Times, serif;
+    margin-top: 1.8rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .Post__content blockquote {
+    border-left: 3px solid #e8e8e8;
+    padding-left: 1rem;
+    margin-left: 0;
+    color: #656565;
+    font-style: italic;
   }
 }
 

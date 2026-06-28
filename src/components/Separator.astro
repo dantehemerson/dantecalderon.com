@@ -1,0 +1,12 @@
+---
+export interface Props {
+  type?: 'normal' | 'fin'
+}
+
+const { type = 'normal' } = Astro.props
+const src = type === 'fin' ? '/finseparator.svg' : '/separator.svg'
+---
+
+<div class="text-center">
+  <img alt="Separator" src={src} class="border-0 max-w-[800px] w-full" />
+</div>
