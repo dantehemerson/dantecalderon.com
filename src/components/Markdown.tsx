@@ -87,7 +87,9 @@ const StyledContent = styled.div`
     border: 1px solid #eee;
   }
 
-  p.md-p > img {
+  p.md-p > img,
+  & > img {
+    display: block;
     margin-left: auto;
     margin-right: auto;
   }
