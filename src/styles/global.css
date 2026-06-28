@@ -1,0 +1,144 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Open Sans', sans-serif;
+  --font-serif: 'Gentium Book Basic', serif;
+  --font-mono: 'Fira Code', monospace;
+  --color-brand-primary: #1976d2;
+  --color-brand-primary-dark: #004ba0;
+  --color-brand-primary-hover: #156CB8;
+  --color-brand-secondary: #f44336;
+  --color-brand-secondary-dark: #ba000d;
+  --color-brand-secondary-hover: #D63A2F;
+  --color-body: #052d3f;
+  --color-link: #4a90e2;
+}
+
+@layer base {
+  body {
+    margin: 0;
+    padding: 0;
+    text-rendering: geometricPrecision;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    color: #052d3f;
+    font-family: 'Open Sans', sans-serif;
+  }
+
+  a.default {
+    color: #4a90e2;
+    border-bottom: 1px dotted #5b9fef;
+    text-decoration: none;
+  }
+
+  a.default:hover {
+    border-bottom-style: solid;
+  }
+
+  .Dyamic-container {
+    min-height: 100vh;
+  }
+
+  textarea {
+    resize: vertical;
+  }
+
+  input[type="text"], input[type="email"], textarea {
+    border: 2px solid #e3e8eb;
+    border-radius: 3px;
+    box-shadow: none;
+    color: #55595c;
+    outline: 0;
+    background: white;
+    transition: border .3s;
+    width: 100%;
+    padding: 15px 1.6rem;
+    padding-right: 4.7rem;
+    font-weight: 400;
+  }
+
+  input[type="text"]:focus, input[type="email"]:focus, textarea:focus {
+    border-color: #1976d2;
+  }
+
+  code {
+    -moz-tab-size: 2 !important;
+    -o-tab-size: 2 !important;
+    tab-size: 2 !important;
+    text-shadow: none !important;
+  }
+
+  code.language-text {
+    font-size: .9rem;
+    top: -1px;
+    position: relative;
+    padding: 0 6px !important;
+    color: inherit !important;
+    border: 1px solid #acd1ff !important;
+    background: #ecf4fc !important;
+  }
+}
+
+@layer components {
+  .container {
+    padding-left: 12px;
+    padding-right: 12px;
+    max-width: 1130px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .container--full {
+    max-width: 1280px;
+    padding-left: 12px;
+    padding-right: 12px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .container--blog {
+    max-width: 1340px;
+    padding-left: 12px;
+    padding-right: 12px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@layer base {
+  .icon_svg {
+    width: 21px;
+    height: 21px;
+  }
+
+  .ToolbarButton {
+    text-decoration: none !important;
+    font-size: 13px;
+  }
+
+  .ToolbarButton:first-child {
+    margin-right: 6px;
+  }
+
+  .ToolbarButton .icon {
+    width: 17px;
+    top: 3px;
+    position: relative;
+    height: 100%;
+    margin-right: 6px;
+  }
+
+  p.para {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+  }
+
+  .para::first-letter {
+    float: left;
+    font-size: 328%;
+    height: 0.7em;
+    line-height: 0.85em;
+    margin: 0 0 -5px;
+    padding: 0 0.08em 0 0;
+  }
+}

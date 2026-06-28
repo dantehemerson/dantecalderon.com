@@ -1,0 +1,43 @@
+---
+import { getTagInfoSelected, ITag, tags as allTags } from '../helpers/tags'
+
+export interface Props {
+  tags?: ITag[]
+  title?: string
+  showCount?: boolean
+  selectedSlug?: string
+}
+
+const {
+  tags = [],
+  title = 'TAGS: ',
+  showCount = false,
+  selectedSlug,
+} = Astro.props
+
+const selectedInfo = selectedSlug ? getTagInfoSelected(selectedSlug) : null
+---
+
+<div class="max-w-[824px] px-3 mx-auto">
+  <hr />
+  <span class="font-bold text-[13px] mr-1.5 sm:text-[15px]">{title}</span>
+  {tags.map(tag => (
+    <a
+      href={`/tags/${tag.slug}`}
+      class="inline-block bg-white px-[0.9em] text-[0.7rem] font-semibold leading-[23px] text-[#333] rounded no-underline border-2 border-[#d6e0ef] m-0.5 cursor-pointer transition duration-300 hover:bg-[#f8f8f8] sm:leading-[30px] sm:text-[0.8rem] sm:m-1"
+      style={
+        selectedSlug === tag.slug && selectedInfo
+          ? {
+              backgroundColor: selectedInfo.color,
+              color: selectedInfo.textColor,
+              border: `2px solid ${selectedInfo.color}`,
+            }
+          : {}
+      }
+    >
+      {tag.title}
+      {showCount && tag.postCount ? ` (${tag.postCount})` : ''}
+    </a>
+  ))}
+  <hr class="mt-[23px]" />
+</div>

@@ -1,0 +1,68 @@
+---
+import { getCollection } from 'astro:content'
+import Layout from '../../../components/Layout.astro'
+import Card from '../../../components/Card.astro'
+import TagsSection from '../../../components/TagsSection.astro'
+import Pagination from '../../../components/Pagination/Pagination'
+import { getAllTagsWithCount, getPostTags } from '../../../helpers/tags'
+import { siteConfig } from '../../../config'
+
+export async function getStaticPaths() {
+  const allPosts = await getCollection('blog')
+  const publishedPosts = allPosts.filter(post => post.data.published)
+  const POSTS_PER_PAGE = 20
+  const totalPages = Math.ceil(publishedPosts.length / POSTS_PER_PAGE)
+
+  // Generate paths for pages 1, 2, 3, ... (page 0 is /blog, handled separately)
+  const paths = []
+  for (let i = 1; i < totalPages; i++) {
+    paths.push({ params: { page: String(i) } })
+  }
+  return paths
+}
+
+const POSTS_PER_PAGE = 20
+const { page } = Astro.params
+const currentPage = parseInt(page!, 10)
+
+const allPosts = await getCollection('blog')
+const publishedPosts = allPosts
+  .filter(post => post.data.published)
+  .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime())
+
+const totalPages = Math.ceil(publishedPosts.length / POSTS_PER_PAGE)
+const posts = publishedPosts.slice(currentPage * POSTS_PER_PAGE, (currentPage + 1) * POSTS_PER_PAGE)
+const tags = getAllTagsWithCount(publishedPosts.map(p => ({ data: p.data })))
+
+const hasNextPage = currentPage < totalPages - 1
+const hasPrevPage = currentPage > 0
+---
+
+<Layout title={`Blog - Page ${currentPage + 1}`} url={`${siteConfig.siteUrl}/blog/page/${currentPage}`} active="blog">
+  <div class="Blog mt-[90px]">
+    <TagsSection tags={tags} showCount={true} />
+    <div class="px-[15px] max-w-[800px] mx-auto mb-[35px]">
+      {posts.map(post => {
+        const slug = post.data.slug || post.slug
+        return (
+          <Card
+            title={post.data.title}
+            date={post.data.date}
+            image={post.data.image}
+            externalImage={post.data.externalImage}
+            excerpt={post.data.description || ''}
+            tags={getPostTags(post.data.tags)}
+            slug={slug}
+          />
+        )
+      })}
+      <Pagination
+        pages={totalPages}
+        selected={currentPage}
+        hasNextPage={hasNextPage}
+        hasPrevPage={hasPrevPage}
+        client:load
+      />
+    </div>
+  </div>
+</Layout>

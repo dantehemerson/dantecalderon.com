@@ -1,0 +1,70 @@
+---
+export interface Props {
+  projects: Array<{
+    slug: string
+    data: {
+      title: string
+      description?: string
+      subtitle?: string
+      image?: string
+      tags?: string[]
+      repository?: string
+      website?: string
+      finished?: boolean
+      href?: string
+      hrefText?: string
+      slug?: string
+    }
+  }>
+}
+
+const { projects } = Astro.props
+---
+
+<div class="grid max-w-[1080px] mx-auto mt-[90px] justify-center gap-[30px] px-[13px] grid-cols-[minmax(min-content,290px)] md:grid-cols-2">
+  {projects.map((project) => {
+    const slug = project.data.slug || project.slug
+    return (
+      <article>
+        <div class="text-left no-underline">
+          <div class="relative overflow-hidden rounded-2xl mb-[13px] border-2 border-[#f5f5f5]">
+            {project.data.finished === false && (
+              <div class="absolute top-2 left-2 w-[100px] h-[22px] rounded-[3px] flex items-center justify-center bg-[#2fd869] z-10" title="I'm still working on it...">
+                <img alt="In Progress" src="https://icongr.am/entypo/circular-graph.svg?color=ffffff" class="w-[14px] h-[14px] mr-1.5" />
+                <span class="text-white text-[13px] font-semibold">In Progress</span>
+              </div>
+            )}
+            {project.data.image && (
+              <img alt="Portfolio item cover" src={project.data.image} class="w-full" />
+            )}
+          </div>
+          <div>
+            <h3 class="text-[#052d3e] font-serif text-[22px] text-left w-full transition duration-300 inline m-0">
+              {project.data.title}
+            </h3>
+            <p class="text-[#727272] m-0 text-sm pt-2.5">
+              {project.data.description}
+            </p>
+          </div>
+        </div>
+        <div class="flex my-2.5 justify-between">
+          {project.data.href && (
+            <a
+              href={project.data.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="no-underline text-[#22292f] font-bold flex items-center text-sm transition duration-300 hover:opacity-80"
+            >
+              {project.data.hrefText && (
+                <>
+                  {project.data.hrefText}{' '}
+                  <span class="inline-block pl-0.5 transition-transform duration-300 hover:translate-x-1">➜</span>
+                </>
+              )}
+            </a>
+          )}
+        </div>
+      </article>
+    )
+  })}
+</div>

@@ -1,0 +1,39 @@
+---
+export interface Props {
+  avatar?: string
+  make?: boolean
+}
+
+const { avatar, make = false } = Astro.props
+---
+
+<div class="flex mb-[13px] mt-5 max-w-[770px] mx-auto flex-col items-center md:flex-row md:items-inherit">
+  <div>
+    {avatar && (
+      <img
+        alt="Author post avatar"
+        src={avatar}
+        class="m-0 w-[90px] h-[90px] rounded-[3px] md:w-[134px] md:h-[134px] md:mr-[21px]"
+      />
+    )}
+  </div>
+  <div class="flex flex-col justify-center items-center pt-3.5 md:items-inherit md:pt-0 font-sans">
+    <p class="text-sm uppercase font-normal text-[#767676] m-0">
+      {make ? 'Made with ❤' : 'Written'} by
+    </p>
+    <a href="/#about-me" class="m-0 text-[21px] leading-none font-semibold text-[#292929] no-underline md:text-[23px]">
+      Dante Calderón
+    </a>
+    <p class="text-[rgba(0,0,0,0.54)] text-sm font-normal pt-[5px] m-0 text-center md:text-left">
+      Hi, I'm Dante Calderón, web developer. Click{' '}
+      <a href="/#about-me" class="default">
+        here
+      </a>{' '}
+      if you want know more about me or checkout my{' '}
+      <a href="/projects" class="default">
+        projects
+      </a>
+      .
+    </p>
+  </div>
+</div>

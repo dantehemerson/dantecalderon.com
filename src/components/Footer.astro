@@ -1,0 +1,38 @@
+---
+import { siteConfig } from '../config'
+
+const currentYear = new Date().getFullYear()
+const social = siteConfig.social.slice(0, 4)
+---
+
+<footer class="flex items-center justify-center flex-col h-[200px] bg-[#fafafa] border-t border-[#f3f3f3]">
+  <div class="flex items-center justify-center">
+    {social.map(item => (
+      <a
+        key={item.title}
+        target="_blank"
+        href={item.link}
+        rel="noopener"
+        class="mx-[15px]"
+      >
+        <img
+          alt={`${item.title} - ${siteConfig.title}`}
+          src={
+            item.icon === 'dev'
+              ? 'https://d2fltix0v2e0sb.cloudfront.net/dev-badge.svg'
+              : `https://icongr.am/fontawesome/${item.icon}.svg?size=20&color=282a2d`
+          }
+          class="w-[27px]"
+        />
+      </a>
+    ))}
+  </div>
+  <p class="text-[13px] font-semibold text-[#656565] text-center">
+    <span class="block sm:inline py-[10px_5px]">
+      © {currentYear}
+    </span>
+    <a href="/#about-me" target="_blank" rel="noopener" class="text-[#282a2d] no-underline">
+      {siteConfig.title}
+    </a>
+  </p>
+</footer>

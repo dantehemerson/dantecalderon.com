@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react'
 import { mergeAdvanced } from 'object-merge-advanced'
-import styled from 'styled-components'
-import { GLOBAL_CONTEXT_KEY } from '../../gatsby/gatsby.constants'
 import { secureTimeAgo } from '../helpers/date'
 import { getMyGithubInfo } from '../helpers/requests/githubInfo'
 import { useLocalStorage } from '../hooks/useLocalStorage'
 import InfoItem from './InfoItem'
+
+const GLOBAL_CONTEXT_KEY = 'gcl'
 
 export function Info() {
   const [info, setInfo] = useLocalStorage(GLOBAL_CONTEXT_KEY, undefined)
@@ -14,7 +14,7 @@ export function Info() {
     const loadGithubInfo = async () => {
       try {
         const newInfo = await getMyGithubInfo()
-        setInfo(prevInfo => {
+        setInfo((prevInfo: any) => {
           return mergeAdvanced(prevInfo, newInfo, {
             mergeBoolsUsingOrNotAnd: newInfo?.listening?.playing ?? false,
           })
@@ -28,7 +28,6 @@ export function Info() {
     const intervalId = setInterval(() => loadGithubInfo(), 3_000)
 
     return () => {
-      console.log('Clearing interval')
       clearInterval(intervalId)
     }
   }, [])
@@ -36,56 +35,40 @@ export function Info() {
   const isLoading = info === undefined
 
   return (
-    <div
-      style={{
-        display: 'flex',
-        justifyContent: 'center',
-      }}
-    >
-      <Container>
+    <div className="flex justify-center">
+      <div className="mt-[15px] flex min-w-[366px] flex-col items-start border border-[#d3c79e] p-[25px]">
         <InfoItem
-          title="😊 Status"
+          title="Status"
           isLoading={isLoading}
           postfix={secureTimeAgo(info?.githubStatus?.updatedAt)}
         >
           {info?.githubStatus?.status}
         </InfoItem>
-        {
-          info?.githubStatus?.company &&
-          (<InfoItem title="👨‍💻 Working on" isLoading={isLoading}>
+        {info?.githubStatus?.company && (
+          <InfoItem title="Working on" isLoading={isLoading}>
             {info?.githubStatus?.company}
-          </InfoItem>)
-        }
-        <InfoItem title="🚀 Contributions" isLoading={isLoading}>
+          </InfoItem>
+        )}
+        <InfoItem title="Contributions" isLoading={isLoading}>
           <>
-            <b className="code">{info?.githubStatus?.contributions ?? 0}</b>&nbsp;in the last year
+            <b className="font-['Fira_Code']">{info?.githubStatus?.contributions ?? 0}</b>&nbsp;in the last year
           </>
         </InfoItem>
         <InfoItem
-          title="👷 Latest Commit"
+          title="Latest Commit"
           isLoading={isLoading}
           postfix={secureTimeAgo(info?.latestCommit?.createdAt)}
         >
-          <a href={info?.latestCommit?.url} target="_blank">
+          <a href={info?.latestCommit?.url} target="_blank" className="whitespace-nowrap text-[#0057bc] max-w-[280px] overflow-hidden no-underline text-ellipsis">
             {info?.latestCommit?.message}
           </a>
         </InfoItem>
-        <InfoItem title={'📚 Reading'} isLoading={isLoading}>
-          <a href={info?.reading?.profileUrl} target="_blank">
+        <InfoItem title={'Reading'} isLoading={isLoading}>
+          <a href={info?.reading?.profileUrl} target="_blank" className="whitespace-nowrap text-[#0057bc] max-w-[280px] overflow-hidden no-underline text-ellipsis">
             {info?.reading?.title}
           </a>
         </InfoItem>
-      </Container>
+      </div>
     </div>
   )
 }
-
-const Container = styled.div`
-  margin-top: 15px;
-  display: flex;
-  min-width: 366px;
-  flex-direction: column;
-  align-items: flex-start;
-  border: 1px solid #d3c79e;
-  padding: 25px;
-`

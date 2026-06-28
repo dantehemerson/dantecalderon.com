@@ -1,6 +1,5 @@
-import { graphql, useStaticQuery } from 'gatsby'
 import React from 'react'
-import styled from 'styled-components'
+import { siteConfig } from '../config'
 
 type ShareProps = {
   title: string
@@ -8,28 +7,16 @@ type ShareProps = {
 }
 
 export function Share({ title, path }: ShareProps) {
-  const {
-    site: {
-      siteMetadata: { siteUrl },
-    },
-  } = useStaticQuery(graphql`
-    query ShareComponentQuery {
-      site {
-        siteMetadata {
-          siteUrl
-        }
-      }
-    }
-  `)
-
-  const url = `${siteUrl}/${path}`
+  const url = `${siteConfig.siteUrl}/${path}`
 
   return (
-    <Container>
-      <ShareTitle>Share:</ShareTitle>
-      <Button
-        type="twitter"
-        href={`https://twitter.com/intent/tweet?text=${title} by Dante Calderón(@dantehemerson) ${url}`}
+    <div className="max-w-[900px] mx-auto flex flex-wrap pt-0 pb-[15px] justify-center">
+      <span className="w-full text-center font-semibold text-[15px] leading-0 mb-5">
+        Share:
+      </span>
+      <a
+        className="m-1 bg-[#caced2] rounded p-[0em_0.2em] transition duration-300 ease-in-out hover:bg-[#a9adb1]"
+        href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(title)} by Dante Calderón(@dantehemerson) ${encodeURIComponent(url)}`}
         title="Share on Twitter"
         target="_blank"
         rel="noopener"
@@ -37,60 +24,24 @@ export function Share({ title, path }: ShareProps) {
         <img
           src="https://icongr.am/fontawesome/twitter.svg?color=ffffff"
           title="Share on Twitter"
-          alt="img"
+          alt="Twitter"
+          className="w-[22px] h-[84%] m-0 relative top-0.5"
         />
-      </Button>
-      <Button
-        type="linkedin"
-        rel="noopener"
-        href={`http://www.linkedin.com/shareArticle?url=${url}&isFramed=true`}
+      </a>
+      <a
+        className="m-1 bg-[#caced2] rounded p-[0em_0.2em] transition duration-300 ease-in-out hover:bg-[#a9adb1]"
+        href={`http://www.linkedin.com/shareArticle?url=${encodeURIComponent(url)}&isFramed=true`}
         title="Share on Linkedin"
         target="_blank"
+        rel="noopener"
       >
         <img
           src="https://icongr.am/fontawesome/linkedin.svg?color=ffffff"
           title="Share on Linkedin"
-          alt="img"
+          alt="LinkedIn"
+          className="w-[22px] h-[84%] m-0 relative top-0.5"
         />
-      </Button>
-    </Container>
+      </a>
+    </div>
   )
 }
-
-const Button = styled.a`
-  margin: 4px !important;
-  background: #caced2;
-  border-radius: 4px;
-  padding: 0em 0.2em;
-  transition: 0.3s ease-in-out;
-  &:hover {
-    background: #a9adb1;
-  }
-  img {
-    width: 22px;
-    height: 84%;
-    margin: 0;
-    position: relative;
-    top: 2px;
-  }
-`
-
-const Container = styled.div`
-  max-width: 900px;
-  margin-left: auto;
-  margin-right: auto;
-  display: flex;
-  flex-wrap: wrap;
-  padding-top: 0px;
-  padding-bottom: 15px;
-  justify-content: center;
-`
-
-const ShareTitle = styled.span`
-  width: 100%;
-  text-align: center;
-  font-weight: 600;
-  font-size: 15px;
-  line-height: 0;
-  margin-bottom: 20px;
-`

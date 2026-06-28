@@ -1,0 +1,43 @@
+---
+import '../styles/global.css'
+import Seo from './Seo.astro'
+import Navbar from './Navbar'
+import Footer from './Footer.astro'
+import { siteConfig } from '../config'
+
+export interface Props {
+  title?: string
+  description?: string
+  image?: string
+  url?: string
+  isPost?: boolean
+  active?: string
+  simple?: boolean
+}
+
+const {
+  title,
+  description,
+  image,
+  url,
+  isPost = false,
+  active = '',
+  simple = false,
+} = Astro.props
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <Seo title={title} description={description} image={image} url={url} isPost={isPost} />
+  </head>
+  <body>
+    <Navbar client:load active={active} menu={siteConfig.menu} title={siteConfig.title} subtitle={siteConfig.subtitle} />
+    <div class="Dyamic-container">
+      <slot />
+    </div>
+    {!simple && <Footer />}
+  </body>
+</html>

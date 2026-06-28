@@ -1,0 +1,56 @@
+---
+import { getCollection } from 'astro:content'
+import Layout from '../../components/Layout.astro'
+import ProjectHeader from '../../components/ProjectHeader.astro'
+import SidebarProject from '../../components/SidebarProject.astro'
+import AuthorPostFooter from '../../components/AuthorPostFooter.astro'
+import { siteConfig } from '../../config'
+
+export async function getStaticPaths() {
+  const projects = await getCollection('projects')
+  return projects.map(project => {
+    const slug = project.data.slug || project.slug
+    return {
+      params: { slug },
+      props: { project },
+    }
+  })
+}
+
+const { project } = Astro.props
+const { Content } = await project.render()
+const slug = project.data.slug || project.slug
+const imageUrl = project.data.image ? `${siteConfig.siteUrl}${project.data.image}` : undefined
+---
+
+<Layout
+  title={project.data.title}
+  description={project.data.description}
+  url={`${siteConfig.siteUrl}/projects/${slug}`}
+  image={imageUrl}
+  active="projects"
+>
+  <div class="mt-[90px]">
+    <ProjectHeader
+      title={project.data.title}
+      subtitle={project.data.subtitle}
+      repository={project.data.repository}
+      website={project.data.website}
+      finished={project.data.finished}
+      tags={project.data.tags}
+    />
+    <div class="Post__content max-w-[900px] mx-auto px-2.5">
+      <Content />
+    </div>
+    <SidebarProject
+      tags={project.data.tags}
+      stack={project.data.stack}
+      roles={project.data.roles}
+      website={project.data.website}
+      repository={project.data.repository}
+      client={project.data.client}
+      licence={project.data.licence}
+    />
+    <AuthorPostFooter make={true} />
+  </div>
+</Layout>

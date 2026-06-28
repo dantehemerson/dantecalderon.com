@@ -1,0 +1,215 @@
+---
+model: post
+title: 'Creando un Bithday Countdown con Next.js'
+description: >-
+  Creando un pagina en Next.js para ver cuantos dias faltan para tu cumpleanios
+author: Dante Calderón
+pathPrefix: blog
+slug: building-a-birthday-countdown-in-nextjs
+image: ../images/mongodb_1.png
+date: '2020-05-07T00:00:00-05:00'
+published: false
+tags:
+  - ReactJS
+  - Next.js
+  - Frontend
+---
+
+Las cosas que aprenderemos seran:
+
+- Usar rutas dinamicas en Next.js
+- Usar Typescript
+- Usar styled-components
+- Crear un sitio increible. 🚀
+
+### Que vamos a hacer?
+
+Hoy estaremos construyendo una pagina que nos ayude a saber cuantos **dias, horas y segundos**
+faltan para un cumpleanos.
+
+Puedes dar un vistaso al resultado final y al codigo aca:
+
+- [Demo](https://birthday-countdown.now.sh)
+- [Code](https://github.com/dantehemerson/birthday-countdown)
+
+Asi que vamos a ello...
+
+### 💫 Creando el repositorio
+
+Para asegurase que todo funcione correctamente, clonaremos el repositorio original y trabajar sobre el.
+Para ello haremos lo siguiente:
+
+```bash
+# Clonamos el repositorio original y nos movemos a el folder creado
+git clone git@github.com:dantehemerson/birthday-countdown.git && cd birthday-countdown
+
+# Nos movemos al primer commit
+git reset --hard 658aed
+
+# Reiniciamos el repo para no tener conflictos
+rm -rf .git && git init
+
+# Agregamos los cambios
+git add --all && git commit -m "Initial commit"
+
+```
+
+### 🚀 Iniciando el proyecto
+
+Primero instalamos los paquetes:
+
+```bash
+yarn
+```
+
+y para correr el proyecto usamos:
+
+```bash
+yarn dev
+```
+
+ahora podemos ver la pagina en http://localhost:3000
+
+### 🎨 Preparando el fondo
+
+Para que nuestro sitio se vea con estilo, vamos a agregar una imagen de fondo y vamos a centrar el contendio,
+para esto vamos a nuestro componente contenedor(`Layout.tsx`).
+
+Para la imagen de fondo usare [esta imagen](https://images.unsplash.com/photo-1588909741576-6ded462d06b9?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80),
+sientete libre de usar la que tu prefieras.
+Y dentro del componente con estilo `Container` agregamos estos estilos:
+
+```typescript{4-7}:title=components/Layout.tsx
+const Container = styled.div`
+  background: #f9fafa;
+  height: 100vh;
+  background-image: url('https://images.unsplash.com/photo-1588909741576-6ded462d06b9?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+`
+```
+
+Y para centrar el centrar el contenido usaremos **flexbox**
+
+```typescript{8-10}:title=components/Layout.tsx
+const Container = styled.div`
+  background: #f9fafa;
+  height: 100vh;
+  background-image: url('https://images.unsplash.com/photo-1588909741576-6ded462d06b9?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`
+```
+
+## 👷 Creando los componentes
+
+Este es el esquema de los componentes:
+
+![Board](../images/birthday_count_board.jpg)
+
+Tenemos aca el componente `Container` que estara centrado en la pagina.
+La logica sera:
+
+```jsx
+Es el dia de cumpleanos?
+         /   \
+       NO     SI
+      /        \
+  Mostrar    Mostrar
+    /            \
+<Clock/>    <HappyContainer/>
+```
+
+#### 🗳 ClockBox componente
+
+Empezaremos creando el componente `ClockBox`, para ello vamos a crear el archivo en `components/ClockBox.tsx` y le agregamos lo siguiente
+donde mostraremos un numero(`Count`) y un texto(`Text`)
+
+```tsx:title=components/ClockBox.tsx
+import React from 'react'
+import styled from 'styled-components'
+
+type ClockBoxProps = {
+  count: string
+  text: string
+}
+
+export const ClockBox = ({ count, text }: ClockBoxProps) => {
+  return (
+    <ClockBoxContainer>
+      <Count>{count}</Count>
+      <Text>{text}</Text>
+    </ClockBoxContainer>
+  )
+}
+
+const Count = styled.p`
+  color: white;
+  font-size: 44px;
+  margin: 0;
+  font-weight: 800;
+`
+
+const Text = styled.p`
+  margin: 0;
+  color: white;
+  font-weight: 600;
+  text-transform: uppercase;
+`
+
+const ClockBoxContainer = styled.div`
+  background: #9191916e;
+  padding: 4px 24px;
+  border-radius: 4px;
+  display: flex;
+  margin: 10px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+`
+```
+
+En este componente tendremos sera una caja que renderizara los dias, horas, minutos o segundos que faltan para el cumpleanos.
+
+```tsx
+type ClockBoxProps = {
+  count: string
+  text: string
+}
+
+export const ClockBox = ({ count, text }: ClockBoxProps) => {
+```
+
+Aca Creamos un tipo `ClockBoxProps` donde definimos que propiedades recibiremos y de que tipo son. Tenemos que `count` es de tipo `string`
+y `text` es de tipo `string` tambien. Esto nos ayuda en la experiencia de desarrollo.
+
+#### ⌚ Clock Component
+
+El component `Clock` contendra 4 componentes `ClockBox` para los dias, horas, minutos y segundos.
+important not importa how many people dy herer
+
+```tsx:title=components/Clock.tsx
+import React from 'react'
+import styled from 'styled-components'
+import { ClockBox } from './ClockBox'
+
+export const Clock = () => {
+  return (
+    <ClockContainer>
+      <ClockBox count={'149'} text="Days" />
+      <ClockBox count={'14'} text="Hours" />
+      <ClockBox count={'34'} text="Minutes" />
+      <ClockBox count={'58'} text="Seconds" />
+    </ClockContainer>
+  )
+}
+
+const ClockContainer = styled.div`
+  display: flex;
+`
+```

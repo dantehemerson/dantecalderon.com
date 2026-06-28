@@ -1,0 +1,74 @@
+---
+model: post
+title: 'Caso de uso: Hangman App - Obteniendo documentos aleatorios en MongoDB'
+description: >-
+  Un Caso de uso para mi aplicacion Hangman - Obteniendo documentos aleatorios en Mongodb y su implementación
+author: Dante Calderón
+pathPrefix: blog
+slug: caso-de-uso-obteniendo-documentos-aleatorios-en-mongodb
+image: ../images/mongodb_1.png
+date: '2020-03-03T00:00:00-05:00'
+published: true
+tags:
+  - MongoDB
+  - Databases
+  - Queries
+  - Backend
+---
+
+Recientemente estuve desarrollando **[El Ahorado](https://github.com/dantehemerson/hangman-api)** en React Native, un juego de adivinanzas. Se le muestra una palabra al jugador, y trata de adivinarla según lo que sugiere por letras o números.
+
+<div className="mdx-image-container with-border wone g1" style={{maxWidth: '300px', borderColor: 'red'}}>
+
+![Juego Ahorado](../images/Screenshot-20200303002339-352x706.png)
+
+</div>
+
+Mi modelo es este:
+
+```ts
+export class Word extends TimeStamps {
+  @IsString()
+  @prop({ required: true, maxlength: 20 })
+  name: string
+
+  @IsMongoId()
+  @IsNotEmpty()
+  @prop({ ref: 'Category', required: true })
+  category: Ref<Category>
+}
+```
+
+Tengo dos propiedas aca, `name` que es la palabra y `category` que es una referencia a la categoría de la palabra.
+
+### La Funcionalidad
+
+Cuando el jugador entra a la pantalla se cargan las preguntas aleatorias segun la categoría que haya seleccionado,
+si no selecciona una categoría, se buscan en todas las categorías.
+
+### Obteniendo las preguntas aleatoriamente
+
+Para obtener aleatoriamente las preguntas usé el operador [`sample`](https://docs.mongodb.com/manual/reference/operator/aggregation/sample/), que permite traer una cantidad de documentos aleatorios de esta manera:
+
+```js
+this.wordModel
+  .aggregate()
+  .match({ ...(categoryId ? { category: categoryId } : {}) })
+  .sample(limit)
+```
+
+`sample` pertenece a la lista de operadores de `aggregate` asi que por eso llamo primero a la funcion `aggregate()`,
+luego hago un match para segmentar las palabras por categoria(sí es que existe),
+finalmente llamo a la función `sample()`, y le paso como parametro la cantidad de elementos que deseo obtener y con eso
+ya obtendría las preguntas aleatorias 🎉.
+
+Espero que te haya sido util este pequeño caso de uso,
+puedes ver el codigo de la implementacion en [github](https://github.com/dantehemerson/hangman-api/blob/master/src/modules/words/words.service.ts#L33-L40).
+
+Gracias por leer ✌.
+
+#### Links
+
+Video del Juego Ahorado - https://www.youtube.com/watch?v=DlOKPjwbKDk<br/>
+Codigo de la API del juego - https://github.com/dantehemerson/hangman-api<br/>
+Codigo de la Aplicacion React Native del juego - https://github.com/dantehemerson/hangman-app

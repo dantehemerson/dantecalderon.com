@@ -1,0 +1,53 @@
+---
+import { getCollection } from 'astro:content'
+import Layout from '../../components/Layout.astro'
+import Card from '../../components/Card.astro'
+import TagsSection from '../../components/TagsSection.astro'
+import Pagination from '../../components/Pagination/Pagination'
+import { getAllTagsWithCount, getPostTags } from '../../helpers/tags'
+import { siteConfig } from '../../config'
+
+const POSTS_PER_PAGE = 20
+
+const allPosts = await getCollection('blog')
+const publishedPosts = allPosts
+  .filter(post => post.data.published)
+  .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime())
+
+const totalPages = Math.ceil(publishedPosts.length / POSTS_PER_PAGE)
+const currentPage = 0
+const posts = publishedPosts.slice(0, POSTS_PER_PAGE)
+const tags = getAllTagsWithCount(publishedPosts.map(p => ({ data: p.data })))
+
+const hasNextPage = totalPages > 1
+const hasPrevPage = false
+---
+
+<Layout title="Blog" url={`${siteConfig.siteUrl}/blog`} active="blog">
+  <div class="Blog mt-[90px]">
+    <TagsSection tags={tags} showCount={true} />
+    <div class="px-[15px] max-w-[800px] mx-auto mb-[35px]">
+      {posts.map(post => {
+        const slug = post.data.slug || post.slug
+        return (
+          <Card
+            title={post.data.title}
+            date={post.data.date}
+            image={post.data.image}
+            externalImage={post.data.externalImage}
+            excerpt={post.data.description || ''}
+            tags={getPostTags(post.data.tags)}
+            slug={slug}
+          />
+        )
+      })}
+      <Pagination
+        pages={totalPages}
+        selected={currentPage}
+        hasNextPage={hasNextPage}
+        hasPrevPage={hasPrevPage}
+        client:load
+      />
+    </div>
+  </div>
+</Layout>

@@ -1,0 +1,32 @@
+---
+import Tags from './Tags.astro'
+import Message from './Message.astro'
+import ProjectToolbar from './ProjectToolbar.astro'
+
+export interface Props {
+  title: string
+  subtitle?: string
+  repository?: string
+  website?: string
+  finished?: boolean
+  tags?: string[]
+}
+
+const { title, subtitle, repository, website, finished, tags } = Astro.props
+---
+
+<div class="max-w-[900px] mx-auto mb-[26px] mt-[100px]">
+  <h1 class="mt-[60px] text-[28px] m-0 sm:text-[28px] md:text-[37px]">{title}</h1>
+  {subtitle && (
+    <h2 class="mt-[14px] text-base italic text-[#656565] font-normal font-sans sm:text-lg md:text-lg">
+      {subtitle}
+    </h2>
+  )}
+  <ProjectToolbar repository={repository} website={website} />
+  {finished === false && (
+    <Message title="Project in progress...">
+      This project is not finished yet, I'm working on it.
+    </Message>
+  )}
+  <Tags tags={tags} />
+</div>
