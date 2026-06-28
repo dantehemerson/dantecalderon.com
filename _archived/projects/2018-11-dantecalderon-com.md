@@ -23,7 +23,7 @@ images:
     image: ../images/dantecalderon-post.png
 date: 2018-11-06T20:32:07.279Z
 finished: true
-published: true
+published: false
 style: default
 tags:
   - Gatsby

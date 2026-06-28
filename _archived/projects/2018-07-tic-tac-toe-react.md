@@ -11,7 +11,7 @@ images:
     image: ../images/tic-tac-toe-react-game.png
 date: '2018-06-20T22:26:20-05:00'
 finished: true
-published: true
+published: false
 style: doble-column
 tags:
   - Game

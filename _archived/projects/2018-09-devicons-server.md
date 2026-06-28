@@ -12,7 +12,7 @@ images:
     image: ../images/devicons.herokuapp.com_.png
 date: '2018-09-24T23:20:51-05:00'
 finished: true
-published: true
+published: false
 style: full-image
 tags:
   - API

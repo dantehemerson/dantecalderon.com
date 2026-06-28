@@ -11,7 +11,7 @@ const Portfolio = props => {
 
   return (
     <Layout location={props.location} active={pages.portfolio}>
-      <SEO title="Portfolio" url={`${siteUrl}/portfolio`} />
+      <SEO title="Projects" url={`${siteUrl}/portfolio`} />
       <div style={{ marginTop: 100 }}></div>
       <List posts={posts} />
     </Layout>

@@ -18,7 +18,7 @@ images:
       ../images/screencapture-dantehemerson-github-io-musicami-explore-popular-2018-11-20-14_02_28.png
 date: 2018-11-20T19:10:55.340Z
 finished: false
-published: true
+published: false
 style: default
 tags:
   - Webapp

@@ -15,7 +15,7 @@ images:
     image: ../images/audio_tag_editor01.png
 date: '2019-29-08T20:32:07.279Z'
 finished: true
-published: true
+published: false
 style: default
 tags:
   - Gatsby

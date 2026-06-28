@@ -11,7 +11,7 @@ images:
     image: ../images/arkanoid-returns-game.png
 date: '2017-07-30T22:13:39-05:00'
 finished: true
-published: true
+published: false
 style: normal-img
 tags:
   - Arkanoid

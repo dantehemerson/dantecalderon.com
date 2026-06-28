@@ -10,7 +10,7 @@ images:
   - image: ../images/cafeteria.png
 date: '2018-05-05T08:41:18-05:00'
 finished: true
-published: true
+published: false
 style: normal-img
 tags:
   - foundation
