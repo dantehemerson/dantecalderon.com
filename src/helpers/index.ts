@@ -2,6 +2,6 @@ export const pages = {
   home: '',
   blog: 'Blog',
   about: 'About',
-  portfolio: 'Portfolio',
+  projects: 'Projects',
   contact: 'Contact',
 }

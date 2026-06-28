@@ -4,7 +4,7 @@ title: Devicons Server
 subtitle: >-
   Set of icons in SVG of the tech world 
 description: Set of icons in SVG of the tech world
-pathPrefix: portfolio
+pathPrefix: projects
 slug: devicons-server
 image: ../images/devicons.herokuapp.com_.png
 images:
@@ -12,7 +12,7 @@ images:
     image: ../images/devicons.herokuapp.com_.png
 date: '2018-09-24T23:20:51-05:00'
 finished: true
-published: true
+published: false
 style: full-image
 tags:
   - API

@@ -27,9 +27,7 @@ export const createPages = async ({ graphql, actions }) => {
       allPosts: allMdx(
         sort: { frontmatter: { date: DESC } }
         limit: 200
-        filter: {
-          frontmatter: { published: { eq: true }, model: { eq: "post" } }
-        }
+        filter: { frontmatter: { published: { eq: true }, model: { eq: "post" } } }
       ) {
         edges {
           node {
@@ -56,13 +54,13 @@ export const createPages = async ({ graphql, actions }) => {
       # allProjects: allMdx(
       #   sort: { frontmatter: { date: DESC } }
       #   limit: 100
-      #   filter: {
-      #     fileAbsolutePath: { ne: null }
-      #     frontmatter: { published: { eq: true }, model: { eq: "project" } }
-      #   }
+      #   filter: { frontmatter: { published: { eq: true }, model: { eq: "project" } } }
       # ) {
       #   edges {
       #     node {
+      #       internal {
+      #         contentFilePath
+      #       }
       #       frontmatter {
       #         model
       #         slug
@@ -71,6 +69,7 @@ export const createPages = async ({ graphql, actions }) => {
       #       }
       #     }
       #   }
+      # }
       # }
     }
   `)

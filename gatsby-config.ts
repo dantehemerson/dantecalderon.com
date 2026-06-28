@@ -97,7 +97,7 @@ const config: GatsbyConfig = {
           {
             resolve: `gatsby-remark-autolink-headers`,
             options: {
-              offsetY: `80`,
+              offsetY: 90,
             },
           },
           'gatsby-remark-external-links',

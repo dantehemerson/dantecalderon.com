@@ -3,7 +3,7 @@ model: project
 title: Tic Tac Toe React
 subtitle: El clásico juego TicTacToe hecho con React.
 description: Juego TicTacToe hecho en React.
-pathPrefix: portfolio
+pathPrefix: projects
 slug: tic-tac-toe-game-react
 image: ../images/tic-tac-toe-react-game.png
 images:
@@ -11,7 +11,7 @@ images:
     image: ../images/tic-tac-toe-react-game.png
 date: '2018-06-20T22:26:20-05:00'
 finished: true
-published: true
+published: false
 style: doble-column
 tags:
   - Game

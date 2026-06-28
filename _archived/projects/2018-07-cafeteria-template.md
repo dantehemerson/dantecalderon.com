@@ -3,14 +3,14 @@ model: project
 title: Cafeteria - Template
 subtitle: 'Un template para una cafetería, hecha con el framework Foundation.'
 description: 'Un template para una cafetería, hecha con el framework Foundation'
-pathPrefix: portfolio
+pathPrefix: projects
 slug: cafeteria-template
 image: ../images/cafeteria.png
 images:
   - image: ../images/cafeteria.png
 date: '2018-05-05T08:41:18-05:00'
 finished: true
-published: true
+published: false
 style: normal-img
 tags:
   - foundation

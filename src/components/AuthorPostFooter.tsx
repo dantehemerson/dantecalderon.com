@@ -90,8 +90,8 @@ export default props => {
             here
           </Link>{' '}
           if you want know more about me or checkout my{' '}
-          <Link className="default" to="/portfolio">
-            portafolio
+          <Link className="default" to="/projects">
+            projects
           </Link>
           .
         </About>

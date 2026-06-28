@@ -4,18 +4,19 @@
     "**/node_modules": true,
     "package-lock.json": true,
     ".cache": true,
+    "_archived": true,
     // "public": true
   },
   "editor.formatOnSave": true,
   "javascript.format.enable": false,
   "javascript.preferences.quoteStyle": "single",
   "[javascript]": {
-    "editor.formatOnSave": true
+    "editor.formatOnSave": true,
   },
   "[typescript]": {
-    "editor.formatOnSave": true
+    "editor.formatOnSave": true,
   },
   "[typescriptreact]": {
-    "editor.formatOnSave": true
-  }
+    "editor.formatOnSave": true,
+  },
 }

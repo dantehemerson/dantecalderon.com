@@ -3,7 +3,7 @@ model: project
 title: dantecalderon
 subtitle: My webpage
 description: Personal-website
-pathPrefix: portfolio
+pathPrefix: projects
 slug: dantecalderon
 image: ../images/danteclderon-home.png
 images:
@@ -23,7 +23,7 @@ images:
     image: ../images/dantecalderon-post.png
 date: 2018-11-06T20:32:07.279Z
 finished: true
-published: true
+published: false
 style: default
 tags:
   - Gatsby

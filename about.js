@@ -48,7 +48,7 @@ module.exports = {
     menu: [
       { title: 'Home', id: 'home', to: '/', icon: 'home' },
       { title: 'Blog', id: 'blog', to: '/blog', icon: 'blog' },
-      // { title: 'Portfolio', id: 'Portfolio', to: '/portfolio', icon: 'home' },
+      { title: 'Projects', id: 'Projects', to: '/projects', icon: 'projects' },
       //{ title: 'Contact', id: 'Contact', to: '/contact', icon: 'home' }
     ],
   },

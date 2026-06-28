@@ -3,7 +3,7 @@ model: project
 title: URL Shortener 
 subtitle: Simple URL Shortener
 description: URL Shortener
-pathPrefix: portfolio
+pathPrefix: projects
 slug: url-shortener
 image: ../images/url-shortener-pet-5.png
 images:

@@ -3,7 +3,7 @@ model: project
 title: Musicami
 subtitle: Free open source music player
 description: Free open source music player
-pathPrefix: portfolio
+pathPrefix: projects
 slug: musicami
 image: ../images/screencapture-dantehemerson-github-io-musicami-2018-11-20-13_59_43.png
 images:
@@ -18,7 +18,7 @@ images:
       ../images/screencapture-dantehemerson-github-io-musicami-explore-popular-2018-11-20-14_02_28.png
 date: 2018-11-20T19:10:55.340Z
 finished: false
-published: true
+published: false
 style: default
 tags:
   - Webapp
