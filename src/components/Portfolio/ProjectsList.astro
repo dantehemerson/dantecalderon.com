@@ -16,16 +16,20 @@ const { projects } = Astro.props
 ---
 
 <div
-  class="grid max-w-270 mx-auto mt-22.5 justify-center gap-7.5 px-3.25 grid-cols-[minmax(min-content,290px)] md:grid-cols-2"
+  class="grid max-w-270 mx-auto mt-22.5 justify-center gap-7.5 px-3.25 grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
 >
   {
     projects.map(project => {
       return (
         <article>
           <div class="text-left no-underline">
-            <div class="relative overflow-hidden rounded-2xl mb-3.25 border-2 border-[#f5f5f5]">
+            <div class="relative overflow-hidden rounded-2xl mb-3.25 border-2 border-[#f5f5f5] aspect-4/3">
               {project.data.image && (
-                <img alt="Portfolio item cover" src={project.data.image} class="w-full" />
+                <img
+                  alt="Portfolio item cover"
+                  src={project.data.image}
+                  class="w-full h-full object-cover"
+                />
               )}
             </div>
             <div>
