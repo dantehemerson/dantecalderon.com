@@ -4,7 +4,7 @@ title: Podcastify
 subtitle: >-
   The Best Free Podcasts. Curated.
 description: The Best Free Podcasts. Curated.
-pathPrefix: portfolio
+pathPrefix: projects
 slug: podcastifynow
 image: ../images/podcastify.now.sh_undisclosed.3709182.png
 images:

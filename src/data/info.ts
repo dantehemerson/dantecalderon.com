@@ -47,7 +47,7 @@ export const INFO = Object.freeze({
   menu: [
     { title: 'Home', id: '', to: '/', icon: 'home' },
     { title: 'Blog', id: 'Blog', to: '/blog', icon: 'home' },
-    // { title: 'Portfolio', id: 'Portfolio', to: '/portfolio', icon: 'home' },
+    // { title: 'Projects', id: 'Projects', to: '/projects', icon: 'home' },
     //{ title: 'Contact', id: 'Contact', to: '/contact', icon: 'home' }
   ],
 })

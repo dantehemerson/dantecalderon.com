@@ -43,7 +43,7 @@ export default function TemplateLayout(props) {
   const { isPost, title, image, externalImage, description, path } = props
   const { siteUrl } = data.site.siteMetadata
   return (
-    <Layout active={isPost ? pages.blog : pages.portfolio}>
+    <Layout active={isPost ? pages.blog : pages.projects}>
       <SEO
         title={title}
         image={image ? `${siteUrl}${getSrc(image)}` : externalImage}

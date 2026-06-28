@@ -21,7 +21,7 @@ export const createPages = async ({ graphql, actions }) => {
   const tagsBlogListTemplate = path.resolve('./src/templates/TagsBlogListTemplate.tsx')
 
   const {
-    data: { allPosts, allTags, allProjects },
+    data: { allPosts, allTags },
   } = await graphql(`
     {
       allPosts: allMdx(
@@ -51,27 +51,26 @@ export const createPages = async ({ graphql, actions }) => {
         }
       }
 
-      allProjects: allMdx(
-        sort: { frontmatter: { date: DESC } }
-        limit: 100
-        filter: {
-          frontmatter: { published: { eq: true }, model: { eq: "project" } }
-        }
-      ) {
-        edges {
-          node {
-            internal {
-              contentFilePath
-            }
-            frontmatter {
-              model
-              slug
-              pathPrefix
-              tags
-            }
-          }
-        }
-      }
+      # allProjects: allMdx(
+      #   sort: { frontmatter: { date: DESC } }
+      #   limit: 100
+      #   filter: { frontmatter: { published: { eq: true }, model: { eq: "project" } } }
+      # ) {
+      #   edges {
+      #     node {
+      #       internal {
+      #         contentFilePath
+      #       }
+      #       frontmatter {
+      #         model
+      #         slug
+      #         pathPrefix
+      #         tags
+      #       }
+      #     }
+      #   }
+      # }
+      # }
     }
   `)
 
@@ -127,7 +126,7 @@ export const createPages = async ({ graphql, actions }) => {
   }
 
   createMdxPages(allPosts.edges)
-  createMdxPages(allProjects.edges)
+  // createMdxPages(allProjects.edges)
 }
 
 const counter = {}

@@ -3,7 +3,7 @@ model: project
 title: Storytelling Cubes
 subtitle: 'Create great stories, exploit your creativity.'
 description: Application that generate random cubes for create histories.
-pathPrefix: portfolio
+pathPrefix: projects
 slug: storytelling-cubes
 image: ../images/storytellingcubes1.png
 images:

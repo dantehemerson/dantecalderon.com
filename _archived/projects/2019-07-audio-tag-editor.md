@@ -3,7 +3,7 @@ model: project
 title: Audio Tag Editor
 subtitle: The simplest tag editor for mp3 files.
 description: Mp3 Tag Editor
-pathPrefix: portfolio
+pathPrefix: projects
 slug: audio-tag-editor
 image: ../images/audio_tag_editor02.png
 images:

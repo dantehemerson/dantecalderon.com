@@ -5,21 +5,20 @@ import List from '../components/Portfolio/ProjectsList'
 import SEO from '../components/SEO'
 import { pages } from '../helpers'
 
-const Portfolio = props => {
+const Projects = props => {
   const posts = props.data.allMdx.edges || []
   const siteUrl = props.data.site.siteMetadata.siteUrl
 
   return (
-    <Layout location={props.location} active={pages.portfolio}>
-      <SEO title="Projects" url={`${siteUrl}/portfolio`} />
-      <div style={{ marginTop: 100 }}></div>
+    <Layout location={props.location} active={pages.projects}>
+      <SEO title="Projects" url={`${siteUrl}/projects`} />
       <List posts={posts} />
     </Layout>
   )
 }
 
-export const queryPortfolio = graphql`
-  query QueryPortfolio {
+export const queryProjects = graphql`
+  query QueryProjects {
     site {
       siteMetadata {
         title
@@ -59,4 +58,4 @@ export const queryPortfolio = graphql`
   }
 `
 
-export default Portfolio
+export default Projects

@@ -4,8 +4,8 @@ title: MarkoTab
 subtitle: >-
   The Best Free Podcasts. Curated.
 description: MarkoTab is a beautiful browser extension that replaces your new tab page with a clean, customizable dashboard. Keep your bookmarks front and center, organize your favorite sites, and access everything you need with ease.
-pathPrefix: portfolio
-slug: podcastifynow
+pathPrefix: projects
+slug: markotab
 image: ../images/marko-tab-project.jpg
 images:
   - description: Movie Page

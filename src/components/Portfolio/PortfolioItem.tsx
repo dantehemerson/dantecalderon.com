@@ -33,9 +33,7 @@ const Title = styled.h3`
 
 const Cover = styled(GatsbyImage)``
 
-const ItemLink = styled.article`
-  padding: 1.2rem 0.5rem;
-`
+const ItemLink = styled.article``
 
 const Arrow = styled.span`
   display: inline-block;
