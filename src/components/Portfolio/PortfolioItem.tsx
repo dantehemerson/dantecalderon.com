@@ -37,12 +37,23 @@ const ItemLink = styled.article`
   padding: 1.2rem 0.5rem;
 `
 
-const LinkToProject = styled(Link)``
+const LinkToProject = styled(Link)`
+  text-decoration: none;
+  color: #22292f;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  transition: 0.3s;
+  &:hover {
+    opacity: 0.8;
+  }
+`
 
 const Description = styled.p`
   color: #727272;
   margin: 0;
-  font-size: 13px;
+  font-size: 14px;
   padding-top: 10px;
 `
 
@@ -66,20 +77,7 @@ export default props => (
     </ItemWrapper>
     <BottomData>
       <LinkToProject to={props.data.href} target="_blank" rel="noopener noreferrer">
-        {props.data.hrefText && <span>{props.data.hrefText}</span>}
-        <svg
-          className="Shortcut__icon"
-          fill="currentColor"
-          preserveAspectRatio="xMidYMid meet"
-          height="17px"
-          width="17px"
-          viewBox="0 0 40 40"
-          style={{ verticalAlign: 'text-top' }}
-        >
-          <g>
-            <path d="m23.4 5h11.6v11.6h-3.4v-5.9l-16.3 16.3-2.3-2.3 16.3-16.3h-5.9v-3.4z m8.2 26.6v-11.6h3.4v11.6q0 1.4-1 2.4t-2.4 1h-23.2q-1.4 0-2.4-1t-1-2.4v-23.2q0-1.4 1-2.4t2.4-1h11.6v3.4h-11.6v23.2h23.2z" />
-          </g>
-        </svg>
+        {props.data.hrefText && <span>{props.data.hrefText} ➜</span>}
       </LinkToProject>
     </BottomData>
   </ItemLink>
