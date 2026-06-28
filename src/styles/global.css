@@ -2,7 +2,7 @@
 
 @theme {
   --font-sans: 'Open Sans', sans-serif;
-  --font-serif: 'Gentium Book Basic', serif;
+  --font-serif: 'Gentium Book Plus', serif;
   --font-mono: 'Fira Code', monospace;
   --color-brand-primary: #1976d2;
   --color-brand-primary-dark: #004ba0;
@@ -37,7 +37,7 @@
   h4,
   h5,
   h6 {
-    font-family: 'Gentium Book Basic', 'Times New Roman', Times, serif;
+    font-family: var(--font-serif);
     color: #052d3f;
     margin-top: 1.5rem;
     margin-bottom: 1rem;
@@ -220,7 +220,7 @@
   .Post__content {
     font-size: 15px;
     line-height: 1.65;
-    font-family: 'Gentium Book Basic', 'Times New Roman', Times, serif;
+    font-family: var(--font-serif);
   }
 
   .Post__content a {
@@ -287,7 +287,7 @@
     margin-bottom: 1.2rem;
     font-size: 17px;
     line-height: 1.4;
-    font-family: 'Gentium Book Basic', 'Times New Roman', Times, serif;
+    font-family: var(--font-serif);
   }
 
   /* Lists */
@@ -306,7 +306,7 @@
     margin-bottom: 1.2rem;
     font-size: 17px;
     line-height: 1.4;
-    font-family: 'Gentium Book Basic', 'Times New Roman', Times, serif;
+    font-family: var(--font-serif);
   }
 
   .Post__content li {
@@ -325,7 +325,7 @@
   .Post__content h4,
   .Post__content h5,
   .Post__content h6 {
-    font-family: 'Gentium Book Basic', 'Times New Roman', Times, serif;
+    font-family: var(--font-serif);
     line-height: 1.4;
     margin-top: 1.8rem;
     margin-bottom: 0.8rem;

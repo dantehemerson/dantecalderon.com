@@ -2,7 +2,12 @@
 import Layout from '../components/Layout.astro'
 import HeaderHome from '../components/Home/HeaderHome.astro'
 import AboutContent from '../../content/sections/about.mdx'
+import ProjectsList from '../components/Portfolio/ProjectsList.astro'
+import { getCollection } from 'astro:content'
 import { siteConfig } from '../config'
+
+const allProjects = await getCollection('projects')
+const projects = allProjects.sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
 ---
 
 <Layout title="Dante Calderon" url={siteConfig.siteUrl}>
@@ -10,4 +15,5 @@ import { siteConfig } from '../config'
   <div class="Post__content container mx-auto px-3">
     <AboutContent />
   </div>
+  <ProjectsList projects={projects} className="mt-6" />
 </Layout>
