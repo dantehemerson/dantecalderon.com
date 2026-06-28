@@ -5,9 +5,8 @@ import { getCollection } from 'astro:content'
 import { siteConfig } from '../config'
 
 const allProjects = await getCollection('projects')
-const projects = allProjects.sort(
-  (a, b) => b.data.date.getTime() - a.data.date.getTime()
-)
+console.log(allProjects)
+const projects = allProjects.sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
 ---
 
 <Layout title="Projects" url={`${siteConfig.siteUrl}/projects`} active="projects">
