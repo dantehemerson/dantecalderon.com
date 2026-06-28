@@ -5,7 +5,6 @@ import { getCollection } from 'astro:content'
 import { siteConfig } from '../config'
 
 const allProjects = await getCollection('projects')
-console.log(allProjects)
 const projects = allProjects.sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
 ---
 
