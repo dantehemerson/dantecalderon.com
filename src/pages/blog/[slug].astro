@@ -3,7 +3,6 @@ import { getCollection } from 'astro:content'
 import Layout from '../../components/Layout.astro'
 import PostHeader from '../../components/PostHeader.astro'
 import TagsSection from '../../components/TagsSection.astro'
-import AuthorPostFooter from '../../components/AuthorPostFooter.astro'
 import { Share } from '../../components/Share'
 import { getPostTags } from '../../helpers/tags'
 import { siteConfig } from '../../config'
@@ -25,7 +24,9 @@ const { post } = Astro.props
 const { Content } = await post.render()
 const slug = post.data.slug || post.slug
 const tags = getPostTags(post.data.tags)
-const imageUrl = post.data.image ? `${siteConfig.siteUrl}${post.data.image}` : post.data.externalImage
+const imageUrl = post.data.image
+  ? `${siteConfig.siteUrl}${post.data.image}`
+  : post.data.externalImage
 ---
 
 <Layout
@@ -43,11 +44,10 @@ const imageUrl = post.data.image ? `${siteConfig.siteUrl}${post.data.image}` : p
       image={post.data.image}
       externalImage={post.data.externalImage}
     />
-    <div class="Post__content max-w-[900px] mx-auto px-2.5">
+    <div class="Post__content max-w-225 mx-auto px-2.5">
       <Content />
     </div>
     <TagsSection tags={tags} />
     <Share title={post.data.title} path={`blog/${slug}`} client:load />
-    <AuthorPostFooter />
   </div>
 </Layout>

@@ -12,7 +12,7 @@ const POSTS_PER_PAGE = 20
 const allPosts = await getCollection('blog')
 const publishedPosts = allPosts
   .filter(post => post.data.published)
-  .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime())
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
 
 const totalPages = Math.ceil(publishedPosts.length / POSTS_PER_PAGE)
 const currentPage = 0

@@ -28,7 +28,7 @@ const { slug } = Astro.params
 const allPosts = await getCollection('blog')
 const publishedPosts = allPosts
   .filter(post => post.data.published)
-  .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime())
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
 
 const filteredPosts = publishedPosts.filter(post => {
   const postTags = post.data.tags || []

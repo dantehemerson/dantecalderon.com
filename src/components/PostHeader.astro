@@ -3,7 +3,7 @@ import AuthorPost from './AuthorPost.astro'
 
 export interface Props {
   title: string
-  date: string
+  date: Date
   avatar?: string
   image?: string
   externalImage?: string
@@ -12,14 +12,16 @@ export interface Props {
 const { title, date, avatar, image, externalImage } = Astro.props
 ---
 
-<div class="max-w-[900px] mx-auto mb-6.5 mt-25">
+<div class="max-w-225 mx-auto mb-6.5 mt-25">
   <h1 id="post_id" class="mt-15 text-[28px] m-0 px-2.5 sm:text-[28px] md:text-[37px]">
     {title}
   </h1>
   <AuthorPost date={date} avatar={avatar} />
-  {image ? (
-    <img alt={`${title} cover`} src={image} class="zoomable w-full" />
-  ) : externalImage ? (
-    <img class="externalHeaderImage text-center w-full" src={externalImage} />
-  ) : null}
+  {
+    image ? (
+      <img alt={`${title} cover`} src={image} class="zoomable w-full" />
+    ) : externalImage ? (
+      <img class="externalHeaderImage text-center w-full" src={externalImage} />
+    ) : null
+  }
 </div>
