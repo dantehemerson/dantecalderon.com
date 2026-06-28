@@ -7,7 +7,7 @@ const Wrapper = styled.div`
   display: grid;
   max-width: 1080px;
   margin: 0 auto;
-  grid-template-columns: minmax(min-content, 590px);
+  grid-template-columns: minmax(min-content, 290px);
   justify-content: center;
   grid-gap: 30px;
   padding: 0 13px;

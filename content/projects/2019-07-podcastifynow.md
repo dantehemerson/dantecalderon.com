@@ -1,12 +1,12 @@
 ---
 model: project
-title: Podcastify
+title: MarkoTab
 subtitle: >-
   The Best Free Podcasts. Curated.
-description: The Best Free Podcasts. Curated.
+description: MarkoTab is a beautiful browser extension that replaces your new tab page with a clean, customizable dashboard. Keep your bookmarks front and center, organize your favorite sites, and access everything you need with ease.
 pathPrefix: portfolio
 slug: podcastifynow
-image: ../images/podcastify.now.sh_undisclosed.3709182.png
+image: ../images/marko-tab-project.jpg
 images:
   - description: Movie Page
     image: ../images/podcastify.now.sh_undisclosed.3709182.png
@@ -23,11 +23,11 @@ stack:
   - NextJS
   - ReactJS
 client: Personal
-href: 'https://podcastify.now.sh/'
-hrefText: 'podcastify.now.sh'
+href: 'https://chromewebstore.google.com/detail/markotab-new-tab-bookmark/dcnapgldggagocfpcnhpendecgjdedbh'
+hrefText: 'chromewebstore.google.com'
 repository: 'https://github.com/dantehemerson/podcastify'
 licence: MIT
-website: 'https://podcastify.now.sh/'
+website: 'https://chromewebstore.google.com/detail/markotab-new-tab-bookmark/dcnapgldggagocfpcnhpendecgjdedbh'
 ---
 
 The Best Free Podcasts. Curated.

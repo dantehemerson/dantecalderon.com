@@ -39,6 +39,7 @@ const ItemLink = styled.article`
 
 const Arrow = styled.span`
   display: inline-block;
+  padding-left: 2px;
   transition: transform 0.3s;
 `
 
@@ -85,7 +86,11 @@ export default props => (
     </ItemWrapper>
     <BottomData>
       <LinkToProject to={props.data.href} target="_blank" rel="noopener noreferrer">
-        {props.data.hrefText && <>{props.data.hrefText} <Arrow>➜</Arrow></>}
+        {props.data.hrefText && (
+          <>
+            {props.data.hrefText} <Arrow>➜</Arrow>
+          </>
+        )}
       </LinkToProject>
     </BottomData>
   </ItemLink>
