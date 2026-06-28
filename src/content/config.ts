@@ -42,6 +42,8 @@ const projectCollection = defineCollection({
     client: z.string().optional(),
     repository: z.string().optional(),
     website: z.string().optional(),
+    href: z.string().optional(),
+    hrefText: z.string().optional(),
     licence: z.string().optional(),
     finished: z.boolean().optional(),
   }),
