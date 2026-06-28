@@ -7,7 +7,7 @@ export function LatestPosts() {
   } = useStaticQuery(graphql`
     query {
       allMdx(
-        sort: { fields: [frontmatter___date], order: DESC }
+        sort: { frontmatter: { date: DESC } }
         filter: { frontmatter: { model: { eq: "post" }, published: { eq: true } } }
         limit: 3
       ) {

@@ -103,69 +103,6 @@ const config: GatsbyConfig = {
           'gatsby-remark-external-links',
           'gatsby-remark-smartypants',
         ],
-        plugins: [
-          'gatsby-remark-embed-video',
-          {
-            resolve: 'gatsby-remark-code-titles',
-            options: {
-              className: 'gatsby-remark-code-title',
-            },
-          },
-          {
-            resolve: 'gatsby-remark-embed-gist',
-            options: {
-              username: 'dantehemerson',
-              includeDefaultCss: true,
-            },
-          },
-          {
-            resolve: `gatsby-remark-classes`,
-            options: {
-              classMap: {
-                'heading[depth=1]': 'md-h1',
-                'heading[depth=2]': 'md-h2',
-                'heading[depth=3]': 'md-h3',
-                'heading[depth=4]': 'md-h4',
-                'heading[depth=5]': 'md-h5',
-                'heading[depth=6]': 'md-h6',
-                paragraph: 'md-p',
-                'list[ordered=false]': 'md-ul',
-                'list[ordered=true]': 'md-ol',
-                listItem: 'md-li',
-              },
-            },
-          },
-          {
-            resolve: `gatsby-remark-images`,
-            options: {
-              maxWidth: 2000,
-              quality: 100,
-              showCaptions: true,
-              linkImagesToOriginal: false,
-            },
-          },
-          {
-            resolve: `gatsby-remark-images-medium-zoom`,
-            options: {
-              includedSelector: '#post_body p img',
-            },
-          },
-          {
-            resolve: `gatsby-remark-responsive-iframe`,
-            options: {
-              wrapperStyle: `margin-bottom: 1.0725rem`,
-            },
-          },
-          'gatsby-remark-prismjs',
-          {
-            resolve: `gatsby-remark-autolink-headers`,
-            options: {
-              offsetY: `80`,
-            },
-          },
-          'gatsby-remark-external-links',
-          'gatsby-remark-smartypants',
-        ],
       },
     },
     `gatsby-plugin-catch-links`,
@@ -230,14 +167,6 @@ const config: GatsbyConfig = {
       },
     },
     'gatsby-plugin-styled-components',
-    {
-      resolve: `gatsby-plugin-typescript`,
-      options: {
-        isTSX: true, // defaults to false
-        jsxPragma: `jsx`, // defaults to "React"
-        allExtensions: true, // defaults to false
-      },
-    },
   ],
 }
 

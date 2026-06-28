@@ -1,4 +1,4 @@
-import { graphql, StaticQuery } from 'gatsby'
+import { graphql, useStaticQuery } from 'gatsby'
 import React from 'react'
 import styled from 'styled-components'
 
@@ -28,45 +28,44 @@ const SocialIcon = styled.a`
   }
 `
 
-export default props => (
-  <StaticQuery
-    query={graphql`
-      query {
-        site {
-          siteMetadata {
+export default props => {
+  const data = useStaticQuery(graphql`
+    query {
+      site {
+        siteMetadata {
+          title
+          subtitle
+          social {
             title
-            subtitle
-            social {
-              title
-              icon
-              link
-            }
+            icon
+            link
           }
         }
       }
-    `}
-    render={data => (
-      <SocialWrapper>
-        {data.site.siteMetadata.social.slice(0, 4).map(item => (
-          <SocialIcon
-            key={item.title}
-            className={`${item.icon}--hover`}
-            href={item.link}
-            title={`${item.title} - ${data.site.siteMetadata.title}`}
-            rel="noopener"
-            target="_blank"
-          >
-            <img
-              alt={item.title}
-              src={
-                item.icon === 'dev'
-                  ? 'https://d2fltix0v2e0sb.cloudfront.net/dev-badge.svg'
-                  : `https://icongr.am/fontawesome/${item.icon}.svg?color=ffffff`
-              }
-            />
-          </SocialIcon>
-        ))}
-      </SocialWrapper>
-    )}
-  />
-)
+    }
+  `)
+
+  return (
+    <SocialWrapper>
+      {data.site.siteMetadata.social.slice(0, 4).map(item => (
+        <SocialIcon
+          key={item.title}
+          className={`${item.icon}--hover`}
+          href={item.link}
+          title={`${item.title} - ${data.site.siteMetadata.title}`}
+          rel="noopener"
+          target="_blank"
+        >
+          <img
+            alt={item.title}
+            src={
+              item.icon === 'dev'
+                ? 'https://d2fltix0v2e0sb.cloudfront.net/dev-badge.svg'
+                : `https://icongr.am/fontawesome/${item.icon}.svg?color=ffffff`
+            }
+          />
+        </SocialIcon>
+      ))}
+    </SocialWrapper>
+  )
+}

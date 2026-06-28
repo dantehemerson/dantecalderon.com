@@ -6,18 +6,20 @@ import Markdown from '../components/Markdown'
 import SEO from '../components/SEO'
 import { useSiteMetadata } from '../hooks/useSiteMetadata'
 import { pages } from '../helpers'
+import AboutContent from '../../content/sections/about.mdx'
 
 const Index: FC<PageRendererProps> = props => {
   const {
     siteMetadata: { siteUrl },
-    aboutContent,
   } = useSiteMetadata()
 
   return (
     <Layout location={props.location} active={pages.home}>
       <SEO title="Dante Calderon" url={siteUrl} />
       <Header />
-      <Markdown content={aboutContent.body} />
+      <Markdown>
+        <AboutContent />
+      </Markdown>
     </Layout>
   )
 }

@@ -7,27 +7,24 @@ import { Share } from '../components/Share'
 import { TagsSection } from '../components/TagsSection'
 import Layout from './TemplateLayout'
 
-export const PostContent = ({ title, image, externalImage, date, timeToRead, avatar, content }) => (
+export const PostContent = ({ title, image, externalImage, date, avatar, children }) => (
   <React.Fragment>
     <PostHeader
       title={title}
       image={image}
       externalImage={externalImage}
       date={date}
-      timeToRead={timeToRead}
       avatar={avatar}
     />
-    <Markdown content={content} />
+    <Markdown>{children}</Markdown>
   </React.Fragment>
 )
 
-const PostTemplate = props => {
+const PostTemplate = ({ data, children }) => {
   const {
-    timeToRead,
-    body,
     fields: { slug, tags },
     frontmatter: { title, image, externalImage, date, description },
-  } = props.data.mdx
+  } = data.mdx
 
   return (
     <Layout
@@ -43,10 +40,10 @@ const PostTemplate = props => {
         image={image?.childImageSharp.gatsbyImageData}
         externalImage={externalImage}
         date={date}
-        timeToRead={timeToRead}
-        avatar={props.data.avatar.gatsbyImageData}
-        content={body}
-      />
+        avatar={data.avatar.gatsbyImageData}
+      >
+        {children}
+      </PostContent>
       <TagsSection tags={tags} />
       <Share title={title} path={slug} />
       {/* <SubscribeForm /> */}
@@ -68,8 +65,6 @@ export const pageQuery = graphql`
 
     mdx(fields: { slug: { eq: $slug } }) {
       id
-      body
-      timeToRead
       frontmatter {
         title
         subtitle

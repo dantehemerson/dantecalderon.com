@@ -22,9 +22,8 @@ export const useLocalStorage = (key, initialValue) => {
 export function getInitialLocalStorageValue(key, initialValue) {
   try {
     const item = window.localStorage.getItem(key)
-    return item ? JSON.parse(item) : initialValue
+    return item && item !== 'undefined' ? JSON.parse(item) : initialValue
   } catch (error) {
-    console.log('An error ocurred while getting initialValue', error)
     return initialValue
   }
 }
