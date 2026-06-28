@@ -1,7 +1,7 @@
 ---
 import '../styles/global.css'
 import Seo from './Seo.astro'
-import Navbar from './Navbar'
+import Navbar from './Navbar.astro'
 import Footer from './Footer.astro'
 import { siteConfig } from '../config'
 
@@ -34,7 +34,7 @@ const {
     <Seo title={title} description={description} image={image} url={url} isPost={isPost} />
   </head>
   <body>
-    <Navbar client:load active={active} menu={siteConfig.menu} title={siteConfig.title} subtitle={siteConfig.subtitle} />
+    <Navbar active={active} menu={siteConfig.menu} title={siteConfig.title} subtitle={siteConfig.subtitle} />
     <div class="Dyamic-container">
       <slot />
     </div>

@@ -17,7 +17,6 @@
     "preview": "astro preview",
     "astro": "astro",
     "create": "node ./scripts/cms.js --interactive",
-    "notion": "ts-node --project tsconfig.node.json ./scripts/notion.ts",
     "format": "prettier --config .prettierrc --write 'src/**/*.{ts,tsx,astro}'",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -41,7 +40,6 @@
     "tailwindcss": "^4.1.5"
   },
   "devDependencies": {
-    "@dantehemerson/notion-to-md": "^2.5.3",
     "@notionhq/client": "^0.4.13",
     "@types/node": "^22.0.0",
     "@types/react": "^19.1.5",
