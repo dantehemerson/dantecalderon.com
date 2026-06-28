@@ -61,12 +61,12 @@ console.log('Projects', projects)
                 href={project.data.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                class="no-underline text-[#22292f] font-bold flex items-center text-sm transition duration-300 hover:opacity-80 hover:translate-x-1"
+                class="group no-underline text-[#22292f] font-bold flex items-center text-sm transition duration-300 hover:opacity-80"
               >
                 {project.data.hrefText && (
                   <>
                     {project.data.hrefText}{' '}
-                    <span class="inline-block pl-0.5">
+                    <span class="inline-block pl-1 transition-transform duration-300 group-hover:translate-x-1">
                       ➜
                     </span>
                   </>
