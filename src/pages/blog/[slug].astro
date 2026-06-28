@@ -2,8 +2,7 @@
 import { getCollection } from 'astro:content'
 import Layout from '../../components/Layout.astro'
 import PostHeader from '../../components/PostHeader.astro'
-import TagsSection from '../../components/TagsSection.astro'
-import { Share } from '../../components/Share'
+import Share from '../../components/Share.astro'
 import { getPostTags } from '../../helpers/tags'
 import { siteConfig } from '../../config'
 
@@ -47,7 +46,6 @@ const imageUrl = post.data.image
     <div class="Post__content max-w-225 mx-auto px-2.5">
       <Content />
     </div>
-    <TagsSection tags={tags} />
-    <Share title={post.data.title} path={`blog/${slug}`} client:load />
+    <Share title={post.data.title} path={`blog/${slug}`} />
   </div>
 </Layout>

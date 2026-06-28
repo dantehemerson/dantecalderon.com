@@ -2,7 +2,6 @@
 import { getCollection } from 'astro:content'
 import Layout from '../../../components/Layout.astro'
 import Card from '../../../components/Card.astro'
-import TagsSection from '../../../components/TagsSection.astro'
 import Pagination from '../../../components/Pagination/Pagination'
 import { getAllTagsWithCount, getPostTags } from '../../../helpers/tags'
 import { siteConfig } from '../../../config'
@@ -38,24 +37,29 @@ const hasNextPage = currentPage < totalPages - 1
 const hasPrevPage = currentPage > 0
 ---
 
-<Layout title={`Blog - Page ${currentPage + 1}`} url={`${siteConfig.siteUrl}/blog/page/${currentPage}`} active="blog">
+<Layout
+  title={`Blog - Page ${currentPage + 1}`}
+  url={`${siteConfig.siteUrl}/blog/page/${currentPage}`}
+  active="blog"
+>
   <div class="Blog mt-22.5">
-    <TagsSection tags={tags} showCount={true} />
     <div class="px-3.75 max-w-[800px] mx-auto mb-8.75">
-      {posts.map(post => {
-        const slug = post.data.slug || post.slug
-        return (
-          <Card
-            title={post.data.title}
-            date={post.data.date}
-            image={post.data.image}
-            externalImage={post.data.externalImage}
-            excerpt={post.data.description || ''}
-            tags={getPostTags(post.data.tags)}
-            slug={slug}
-          />
-        )
-      })}
+      {
+        posts.map(post => {
+          const slug = post.data.slug || post.slug
+          return (
+            <Card
+              title={post.data.title}
+              date={post.data.date}
+              image={post.data.image}
+              externalImage={post.data.externalImage}
+              excerpt={post.data.description || ''}
+              tags={getPostTags(post.data.tags)}
+              slug={slug}
+            />
+          )
+        })
+      }
       <Pagination
         pages={totalPages}
         selected={currentPage}

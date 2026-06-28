@@ -1,122 +1,82 @@
 {
   "nodejs": {
-    "title": "⬢ Node.js",
-    "slug": "nodejs",
-    "color": "#568155",
-    "textColor": "white"
+    "title": "Node.js",
+    "slug": "nodejs"
   },
   "node": {
-    "title": "⬢ Node.js",
-    "slug": "nodejs",
-    "color": "#568155",
-    "textColor": "white"
+    "title": "Node.js",
+    "slug": "nodejs"
   },
   "mongodb": {
-    "title": "🌿 MongoDB",
-    "slug": "mongodb",
-    "color": "#42a36a",
-    "textColor": "white"
+    "title": "MongoDB",
+    "slug": "mongodb"
   },
   "notes": {
-    "title": "📝 Notes",
-    "slug": "notes",
-    "color": "#f1d83d",
-    "textColor": "#505050"
+    "title": "Notes",
+    "slug": "notes"
   },
   "software-engineering": {
-    "title": "👨‍💻 Software Engineering",
-    "slug": "notes",
-    "color": "#0271b3",
-    "textColor": "white"
+    "title": "Software Engineering",
+    "slug": "notes"
   },
   "setup": {
-    "title": "⚙️ Setup",
-    "slug": "setup",
-    "color": "#6a6a6a",
-    "textColor": "white"
+    "title": "Setup",
+    "slug": "setup"
   },
   "databases": {
-    "title": "💾 Databases",
-    "slug": "databases",
-    "color": "#343434",
-    "textColor": "white"
+    "title": "Databases",
+    "slug": "databases"
   },
   "linux": {
-    "title": "🐧 Linux",
-    "slug": "linux",
-    "color": "#884873",
-    "textColor": "white"
+    "title": "Linux",
+    "slug": "linux"
   },
   "backend": {
-    "title": "🗃️ Backend",
-    "slug": "backend",
-    "color": "#343434",
-    "textColor": "white"
+    "title": "Backend",
+    "slug": "backend"
   },
   "javascript": {
     "title": "JS",
-    "slug": "javascript",
-    "color": "#efd81e",
-    "textColor": "#000000"
+    "slug": "javascript"
   },
   "v-8": {
     "title": "V8",
-    "slug": "v-8",
-    "color": "#4088ec",
-    "textColor": "#242424"
+    "slug": "v-8"
   },
   "vscode": {
     "title": "VSCode",
-    "slug": "vscode",
-    "color": "#0066b8",
-    "textColor": "white"
+    "slug": "vscode"
   },
   "reactjs": {
-    "title": "⚛️ ReactJs",
-    "slug": "reactjs",
-    "color": "#5dd3f3",
-    "textColor": "#212121"
+    "title": "ReactJs",
+    "slug": "reactjs"
   },
   "react": {
-    "title": "⚛️ ReactJs",
-    "slug": "reactjs",
-    "color": "#5dd3f3",
-    "textColor": "#212121"
+    "title": "ReactJs",
+    "slug": "reactjs"
   },
   "github": {
-    "title": "😺 Github",
-    "slug": "github",
-    "color": "#23292e",
-    "textColor": "white"
+    "title": "Github",
+    "slug": "github"
   },
   "c": {
     "title": "C/C++",
-    "slug": "c-cpp",
-    "color": "#f34b7d",
-    "textColor": "white"
+    "slug": "c-cpp"
   },
   "cpp": {
     "title": "C/C++",
-    "slug": "c-cpp",
-    "color": "#f34b7d",
-    "textColor": "white"
+    "slug": "c-cpp"
   },
   "c-c": {
     "title": "C/C++",
-    "slug": "c-cpp",
-    "color": "#f34b7d",
-    "textColor": "white"
+    "slug": "c-cpp"
   },
   "apps": {
-    "title": "📱 Apps",
-    "slug": "apps",
-    "color": "#43748b",
-    "textColor": "white"
+    "title": "Apps",
+    "slug": "apps"
   },
   "how-to": {
-    "title": "🤔 How To",
-    "slug": "how-to",
-    "color": "#43748b",
-    "textColor": "white"
+    "title": "How To",
+    "slug": "how-to"
   }
 }

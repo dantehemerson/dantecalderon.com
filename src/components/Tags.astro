@@ -8,26 +8,23 @@ export interface Props {
 const { tags: rawTags = [] } = Astro.props
 
 // If tags are strings, convert to ITag objects
-const tags: ITag[] = typeof rawTags[0] === 'string' 
-  ? getPostTags(rawTags as string[]) 
-  : (rawTags as ITag[])
+const tags: ITag[] =
+  typeof rawTags[0] === 'string' ? getPostTags(rawTags as string[]) : (rawTags as ITag[])
 ---
 
 <div class="w-full mx-auto max-w-[760px] lg:max-w-[960px]">
   <ul class="list-none flex m-0">
-    {tags.map(tag => (
-      <li class="m-0">
-        <a
-          href={`/tags/${tag.slug}`}
-          class="tagLink inline-block px-1.75 py-0.5 bg-[#f7f7f7] text-[#6a6a6a] rounded-[3px] text-[13px] font-sans font-semibold min-w-[32px] text-center capitalize no-underline transition duration-200 ease-in mr-1 hover:opacity-88"
-          style={{
-            backgroundColor: tag.color,
-            color: tag.textColor,
-          }}
-        >
-          {tag.title}
-        </a>
-      </li>
-    ))}
+    {
+      tags.map(tag => (
+        <li class="m-0">
+          <a
+            href={`/tags/${tag.slug}`}
+            class="tagLink inline-block px-1.75 py-0.5 bg-[#f7f7f7] text-[#6a6a6a] rounded-[3px] text-[13px] font-sans font-semibold min-w-[32px] text-center capitalize no-underline transition duration-200 ease-in mr-1 hover:opacity-88"
+          >
+            {tag.title}
+          </a>
+        </li>
+      ))
+    }
   </ul>
 </div>

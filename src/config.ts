@@ -8,7 +8,6 @@ export const siteConfig = {
   social: [
     { title: 'Github', link: 'https://github.com/dantehemerson', icon: 'github' },
     { title: 'Twitter', link: 'https://twitter.com/dantehemerson', icon: 'twitter' },
-    { title: 'Dev', link: 'https://dev.to/dantehemerson', icon: 'dev' },
     { title: 'Linkedin', link: 'https://linkedin.com/in/dantecalderon', icon: 'linkedin' },
     // { title: 'Twitch', link: 'https://www.twitch.tv/dantehemerson', icon: 'twitch' },
     // { title: 'Medium', link: 'https://medium.com/@dantehemerson', icon: 'medium' },

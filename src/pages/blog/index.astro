@@ -2,7 +2,6 @@
 import { getCollection } from 'astro:content'
 import Layout from '../../components/Layout.astro'
 import Card from '../../components/Card.astro'
-import TagsSection from '../../components/TagsSection.astro'
 import Pagination from '../../components/Pagination/Pagination'
 import { getAllTagsWithCount, getPostTags } from '../../helpers/tags'
 import { siteConfig } from '../../config'
@@ -25,7 +24,6 @@ const hasPrevPage = false
 
 <Layout title="Blog" url={`${siteConfig.siteUrl}/blog`} active="blog">
   <div class="Blog mt-22.5">
-    <TagsSection tags={tags} showCount={true} />
     <div class="px-3.75 max-w-[800px] mx-auto mb-8.75">
       {
         posts.map(post => {

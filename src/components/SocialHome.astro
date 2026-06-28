@@ -1,27 +1,23 @@
 ---
 import { siteConfig } from '../config'
-
-const social = siteConfig.social.slice(0, 4)
 ---
 
 <div class="text-center">
-  {social.map(item => (
-    <a
-      href={item.link}
-      title={`${item.title} - ${siteConfig.title}`}
-      rel="noopener"
-      target="_blank"
-      class="mx-0.5 w-6.5 h-6.5 p-1 transition duration-300 inline-block"
-    >
-      <img
-        alt={item.title}
-        src={
-          item.icon === 'dev'
-            ? 'https://d2fltix0v2e0sb.cloudfront.net/dev-badge.svg'
-            : `https://icongr.am/fontawesome/${item.icon}.svg?color=052d3f`
-        }
-        class="w-full m-0"
-      />
-    </a>
-  ))}
+  {
+    siteConfig.social.map(item => (
+      <a
+        href={item.link}
+        title={`${item.title} - ${siteConfig.title}`}
+        rel="noopener"
+        target="_blank"
+        class="mx-0.5 w-6.5 h-6.5 p-1 transition duration-300 inline-block"
+      >
+        <img
+          alt={item.title}
+          src={`https://icongr.am/fontawesome/${item.icon}.svg?color=052d3f`}
+          class="w-full m-0"
+        />
+      </a>
+    ))
+  }
 </div>
