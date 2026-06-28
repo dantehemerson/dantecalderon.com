@@ -37,6 +37,11 @@ const ItemLink = styled.article`
   padding: 1.2rem 0.5rem;
 `
 
+const Arrow = styled.span`
+  display: inline-block;
+  transition: transform 0.3s;
+`
+
 const LinkToProject = styled(Link)`
   text-decoration: none;
   color: #22292f;
@@ -47,6 +52,9 @@ const LinkToProject = styled(Link)`
   transition: 0.3s;
   &:hover {
     opacity: 0.8;
+  }
+  &:hover ${Arrow} {
+    transform: translateX(4px);
   }
 `
 
@@ -77,7 +85,7 @@ export default props => (
     </ItemWrapper>
     <BottomData>
       <LinkToProject to={props.data.href} target="_blank" rel="noopener noreferrer">
-        {props.data.hrefText && <span>{props.data.hrefText} ➜</span>}
+        {props.data.hrefText && <>{props.data.hrefText} <Arrow>➜</Arrow></>}
       </LinkToProject>
     </BottomData>
   </ItemLink>
