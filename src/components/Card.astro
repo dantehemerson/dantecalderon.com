@@ -1,9 +1,10 @@
 ---
-import { ITag } from '../helpers/tags'
+import { formatDate } from '@/helpers/date'
+import type { ITag } from '../helpers/tags'
 
 export interface Props {
   title: string
-  date: string
+  date: Date
   image?: string
   externalImage?: string
   excerpt: string
@@ -18,35 +19,39 @@ const { title, date, image, externalImage, excerpt, tags, slug } = Astro.props
   href={`/blog/${slug}`}
   class="flex items-start text-left flex-col py-5 px-2 m-0 no-underline hover:bg-[#f2f2f2] hover:shadow-[-16px_0_0_0_#f2f2f2,16px_0_0_0_#f2f2f2] md:flex-row"
 >
-  <div class="overflow-hidden w-full max-w-[500px] m-0 md:w-1/4">
-    {image ? (
-      <img alt={`${title} image`} src={image} class="w-full" />
-    ) : externalImage ? (
-      <img src={externalImage} alt={`${title} image`} class="w-full" />
-    ) : null}
+  <div class="overflow-hidden w-full max-w-125 m-0 md:w-1/4">
+    {
+      image ? (
+        <img alt={`${title} image`} src={image} class="w-full" />
+      ) : externalImage ? (
+        <img src={externalImage} alt={`${title} image`} class="w-full" />
+      ) : null
+    }
   </div>
-  <div class="w-full h-full m-0 max-w-[560px] pt-3 md:pl-7.5 md:pt-0 md:w-3/4 md:max-w-full">
+  <div class="w-full h-full m-0 max-w-140 pt-3 md:pl-7.5 md:pt-0 md:w-3/4 md:max-w-full">
     <h3 class="font-serif text-[#052d3e] m-0 transition duration-300 text-lg sm:text-[1.3rem]">
       {title}
     </h3>
-    {tags && tags.length > 0 && (
-      <div class="flex gap-1 mt-1">
-        {tags.slice(0, 4).map(tag => (
-          <span
-            class="text-xs font-semibold px-2 py-0.5 rounded capitalize"
-            style={{
-              backgroundColor: tag.color || '#f7f7f7',
-              color: tag.textColor || '#6a6a6a',
-            }}
-          >
-            {tag.title}
-          </span>
-        ))}
-      </div>
-    )}
+    {
+      tags && tags.length > 0 && (
+        <div class="flex gap-1 mt-1">
+          {tags.slice(0, 4).map(tag => (
+            <span
+              class="text-xs font-semibold px-2 py-0.5 rounded capitalize"
+              style={{
+                backgroundColor: tag.color || '#f7f7f7',
+                color: tag.textColor || '#6a6a6a',
+              }}
+            >
+              {tag.title}
+            </span>
+          ))}
+        </div>
+      )
+    }
     <p class="text-[#727272] m-0 text-[13px] pt-2.5 sm:text-[0.8rem]">{excerpt}</p>
     <p class="text-[#727272] text-[11px] m-0 py-3 px-0 pb-1.5">
-      <time datetime={date}>{date}</time>
+      <time datetime={date.toISOString()}>{formatDate(date)}</time>
     </p>
   </div>
 </a>

@@ -1,4 +1,6 @@
 ---
+import { formatDate } from '../helpers/date'
+
 export interface Props {
   date: Date
   avatar?: string
@@ -19,7 +21,7 @@ const { date, avatar } = Astro.props
       <b class="hidden sm:inline text-[#575757] font-normal"> | </b>
       <span
         >{
-          date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })
+          formatDate(date)
         }</span
       >
     </p>
