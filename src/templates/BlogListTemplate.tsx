@@ -67,7 +67,7 @@ export const queryBlog = graphql`
       }
     }
 
-    allTag(limit: 10, sort: { fields: [postCount], order: DESC }) {
+    allTag(limit: 10, sort: { postCount: DESC }) {
       nodes {
         textColor
         slug
@@ -77,7 +77,7 @@ export const queryBlog = graphql`
     }
 
     allMdx(
-      sort: { fields: [frontmatter___date], order: DESC }
+      sort: { frontmatter: { date: DESC } }
       filter: { frontmatter: { model: { eq: "post" }, published: { eq: true } } }
       limit: $limit
       skip: $skip

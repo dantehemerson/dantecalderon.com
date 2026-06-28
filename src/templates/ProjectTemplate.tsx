@@ -5,35 +5,35 @@ import Sidebar from '../components/SidebarProject'
 import Layout from './TemplateLayout'
 import Markdown from '../components/Markdown'
 
-export const Project = props => {
+export const Project = ({ frontmatter, children }) => {
   return (
     <div>
       <ProjectHeader
-        title={props.frontmatter.title}
-        subtitle={props.frontmatter.subtitle}
-        repository={props.frontmatter.repository}
-        website={props.frontmatter.website}
-        finished={props.frontmatter.finished}
-        images={props.frontmatter.images}
-        tags={props.frontmatter.tags}
+        title={frontmatter.title}
+        subtitle={frontmatter.subtitle}
+        repository={frontmatter.repository}
+        website={frontmatter.website}
+        finished={frontmatter.finished}
+        images={frontmatter.images}
+        tags={frontmatter.tags}
       />
-      <Markdown content={props.content} />
+      <Markdown>{children}</Markdown>
       <Sidebar
-        tags={props.frontmatter.tags}
-        stack={props.frontmatter.stack}
-        roles={props.frontmatter.roles}
-        website={props.frontmatter.website}
-        repository={props.frontmatter.repository}
-        client={props.frontmatter.client}
-        licence={props.frontmatter.licence}
+        tags={frontmatter.tags}
+        stack={frontmatter.stack}
+        roles={frontmatter.roles}
+        website={frontmatter.website}
+        repository={frontmatter.repository}
+        client={frontmatter.client}
+        licence={frontmatter.licence}
       />
     </div>
   )
 }
 
-const ProjectTemplate = props => {
-  const post = props.data.mdx
-  const { siteMetadata } = props.data.site
+const ProjectTemplate = ({ data, children }) => {
+  const post = data.mdx
+  const { siteMetadata } = data.site
   const { title, description, image } = post.frontmatter
 
   return (
@@ -44,12 +44,11 @@ const ProjectTemplate = props => {
       description={description}
     >
       <Project
-        {...post}
+        frontmatter={post.frontmatter}
         {...siteMetadata}
-        content={post.body}
-        image={post.frontmatter.image.childImageSharp.gatsbyImageData}
-        avatar={props.data.avatar.gatsbyImageData}
-      />
+      >
+        {children}
+      </Project>
     </Layout>
   )
 }
@@ -67,7 +66,6 @@ export const pageQuery = graphql`
     }
     mdx(fields: { slug: { eq: $slug } }) {
       id
-      body
       frontmatter {
         title
         subtitle

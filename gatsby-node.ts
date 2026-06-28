@@ -25,15 +25,17 @@ export const createPages = async ({ graphql, actions }) => {
   } = await graphql(`
     {
       allPosts: allMdx(
-        sort: { fields: [frontmatter___date], order: DESC }
+        sort: { frontmatter: { date: DESC } }
         limit: 200
         filter: {
-          fileAbsolutePath: { ne: null }
           frontmatter: { published: { eq: true }, model: { eq: "post" } }
         }
       ) {
         edges {
           node {
+            internal {
+              contentFilePath
+            }
             frontmatter {
               model
               slug
@@ -52,7 +54,7 @@ export const createPages = async ({ graphql, actions }) => {
       }
 
       # allProjects: allMdx(
-      #   sort: { fields: [frontmatter___date], order: DESC }
+      #   sort: { frontmatter: { date: DESC } }
       #   limit: 100
       #   filter: {
       #     fileAbsolutePath: { ne: null }
@@ -107,12 +109,14 @@ export const createPages = async ({ graphql, actions }) => {
       const next = index === 0 ? null : mdxPages[index - 1].node
 
       const { model } = mdxPage.node.frontmatter
+      const contentFilePath = mdxPage.node.internal.contentFilePath
 
       const fullPath = getFullPath(mdxPage.node.frontmatter)
+      const baseTemplate = model === 'post' ? postTemplate : projectTemplate
 
       createPage({
         path: fullPath,
-        component: model === 'post' ? postTemplate : projectTemplate,
+        component: `${baseTemplate}?__contentFilePath=${contentFilePath}`,
         context: {
           slug: fullPath,
           previous,
@@ -185,6 +189,14 @@ export const onCreateNode: GatsbyNode['onCreateNode'] = ({
 
 export const createSchemaCustomization: GatsbyNode['createSchemaCustomization'] = ({ actions }) => {
   const typesDefs = `
+  type ${TAG_NODE_TYPE} implements Node {
+    id: ID!
+    slug: String
+    title: String
+    color: String
+    textColor: String
+    postCount: Int
+  }
   type MdxFields {
     slug: String!
     tags: [${TAG_NODE_TYPE}] @link

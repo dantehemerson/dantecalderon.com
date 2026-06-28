@@ -1,4 +1,4 @@
-import { graphql, StaticQuery } from 'gatsby'
+import { graphql, useStaticQuery } from 'gatsby'
 import React from 'react'
 import styled from 'styled-components'
 import { media } from '../../styles'
@@ -6,8 +6,22 @@ import { Info } from '../Info'
 import { SocialHome } from '../SocialHome'
 import { INFO } from '../../data/info'
 
-function HeaderHome({ data }) {
+export default function HeaderHome(props) {
   const { subtitle } = INFO
+
+  const data = useStaticQuery(graphql`
+    query {
+      avatar: imageSharp(fluid: { originalName: { regex: "/avatar.jpg/" } }) {
+        gatsbyImageData(layout: CONSTRAINED, placeholder: TRACED_SVG)
+      }
+      site {
+        siteMetadata {
+          title
+          siteUrl
+        }
+      }
+    }
+  `)
 
   return (
     <div
@@ -64,22 +78,3 @@ const Subtitle = styled.h2`
   text-align: center;
   color: #052d3f;
 `
-
-export default props => (
-  <StaticQuery
-    query={graphql`
-      query {
-        avatar: imageSharp(fluid: { originalName: { regex: "/avatar.jpg/" } }) {
-          gatsbyImageData(layout: CONSTRAINED, placeholder: TRACED_SVG)
-        }
-        site {
-          siteMetadata {
-            title
-            siteUrl
-          }
-        }
-      }
-    `}
-    render={data => <HeaderHome data={data} {...props} />}
-  />
-)

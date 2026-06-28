@@ -1,4 +1,4 @@
-import { graphql, StaticQuery } from 'gatsby'
+import { graphql, useStaticQuery } from 'gatsby'
 import React, { useState, useEffect } from 'react'
 import AuthorPostFooter from '../components/AuthorPostFooter'
 import Layout from '../components/Layout'
@@ -6,8 +6,21 @@ import SEO from '../components/SEO'
 import { pages } from '../helpers'
 import { getSrc } from 'gatsby-plugin-image'
 
-const Template = props => {
+export default function TemplateLayout(props) {
   const [show_share, setShowShare] = useState(false)
+
+  const data = useStaticQuery(graphql`
+    query {
+      avatar: imageSharp(fluid: { originalName: { regex: "/avatar.jpg/" } }) {
+        gatsbyImageData(layout: CONSTRAINED, width: 180, placeholder: TRACED_SVG)
+      }
+      site {
+        siteMetadata {
+          siteUrl
+        }
+      }
+    }
+  `)
 
   useEffect(() => {
     let body = document.documentElement
@@ -28,7 +41,7 @@ const Template = props => {
   }, [show_share])
 
   const { isPost, title, image, externalImage, description, path } = props
-  const { siteUrl } = props.data.site.siteMetadata
+  const { siteUrl } = data.site.siteMetadata
   return (
     <Layout active={isPost ? pages.blog : pages.portfolio}>
       <SEO
@@ -40,26 +53,8 @@ const Template = props => {
       />
       {props.children}
 
-      <AuthorPostFooter avatar={props.data.avatar.gatsbyImageData} make={!isPost} />
+      <AuthorPostFooter avatar={data.avatar.gatsbyImageData} make={!isPost} />
       {isPost && true /* Show sharer*/}
     </Layout>
   )
 }
-
-export default props => (
-  <StaticQuery
-    query={graphql`
-      query {
-        avatar: imageSharp(fluid: { originalName: { regex: "/avatar.jpg/" } }) {
-          gatsbyImageData(layout: CONSTRAINED, width: 180, placeholder: TRACED_SVG)
-        }
-        site {
-          siteMetadata {
-            siteUrl
-          }
-        }
-      }
-    `}
-    render={data => <Template data={data} {...props} />}
-  />
-)
