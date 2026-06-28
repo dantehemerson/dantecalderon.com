@@ -5,7 +5,7 @@ const currentYear = new Date().getFullYear()
 const social = siteConfig.social.slice(0, 4)
 ---
 
-<footer class="flex items-center justify-center flex-col h-[200px] bg-[#fafafa] border-t border-[#f3f3f3]">
+<footer class="flex items-center justify-center flex-col h-50 bg-[#fafafa] border-t border-[#f3f3f3]">
   <div class="flex items-center justify-center">
     {social.map(item => (
       <a
@@ -13,7 +13,7 @@ const social = siteConfig.social.slice(0, 4)
         target="_blank"
         href={item.link}
         rel="noopener"
-        class="mx-[15px]"
+        class="mx-3.75"
       >
         <img
           alt={`${item.title} - ${siteConfig.title}`}
@@ -22,7 +22,7 @@ const social = siteConfig.social.slice(0, 4)
               ? 'https://d2fltix0v2e0sb.cloudfront.net/dev-badge.svg'
               : `https://icongr.am/fontawesome/${item.icon}.svg?size=20&color=282a2d`
           }
-          class="w-[27px]"
+          class="w-6.75"
         />
       </a>
     ))}

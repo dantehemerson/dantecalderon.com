@@ -12,8 +12,8 @@ export interface Props {
 const { title, date, avatar, image, externalImage } = Astro.props
 ---
 
-<div class="max-w-[900px] mx-auto mb-[26px] mt-[100px]">
-  <h1 id="post_id" class="mt-[60px] text-[28px] m-0 px-2.5 sm:text-[28px] md:text-[37px]">
+<div class="max-w-[900px] mx-auto mb-6.5 mt-25">
+  <h1 id="post_id" class="mt-15 text-[28px] m-0 px-2.5 sm:text-[28px] md:text-[37px]">
     {title}
   </h1>
   <AuthorPost date={date} avatar={avatar} />

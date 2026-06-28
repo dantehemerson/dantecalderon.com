@@ -7,7 +7,6 @@ const icons: Record<string, React.ReactNode> = {
       className="icon-item"
       version="1.1"
       viewBox="0 0 36 36"
-      height={16}
       preserveAspectRatio="xMidYMid meet"
       xmlns="http://www.w3.org/2000/svg"
       focusable="false"
@@ -98,7 +97,7 @@ export default function Navbar({
   }
 
   const wrapperClass = [
-    'h-[61px] flex justify-center fixed left-0 top-0 w-full z-10 bg-white',
+    'h-15.25 flex justify-center fixed left-0 top-0 w-full z-10',
     'shadow-[0px_1px_0px_0px_#e8e8e8] transition-colors',
     active === '' ? 'bg-transparent' : '',
     !navbarIsTop ? '!bg-white' : '',
@@ -112,12 +111,12 @@ export default function Navbar({
         onClick={() => setMenuIsOpen(false)}
       />
 
-      <div className="flex items-center justify-between px-5 w-[900px] max-w-full">
+      <div className="flex items-center justify-between px-5 w-225 max-w-full">
         {/* Logo + Title */}
         <a
           href="/"
           onClick={() => setMenuIsOpen(false)}
-          className="flex items-center rounded-[3px] pr-[3px] hover:bg-[rgba(195,195,195,0.22)]"
+          className="flex items-center rounded-[3px] pr-0.75 hover:bg-[rgba(195,195,195,0.22)]"
         >
           <img src="/logo.png" alt={subtitle} className="w-8 h-8 rounded-[3px] mr-2" />
           <p className="capitalize font-black text-[#052d3f] m-0">{title}</p>
@@ -129,14 +128,14 @@ export default function Navbar({
             onClick={handleToggle}
             id="navbarToggler"
             aria-label="Navbar Toggle"
-            className={`md:hidden relative w-[30px] h-[18px] top-1 bg-transparent border-0 p-0 cursor-pointer z-[100] focus:outline-none ${menuIsOpen ? 'open' : ''}`}
+            className={`md:hidden relative w-7.5 h-4.5 top-1 bg-transparent border-0 p-0 cursor-pointer z-[100] focus:outline-none ${menuIsOpen ? 'open' : ''}`}
           >
-            <span className="burger-menu block relative w-[30px] h-[2px] bg-[rgba(0,0,0,0.88)] rounded-none transition-all duration-250 top-2 after:content-[''] after:absolute after:left-0 after:h-[2px] after:w-[30px] after:rounded-none after:bg-[rgba(0,0,0,0.88)] after:transition-all after:duration-250 after:-top-2 before:content-[''] before:absolute before:left-0 before:h-[2px] before:w-[30px] before:rounded-none before:bg-[rgba(0,0,0,0.88)] before:transition-all before:duration-250 before:top-2" />
+            <span className="burger-menu block relative w-7.5 h-0.5 bg-[rgba(0,0,0,0.88)] rounded-none transition-all duration-250 top-2 after:content-[''] after:absolute after:left-0 after:h-0.5 after:w-7.5 after:rounded-none after:bg-[rgba(0,0,0,0.88)] after:transition-all after:duration-250 after:-top-2 before:content-[''] before:absolute before:left-0 before:h-0.5 before:w-7.5 before:rounded-none before:bg-[rgba(0,0,0,0.88)] before:transition-all before:duration-250 before:top-2" />
           </button>
 
           {/* Navigation */}
           <ul
-            className={`z-30 list-none absolute top-0 shadow-[0px_0px_0px_1px_#f3f3f3] w-3/4 max-w-[420px] h-screen flex-col justify-center items-center bg-white transition-[right] duration-400 md:static md:flex-row md:bg-transparent md:shadow-none md:w-auto md:h-auto md:max-w-none md:right-auto md:flex md:opacity-100 md:visible ${menuIsOpen ? 'right-0' : '-right-[102%]'}`}
+            className={`z-30 list-none absolute mb-0 top-0 shadow-[0px_0px_0px_1px_#f3f3f3] w-3/4 max-w-[420px] h-screen flex-col justify-center items-center bg-white transition-[right] duration-400 md:static md:flex-row md:bg-transparent md:shadow-none md:w-auto md:h-auto md:max-w-none md:right-auto md:flex md:opacity-100 md:visible ${menuIsOpen ? 'right-0' : '-right-[102%]'}`}
           >
             {menu.map((item, index) => (
               <li
@@ -146,9 +145,9 @@ export default function Navbar({
                 <a
                   href={item.to}
                   onClick={() => setMenuIsOpen(false)}
-                  className={`text-[15px] font-semibold py-[10px] px-2 text-center rounded-[3px] flex items-center justify-center hover:!bg-[rgba(195,195,195,0.22)] md:py-1.5 md:!px-4 no-underline text-[#052d3f] ${active === item.id ? '!text-[#1976d2]' : ''}`}
+                  className={`text-[15px] font-semibold py-2.5 px-2 text-center rounded-[3px] flex items-center justify-center hover:!bg-[rgba(195,195,195,0.22)] md:py-1.5 md:!px-4 no-underline text-[#052d3f] ${active === item.id ? '!text-[#1976d2]' : ''}`}
                 >
-                  <span className="pr-1 relative w-[21px] h-[17px]">{icons[item.icon]}</span>
+                  <span className="pr-1 relative w-5.25 h-4.25">{icons[item.icon]}</span>
                   {item.title}
                 </a>
               </li>

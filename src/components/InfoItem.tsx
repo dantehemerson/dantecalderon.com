@@ -22,14 +22,14 @@ export default function InfoItem({
     <div key={key} className="flex justify-center items-center text-xs h-6">
       <p className="font-['Open_Sans',sans-serif] font-semibold m-0 mr-1.5">{title + ':'}</p>
       {isLoading ? (
-        <div className="opacity-70 animate-pulse w-[200px] h-[18px] rounded" style={{ backgroundColor: '#e6d7a8' }} />
+        <div className="opacity-70 animate-pulse w-50 h-4.5 rounded" style={{ backgroundColor: '#e6d7a8' }} />
       ) : (
         <div className="flex items-center font-normal text-[#133a4d]">
           <div className="mr-1">{children}</div>
           {showPostfixImage && (
             <img
               alt="listening"
-              className="m-0 w-[13px] h-[13px] p-0 -mx-0.5 mb-px ml-[7px]"
+              className="m-0 w-3.25 h-3.25 p-0 -mx-0.5 mb-px ml-1.75"
               src="https://i.ibb.co/6gzCdm5/equaliser-animated-green-73b73928.gif"
             />
           )}

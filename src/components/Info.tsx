@@ -36,7 +36,7 @@ export function Info() {
 
   return (
     <div className="flex justify-center">
-      <div className="mt-[15px] flex min-w-[366px] flex-col items-start border border-[#d3c79e] p-[25px]">
+      <div className="mt-3.75 flex min-w-[366px] flex-col items-start border border-[#d3c79e] p-6.25">
         <InfoItem
           title="Status"
           isLoading={isLoading}

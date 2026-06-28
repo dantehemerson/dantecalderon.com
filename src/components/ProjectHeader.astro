@@ -15,10 +15,10 @@ export interface Props {
 const { title, subtitle, repository, website, finished, tags } = Astro.props
 ---
 
-<div class="max-w-[900px] mx-auto mb-[26px] mt-[100px]">
-  <h1 class="mt-[60px] text-[28px] m-0 sm:text-[28px] md:text-[37px]">{title}</h1>
+<div class="max-w-[900px] mx-auto mb-6.5 mt-25">
+  <h1 class="mt-15 text-[28px] m-0 sm:text-[28px] md:text-[37px]">{title}</h1>
   {subtitle && (
-    <h2 class="mt-[14px] text-base italic text-[#656565] font-normal font-sans sm:text-lg md:text-lg">
+    <h2 class="mt-3.5 text-base italic text-[#656565] font-normal font-sans sm:text-lg md:text-lg">
       {subtitle}
     </h2>
   )}

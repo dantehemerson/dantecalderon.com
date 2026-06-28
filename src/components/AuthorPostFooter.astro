@@ -7,13 +7,13 @@ export interface Props {
 const { avatar, make = false } = Astro.props
 ---
 
-<div class="flex mb-[13px] mt-5 max-w-[770px] mx-auto flex-col items-center md:flex-row md:items-inherit">
+<div class="flex mb-3.25 mt-5 max-w-[770px] mx-auto flex-col items-center md:flex-row md:items-inherit">
   <div>
     {avatar && (
       <img
         alt="Author post avatar"
         src={avatar}
-        class="m-0 w-[90px] h-[90px] rounded-[3px] md:w-[134px] md:h-[134px] md:mr-[21px]"
+        class="m-0 w-22.5 h-22.5 rounded-[3px] md:w-33.5 md:h-33.5 md:mr-5.25"
       />
     )}
   </div>
@@ -24,7 +24,7 @@ const { avatar, make = false } = Astro.props
     <a href="/#about-me" class="m-0 text-[21px] leading-none font-semibold text-[#292929] no-underline md:text-[23px]">
       Dante Calderón
     </a>
-    <p class="text-[rgba(0,0,0,0.54)] text-sm font-normal pt-[5px] m-0 text-center md:text-left">
+    <p class="text-[rgba(0,0,0,0.54)] text-sm font-normal pt-1.25 m-0 text-center md:text-left">
       Hi, I'm Dante Calderón, web developer. Click{' '}
       <a href="/#about-me" class="default">
         here

@@ -39,9 +39,9 @@ const hasPrevPage = currentPage > 0
 ---
 
 <Layout title={`Blog - Page ${currentPage + 1}`} url={`${siteConfig.siteUrl}/blog/page/${currentPage}`} active="blog">
-  <div class="Blog mt-[90px]">
+  <div class="Blog mt-22.5">
     <TagsSection tags={tags} showCount={true} />
-    <div class="px-[15px] max-w-[800px] mx-auto mb-[35px]">
+    <div class="px-3.75 max-w-[800px] mx-auto mb-8.75">
       {posts.map(post => {
         const slug = post.data.slug || post.slug
         return (

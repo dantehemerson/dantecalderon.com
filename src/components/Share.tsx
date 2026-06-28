@@ -10,7 +10,7 @@ export function Share({ title, path }: ShareProps) {
   const url = `${siteConfig.siteUrl}/${path}`
 
   return (
-    <div className="max-w-[900px] mx-auto flex flex-wrap pt-0 pb-[15px] justify-center">
+    <div className="max-w-[900px] mx-auto flex flex-wrap pt-0 pb-3.75 justify-center">
       <span className="w-full text-center font-semibold text-[15px] leading-0 mb-5">
         Share:
       </span>
@@ -25,7 +25,7 @@ export function Share({ title, path }: ShareProps) {
           src="https://icongr.am/fontawesome/twitter.svg?color=ffffff"
           title="Share on Twitter"
           alt="Twitter"
-          className="w-[22px] h-[84%] m-0 relative top-0.5"
+          className="w-5.5 h-[84%] m-0 relative top-0.5"
         />
       </a>
       <a
@@ -39,7 +39,7 @@ export function Share({ title, path }: ShareProps) {
           src="https://icongr.am/fontawesome/linkedin.svg?color=ffffff"
           title="Share on Linkedin"
           alt="LinkedIn"
-          className="w-[22px] h-[84%] m-0 relative top-0.5"
+          className="w-5.5 h-[84%] m-0 relative top-0.5"
         />
       </a>
     </div>

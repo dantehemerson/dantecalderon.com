@@ -52,6 +52,14 @@
     line-height: 1.58;
   }
 
+  ul {
+    list-style-type: disc;
+  }
+
+  ol {
+    list-style-type: decimal;
+  }
+
   ul, ol {
     margin-bottom: 1rem;
     padding-left: 1.5rem;
@@ -260,6 +268,14 @@
   }
 
   /* Lists */
+  .Post__content ul {
+    list-style-type: disc;
+  }
+
+  .Post__content ol {
+    list-style-type: decimal;
+  }
+
   .Post__content ul,
   .Post__content ol {
     padding-left: 30px;

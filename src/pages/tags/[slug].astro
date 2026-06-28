@@ -44,13 +44,13 @@ const currentTag = allTags.find(tag => tag.slug === slug)
   url={`${siteConfig.siteUrl}/tags/${slug}`}
   active="blog"
 >
-  <div class="mt-[90px]">
+  <div class="mt-22.5">
     <TagsSection
       tags={allTags}
       showCount={true}
       selectedSlug={slug || undefined}
     />
-    <div class="px-[15px] max-w-[800px] mx-auto mb-[35px]">
+    <div class="px-3.75 max-w-[800px] mx-auto mb-8.75">
       {filteredPosts.map(post => {
         const postSlug = post.data.slug || post.slug
         return (
