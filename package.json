@@ -51,7 +51,6 @@
     "javascript-time-ago": "^2.5.11",
     "lodash": "^4.17.21",
     "mustache": "^4.2.0",
-    "browser-monads-ts": "^2.0.1",
     "object-merge-advanced": "^13.1.3",
     "prettier": "^3.3.3",
     "prettier-plugin-astro": "^0.14.1",

@@ -7,7 +7,7 @@ description: >-
 author: Dante Calderón
 pathPrefix: blog
 slug: its-a-feature-not-a-bug
-image: ../images/its_a_feature_not_a_bug.jpeg
+image: /images/its_a_feature_not_a_bug.jpeg
 date: '2019-12-13T01:17:52-05:00'
 published: true
 tags:

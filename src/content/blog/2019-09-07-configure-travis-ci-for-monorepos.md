@@ -6,7 +6,7 @@ description: >-
 author: Dante Calderón
 pathPrefix: blog
 slug: configure-travis-ci-for-monorepos
-image: ../images/travis_ci_subdirs.jpg
+image: /images/travis_ci_subdirs.jpg
 date: '2019-09-07T13:10:52-05:00'
 published: true
 tags:
@@ -35,11 +35,11 @@ Los repositorios multiproyectos o [monorepos](https://en.wikipedia.org/wiki/Mono
 Si no tienes una cuenta en TravisCI puedes loguearte con tu cuenta de Github ingresando a https://travis-ci.org.
 
 Una vez dentro añadimos un nuevo repositorio haciendo click en el boton con el simbolo `+`:
-![Resultados del build en travis-ci.org](../images/travis-new-repo.jpg)
+![Resultados del build en travis-ci.org](/images/travis-new-repo.jpg)
 
 Y activamos el repositorio:
 
-![Resultados del build en travis-ci.org](../images/azure_activate_repo.jpg)
+![Resultados del build en travis-ci.org](/images/azure_activate_repo.jpg)
 
 #### Estructura del repositorio
 
@@ -120,11 +120,11 @@ y finalmente ejecutar `yarn test` que ejecuta el comando de tests definido dentr
 
 Finalmente luego de enviar los cambios al repositorio de Github, podemos ver el [siguiente resultado](https://travis-ci.org/dantehemerson/audio-tag-editor/builds/579281934) en la pagina de TravisCI.
 
-![Resultados del build en travis-ci.org](../images/travis_ci_build.png)
+![Resultados del build en travis-ci.org](/images/travis_ci_build.png)
 
 Como podemos ver se han creado **2** jobs uno para `server` y el otro para `web`:
 
-![TraviCI creo 2 jobs](../images/travis-ci-build-jobs.png)
+![TraviCI creo 2 jobs](/images/travis-ci-build-jobs.png)
 
 ### Conclusion
 

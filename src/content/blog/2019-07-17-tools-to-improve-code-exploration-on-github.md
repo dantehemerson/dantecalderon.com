@@ -8,7 +8,7 @@ description: >-
 author: Dante Calderón
 pathPrefix: blog
 slug: tools-to-improve-code-exploration-on-github
-image: ../images/explore-code-github.jpg
+image: /images/explore-code-github.jpg
 date: '2019-07-20T01:42:52-05:00'
 published: true
 style: normal-img
@@ -23,17 +23,17 @@ Los programadores pasamos mucho tiempo en Github explorando código, hoy te voy 
 
 Octotree es un plugin de **Chrome** nos permite tener un arbol de archivos para acceder facilmente a ellos.
 
-![Octotree](../images/tools_github_1.png)
+![Octotree](/images/tools_github_1.png)
 
 ### 2.- [Gitpod](https://gitpod.io)
 
 Gitpod es una servicio que nos permite tener un editor online para repositorios en Github, esta basado es [VSCode](https://code.visualstudio.com/) por lo que la interfaz es muy parecida.
 
-![Gitpod](../images/tools_github_2.png)
+![Gitpod](/images/tools_github_2.png)
 
 La integracion con Github es mediante un [plugin](https://chrome.google.com/webstore/detail/gitpod-online-ide/dodmmooeoklaejobgleioelladacbeki?hl=en) que añade un boton que crea facilmente un espacio de trabajo para un repositorio.
 
-![Gitpod](../images/tools_github_3.png)
+![Gitpod](/images/tools_github_3.png)
 
 Es muy util ya que podemos trabajar desde cualquier computadora, además que es muy rápido ya que corre sobre un servidor.
 
@@ -41,4 +41,4 @@ Es muy util ya que podemos trabajar desde cualquier computadora, además que es 
 
 Muestra el peso de un repositorio y sus archivos.
 
-![GitHub Repository Size](../images/tools_github_4.png)
+![GitHub Repository Size](/images/tools_github_4.png)

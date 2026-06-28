@@ -7,7 +7,7 @@ description: >-
 author: Dante Calderón
 pathPrefix: blog
 slug: introduccion-patrones-de-diseno
-image: ../images/jhj.png
+image: /images/jhj.png
 date: '2018-08-22T00:07:28-05:00'
 published: false
 style: full-image

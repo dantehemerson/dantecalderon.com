@@ -5,7 +5,7 @@ description: We are going to explore the source code of Socket.IO
 author: Dante Calderón
 pathPrefix: blog
 slug: exploring-socket-io-source-code
-image: ../images/socket-io-nodejs.png
+image: /images/socket-io-nodejs.png
 date: '2020-12-26T00:00:00-05:00'
 published: false
 tags:
@@ -18,7 +18,7 @@ tags:
 
 Socket.IO is a library to build Real-Time services with Node.js. It's built over the Websocket protocol, we are going to talk about it later.
 
-![Bidirectional communication between client and server](../images/bidirectional-communication.png)
+![Bidirectional communication between client and server](/images/bidirectional-communication.png)
 ![Bidirectional communication between client and server](https://socket.io/images/bidirectional-communication.png)
 ![Bidirectional communication between client and server](https://cms.qz.com/wp-content/uploads/2018/02/spacex-falcon-heavy-elon-musk-china-europe-esa-nasa-mars-sls-boeing.jpg?quality=75&strip=all&w=1600&h=900&crop=1)
 ![Bidirectional communication between client and server](https://media.wired.com/photos/5ed2b8129948303154121fe5/master/pass/Science_SpaceX-Launch-AP_20151700829737.jpg)

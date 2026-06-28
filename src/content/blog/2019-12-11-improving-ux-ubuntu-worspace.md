@@ -7,7 +7,7 @@ description: >-
 author: Dante Calderón
 pathPrefix: blog
 slug: improving-ux-ubuntu-workspace
-image: ../images/2019_screenshot_switch_windows.png
+image: /images/2019_screenshot_switch_windows.png
 date: '2019-12-11T23:19:52-05:00'
 published: true
 tags:
@@ -34,7 +34,7 @@ En Ubuntu 19 esto ya no es necesario ya que por defecto las ventanas estan desag
 en 18.4 tenemos que ir a `Settings -> Devices -> Keyboard` y buscamos `switch windows` y cambiamos el shortcut a
 shorcut a `Alt+Tab`.
 
-![Change swtich windows behaviour](../images/2019_screenshot_switch_windows_config.png)
+![Change swtich windows behaviour](/images/2019_screenshot_switch_windows_config.png)
 
 
 De esta manera podemos cambiar facilmente entre ventanas **no agrupadas** con `Alt+Tab`, y si queremos

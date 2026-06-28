@@ -6,7 +6,7 @@ description: >-
 author: Dante Calderón
 pathPrefix: blog
 slug: how-to-setup-project-to-contribute
-image: ../images/coders-git.jpg
+image: /images/coders-git.jpg
 date: '2019-09-28T01:42:52-05:00'
 published: false
 tags:

@@ -6,10 +6,10 @@ subtitle: >-
 description: MarkoTab is a beautiful browser extension that replaces your new tab page with a clean, customizable dashboard. Keep your bookmarks front and center, organize your favorite sites, and access everything you need with ease.
 pathPrefix: projects
 slug: markotab
-image: ../images/marko-tab-project.jpg
+image: /images/marko-tab-project.jpg
 images:
   - description: Movie Page
-    image: ../images/podcastify.now.sh_undisclosed.3709182.png
+    image: /images/podcastify.now.sh_undisclosed.3709182.png
 date: '2019-07-19T23:20:51-05:00'
 finished: true
 published: true

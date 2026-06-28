@@ -1,5 +1,8 @@
 import { useState } from 'react'
-import { window } from 'browser-monads-ts'
+
+function getWindow() {
+  return typeof window !== 'undefined' ? window : undefined
+}
 
 export const useLocalStorage = (key, initialValue) => {
   const [storedValue, setStoredValue] = useState(() => {
@@ -10,7 +13,10 @@ export const useLocalStorage = (key, initialValue) => {
     try {
       const valueToStore = value instanceof Function ? value(storedValue) : value
       setStoredValue(valueToStore)
-      window.localStorage.setItem(key, JSON.stringify(valueToStore))
+      const win = getWindow()
+      if (win) {
+        win.localStorage.setItem(key, JSON.stringify(valueToStore))
+      }
     } catch (error) {
       console.log(error)
     }
@@ -21,7 +27,9 @@ export const useLocalStorage = (key, initialValue) => {
 
 export function getInitialLocalStorageValue(key, initialValue) {
   try {
-    const item = window.localStorage.getItem(key)
+    const win = getWindow()
+    if (!win) return initialValue
+    const item = win.localStorage.getItem(key)
     return item && item !== 'undefined' ? JSON.parse(item) : initialValue
   } catch (error) {
     return initialValue

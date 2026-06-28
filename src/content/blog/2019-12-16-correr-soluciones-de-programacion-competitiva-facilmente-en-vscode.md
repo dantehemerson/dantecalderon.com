@@ -6,7 +6,7 @@ description: >-
 author: Dante Calderón
 pathPrefix: blog
 slug: correr-soluciones-de-programacion-competitiva-en-vscode
-image: ../images/correr-soluciones-de-programacion-competitiva-facilmente-en-vscode_screenshot.png
+image: /images/correr-soluciones-de-programacion-competitiva-facilmente-en-vscode_screenshot.png
 date: '2019-12-16T01:02:52-05:00'
 published: true
 tags:

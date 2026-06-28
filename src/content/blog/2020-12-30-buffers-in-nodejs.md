@@ -5,7 +5,7 @@ description: Buffers are commonly used everywere to share data efficiently, lear
 author: Dante Calderón
 pathPrefix: blog
 slug: buffers-in-nodejs
-image: ../images/how-to-free-up-RAM-hero.jpg
+image: /images/how-to-free-up-RAM-hero.jpg
 date: '2020-12-30T00:00:00-05:00'
 published: true
 tags:

@@ -6,7 +6,7 @@ description: >-
 author: Dante Calderón
 pathPrefix: blog
 slug: what-is-typescript
-image: ../images/explore-code-github.jpg
+image: /images/explore-code-github.jpg
 date: '2019-07-20T01:42:52-05:00'
 published: false
 style: normal-img
