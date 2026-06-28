@@ -48,20 +48,6 @@ module.exports = {
     menu: [
       { title: 'Home', id: 'home', to: '/', icon: 'home' },
       { title: 'Blog', id: 'blog', to: '/blog', icon: 'blog' },
-      {
-        title: 'Newsletter',
-        id: 'newsletter',
-        newtab: true,
-        to: 'https://dantecalderon.substack.com/',
-        icon: 'newsletter',
-      },
-      {
-        title: 'Highlights',
-        id: 'highlights',
-        newtab: true,
-        to: 'https://highlights.dantecalderon.com/',
-        icon: 'highlighter',
-      },
       // { title: 'Portfolio', id: 'Portfolio', to: '/portfolio', icon: 'home' },
       //{ title: 'Contact', id: 'Contact', to: '/contact', icon: 'home' }
     ],

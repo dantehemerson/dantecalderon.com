@@ -476,12 +476,6 @@ const Navbar = props => {
                   }}
                   className={`${active === item.id ? 'active' : ''}`}
                   to={item.to}
-                  {...(item.newtab
-                    ? {
-                        target: '_blank',
-                        rel: 'noreferrer noopener',
-                      }
-                    : undefined)}
                 >
                   {icons[item.icon]}
                   {item.title}
@@ -519,7 +513,6 @@ export default props => {
             title
             id
             icon
-            newtab
             to
           }
         }
