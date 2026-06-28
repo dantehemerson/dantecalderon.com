@@ -18,7 +18,7 @@
   html {
     font-size: 16px;
     line-height: 1.5;
-    font-family: 'Gentium Book Basic', 'Times New Roman', Times, serif;
+    font-family: 'Open Sans', sans-serif;
   }
 
   body {
@@ -28,10 +28,9 @@
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
     color: #052d3f;
-    font-family: 'Gentium Book Basic', 'Times New Roman', Times, serif;
+    font-family: 'Open Sans', sans-serif;
   }
 
-  /* Typography.js heading & body styles restored */
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Gentium Book Basic', 'Times New Roman', Times, serif;
     color: #052d3f;
@@ -51,7 +50,6 @@
   p {
     margin-bottom: 1rem;
     line-height: 1.58;
-    font-family: 'Gentium Book Basic', 'Times New Roman', Times, serif;
   }
 
   ul, ol {
@@ -187,7 +185,7 @@
     margin-right: auto;
   }
 
-  /* Post content styles (from old styled-components global styles) */
+  /* Post content styles - restored from old Markdown.tsx StyledContent */
   .Post__content {
     font-size: 15px;
     line-height: 1.65;
@@ -195,8 +193,8 @@
   }
 
   .Post__content a {
-    color: #4a90e2;
-    border-bottom: 1px dotted #5b9fef;
+    color: rgb(74, 144, 226);
+    border-bottom: 1px dotted rgb(91, 159, 239);
     text-decoration: none;
   }
 
@@ -209,40 +207,223 @@
   }
 
   .Post__content img {
-    margin: 0 auto;
     display: block;
-    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
   }
 
+  .Post__content figure img {
+    border: 1px solid #eee;
+  }
+
+  /* All major content blocks centered with max-width */
+  .Post__content pre,
+  .Post__content ul,
+  .Post__content ol,
+  .Post__content p,
+  .Post__content h1,
+  .Post__content h2,
+  .Post__content h3,
+  .Post__content h4,
+  .Post__content h5,
+  .Post__content h6,
+  .Post__content blockquote,
+  .Post__content table,
+  .Post__content .glitch-embed-wrap {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Text elements padding */
+  .Post__content p,
+  .Post__content h1,
+  .Post__content h2,
+  .Post__content h3,
+  .Post__content h4,
+  .Post__content h5,
+  .Post__content h6,
+  .Post__content table,
+  .Post__content .glitch-embed-wrap {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  /* Paragraph specific */
   .Post__content p {
+    padding-left: 12px;
+    padding-right: 12px;
     margin-bottom: 1.2rem;
+    font-size: 17px;
+    line-height: 1.4;
     font-family: 'Gentium Book Basic', 'Times New Roman', Times, serif;
   }
 
+  /* Lists */
   .Post__content ul,
   .Post__content ol {
+    padding-left: 30px;
+    padding-right: 12px;
     margin-bottom: 1.2rem;
-    padding-left: 1.5rem;
+    font-size: 17px;
+    line-height: 1.4;
+    font-family: 'Gentium Book Basic', 'Times New Roman', Times, serif;
   }
 
   .Post__content li {
     margin-bottom: 0.3rem;
   }
 
+  /* Code blocks font size */
+  .Post__content pre {
+    font-size: 17px;
+  }
+
+  /* Headings */
+  .Post__content h1,
   .Post__content h2,
   .Post__content h3,
-  .Post__content h4 {
+  .Post__content h4,
+  .Post__content h5,
+  .Post__content h6 {
     font-family: 'Gentium Book Basic', 'Times New Roman', Times, serif;
+    line-height: 1.4;
     margin-top: 1.8rem;
     margin-bottom: 0.8rem;
   }
 
+  .Post__content h2 {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 21px;
+  }
+
+  .Post__content h3 {
+    margin-top: 30px;
+    font-size: 21px;
+  }
+
+  .Post__content h4 {
+    font-size: 16px;
+  }
+
+  .Post__content h6 {
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.53);
+    text-align: center;
+    font-size: 12px;
+    position: relative;
+    top: -25px;
+    margin-bottom: 0;
+  }
+
+  /* Blockquote */
   .Post__content blockquote {
-    border-left: 3px solid #e8e8e8;
-    padding-left: 1rem;
-    margin-left: 0;
-    color: #656565;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
     font-style: italic;
+    padding-left: 8px;
+    border-left: 5px solid #6b6b6b;
+    color: #656565;
+  }
+
+  /* Table */
+  .Post__content table {
+    overflow-x: auto;
+    max-width: 1200px;
+    border: 1px solid #eee;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .Post__content .glitch-embed-wrap {
+    max-width: 1250px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Code block adjacent headings spacing */
+  .Post__content pre + h2,
+  .Post__content pre + h3,
+  .Post__content pre + h4 {
+    margin-top: 30px !important;
+  }
+
+  .Post__content pre a {
+    color: #69bcdb;
+  }
+
+  /* Image caption (adapted from gatsby-resp-image-figcaption) */
+  .Post__content figcaption {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 45px;
+    font-weight: 600;
+    padding-left: 12px;
+    line-height: 1.9;
+    padding-right: 12px;
+    font-family: 'Open Sans', sans-serif;
+    color: #0000008a;
+    font-size: 12px;
+    max-width: 600px !important;
+  }
+
+  /* Emoji icons */
+  .Post__content img.emoji-icon {
+    display: inline;
+    margin: 0;
+    position: relative;
+    top: 3px;
+    width: 17px;
+  }
+
+  @media (min-width: 576px) {
+    .Post__content p,
+    .Post__content pre,
+    .Post__content ul,
+    .Post__content ol {
+      font-size: 18px;
+    }
+
+    .Post__content h2,
+    .Post__content h3 {
+      margin-top: 30px;
+      font-size: 23px;
+    }
+
+    .Post__content h4 {
+      font-size: 18px;
+    }
+
+    .Post__content img.emoji-icon {
+      width: 19px;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .Post__content p,
+    .Post__content pre,
+    .Post__content ul,
+    .Post__content ol {
+      font-size: 19px;
+    }
+
+    .Post__content h2,
+    .Post__content h3 {
+      margin-top: 40px;
+      font-size: 28px;
+    }
+
+    .Post__content h4 {
+      font-size: 21px;
+    }
+
+    .Post__content img.emoji-icon {
+      width: 21px;
+    }
   }
 }
 
