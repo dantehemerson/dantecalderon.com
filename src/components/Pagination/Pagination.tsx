@@ -73,7 +73,11 @@ export default React.memo(function Pagination({
         href={hasPrevPage ? getPageUrl(selected - 1) : undefined}
         className={`flex mx-5 transition duration-300 no-underline ${!hasPrevPage ? 'invisible' : ''}`}
       >
-        <img alt="Prev Page" src={imageSrc} className="transition duration-400 rotate-[-90deg] mx-0.75 m-0" />
+        <img
+          alt="Prev Page"
+          src={imageSrc}
+          className="transition duration-400 rotate-[-90deg] mx-0.75 m-0"
+        />
         <p className="font-bold m-0 text-[#4d4d4d]">PREV</p>
       </a>
 
@@ -113,7 +117,11 @@ export default React.memo(function Pagination({
         className={`flex mx-5 transition duration-300 no-underline ${!hasNextPage ? 'invisible' : ''}`}
       >
         <p className="font-bold m-0 text-[#4d4d4d]">NEXT</p>
-        <img alt="Next Page" src={imageSrc} className="transition duration-400 rotate-90 mx-0.75 m-0" />
+        <img
+          alt="Next Page"
+          src={imageSrc}
+          className="transition duration-400 rotate-90 mx-0.75 m-0"
+        />
       </a>
     </div>
   )

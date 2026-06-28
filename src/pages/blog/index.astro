@@ -24,7 +24,7 @@ const hasPrevPage = false
 
 <Layout title="Blog" url={`${siteConfig.siteUrl}/blog`} active="blog">
   <div class="Blog mt-22.5">
-    <div class="px-3.75 max-w-[800px] mx-auto mb-8.75">
+    <div class="px-3.75 max-w-200 mx-auto mb-8.75">
       {
         posts.map(post => {
           const slug = post.data.slug || post.slug

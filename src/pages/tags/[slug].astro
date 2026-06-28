@@ -2,7 +2,6 @@
 import { getCollection } from 'astro:content'
 import Layout from '../../components/Layout.astro'
 import Card from '../../components/Card.astro'
-import TagsSection from '../../components/TagsSection.astro'
 import { getAllTagsWithCount, getPostTags, makeSlugForTag } from '../../helpers/tags'
 import { siteConfig } from '../../config'
 
@@ -10,7 +9,7 @@ export async function getStaticPaths() {
   const allPosts = await getCollection('blog')
   const publishedPosts = allPosts.filter(post => post.data.published)
   const tagSet = new Set<string>()
-  
+
   publishedPosts.forEach(post => {
     const postTags = post.data.tags || []
     postTags.forEach(tag => {
@@ -45,26 +44,23 @@ const currentTag = allTags.find(tag => tag.slug === slug)
   active="blog"
 >
   <div class="mt-22.5">
-    <TagsSection
-      tags={allTags}
-      showCount={true}
-      selectedSlug={slug || undefined}
-    />
-    <div class="px-3.75 max-w-[800px] mx-auto mb-8.75">
-      {filteredPosts.map(post => {
-        const postSlug = post.data.slug || post.slug
-        return (
-          <Card
-            title={post.data.title}
-            date={post.data.date}
-            image={post.data.image}
-            externalImage={post.data.externalImage}
-            excerpt={post.data.description || ''}
-            tags={getPostTags(post.data.tags)}
-            slug={postSlug}
-          />
-        )
-      })}
+    <div class="px-3.75 max-w-200 mx-auto mb-8.75">
+      {
+        filteredPosts.map(post => {
+          const postSlug = post.data.slug || post.slug
+          return (
+            <Card
+              title={post.data.title}
+              date={post.data.date}
+              image={post.data.image}
+              externalImage={post.data.externalImage}
+              excerpt={post.data.description || ''}
+              tags={getPostTags(post.data.tags)}
+              slug={postSlug}
+            />
+          )
+        })
+      }
     </div>
   </div>
 </Layout>
