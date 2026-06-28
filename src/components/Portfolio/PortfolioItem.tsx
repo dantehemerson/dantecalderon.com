@@ -4,8 +4,7 @@ import React from 'react'
 import styled from 'styled-components'
 import InProgress from './InProgress'
 
-const ItemWrapper = styled(Link)`
-  cursor: pointer;
+const ItemWrapper = styled.div`
   text-align: left;
   text-decoration: none;
 `
@@ -13,74 +12,30 @@ const ItemWrapper = styled(Link)`
 const CoverWrapper = styled.div`
   position: relative;
   overflow: hidden;
-  box-shadow: rgba(102, 51, 153, 0.1) 0px 4px 10px;
   border-radius: 2px;
-  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
   margin-bottom: 13px !important;
-  ${ItemWrapper}:hover & {
-    box-shadow: #50698a80 0px 8px 20px;
-    transform: translateY(-3px);
-  }
+  border: 2px solid #f5f5f5;
+  border-radius: 1rem;
 `
 
 const Title = styled.h3`
   color: #22292f;
   font-family: 'Open Sans', serif;
-  font-size: 19px;
+  font-size: 22px;
   text-align: left;
   width: 100%;
   transition: 0.3s;
+  font-family: 'Gentium Book Basic', 'Times New Roman', Times, serif;
+  color: #052d3e;
   display: inline;
   margin: 0;
-  ${ItemWrapper}:hover & {
-    color: #1976d2;
-    box-shadow: #dce7f3 0px -4px 0px 0px inset;
-  }
 `
 
 const Cover = styled(GatsbyImage)``
 
-const TopBar = styled.div`
-  height: 26px;
-  background: #e0e3e6;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border-radius: 4px 4px 0 0;
-
-  .TopBarButtons {
-    background: white;
-    border-radius: 50%;
-    height: 9px;
-    width: 9px;
-    position: relative;
-    margin-left: 5px;
-    &:after {
-      content: '';
-      background: white;
-      border-radius: 50%;
-      position: absolute;
-      left: 260%;
-      top: 0;
-      height: 9px;
-      width: 9px;
-    }
-
-    &:before {
-      content: '';
-      background: white;
-      border-radius: 50%;
-      height: 9px;
-      width: 9px;
-      position: absolute;
-      left: 130%;
-      top: 0;
-    }
-  }
+const ItemLink = styled.article`
+  padding: 1.2rem 0.5rem;
 `
-
-const ItemLink = styled.article``
 
 const TagsWrapper = styled.div`
   text-align: left;
@@ -132,6 +87,8 @@ const ShortcutIcons = styled.div`
   }
 `
 
+const LinkToProject = styled(Link)``
+
 const BottomData = styled.div`
   display: flex;
   margin: 10px 0;
@@ -140,12 +97,9 @@ const BottomData = styled.div`
 
 export default props => (
   <ItemLink>
-    <ItemWrapper to={props.data.path}>
+    <ItemWrapper>
       <CoverWrapper>
-        <TopBar>
-          <div className="TopBarButtons" />
-          {!props.finished && <InProgress />}
-        </TopBar>
+        {!props.finished && <InProgress />}
         <Cover alt="Portfolio item cover" image={props.data.thumbnail} />
       </CoverWrapper>
       <div>
@@ -179,26 +133,6 @@ export default props => (
         })}
       </TagsWrapper>
       <ShortcutIcons>
-        <a
-          title="View Source Code on Github"
-          href={props.data.repository}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <svg
-            className="Shortcut__icon"
-            fill="currentColor"
-            preserveAspectRatio="xMidYMid meet"
-            height="17px"
-            width="17px"
-            viewBox="0 0 40 40"
-            style={{ verticalAlign: 'text-top' }}
-          >
-            <g>
-              <path d="m20 0c-11 0-20 9-20 20 0 8.8 5.7 16.3 13.7 19 1 0.2 1.3-0.5 1.3-1 0-0.5 0-2 0-3.7-5.5 1.2-6.7-2.4-6.7-2.4-0.9-2.3-2.2-2.9-2.2-2.9-1.9-1.2 0.1-1.2 0.1-1.2 2 0.1 3.1 2.1 3.1 2.1 1.7 3 4.6 2.1 5.8 1.6 0.2-1.3 0.7-2.2 1.3-2.7-4.5-0.5-9.2-2.2-9.2-9.8 0-2.2 0.8-4 2.1-5.4-0.2-0.5-0.9-2.6 0.2-5.3 0 0 1.7-0.5 5.5 2 1.6-0.4 3.3-0.6 5-0.6 1.7 0 3.4 0.2 5 0.7 3.8-2.6 5.5-2.1 5.5-2.1 1.1 2.8 0.4 4.8 0.2 5.3 1.3 1.4 2.1 3.2 2.1 5.4 0 7.6-4.7 9.3-9.2 9.8 0.7 0.6 1.4 1.9 1.4 3.7 0 2.7 0 4.9 0 5.5 0 0.6 0.3 1.2 1.3 1 8-2.7 13.7-10.2 13.7-19 0-11-9-20-20-20z" />
-            </g>
-          </svg>
-        </a>
         {props.data.website && (
           <a
             title="See Preview"
@@ -222,6 +156,8 @@ export default props => (
           </a>
         )}
       </ShortcutIcons>
+
+      <LinkToProject to={props.data.path}></LinkToProject>
     </BottomData>
   </ItemLink>
 )

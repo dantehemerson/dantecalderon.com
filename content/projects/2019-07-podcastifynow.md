@@ -23,6 +23,8 @@ stack:
   - NextJS
   - ReactJS
 client: Personal
+href: 'https://podcastify.now.sh/'
+hrefText: 'podcastify.now.sh'
 repository: 'https://github.com/dantehemerson/podcastify'
 licence: MIT
 website: 'https://podcastify.now.sh/'
