@@ -44,7 +44,7 @@ export function makeSlugForTag(tagPlain: string): string {
 
 export function getAllTagsWithCount(posts: Array<{ data: { tags?: string[] } }>): ITag[] {
   const counts: Record<string, number> = {}
-  
+
   posts.forEach(post => {
     const postTags = post.data.tags || []
     postTags.forEach(tag => {
