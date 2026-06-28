@@ -2,37 +2,27 @@
 import { siteConfig } from '../config'
 
 const currentYear = new Date().getFullYear()
-const social = siteConfig.social.slice(0, 4)
+const social = siteConfig.social.filter(s => s.icon !== 'dev').slice(0, 4)
 ---
 
-<footer class="flex items-center justify-center flex-col h-50 bg-[#fafafa] border-t border-[#f3f3f3]">
-  <div class="flex items-center justify-center">
-    {social.map(item => (
-      <a
-        key={item.title}
-        target="_blank"
-        href={item.link}
-        rel="noopener"
-        class="mx-3.75"
-      >
-        <img
-          alt={`${item.title} - ${siteConfig.title}`}
-          src={
-            item.icon === 'dev'
-              ? 'https://d2fltix0v2e0sb.cloudfront.net/dev-badge.svg'
-              : `https://icongr.am/fontawesome/${item.icon}.svg?size=20&color=282a2d`
-          }
-          class="w-6.75"
-        />
-      </a>
-    ))}
-  </div>
-  <p class="text-[13px] font-semibold text-[#656565] text-center">
-    <span class="block sm:inline py-[10px_5px]">
-      © {currentYear}
-    </span>
-    <a href="/#about-me" target="_blank" rel="noopener" class="text-[#282a2d] no-underline">
-      {siteConfig.title}
-    </a>
+<footer
+  class="flex items-center justify-between px-6 mt-4 h-16 border-t border-[#f3f3f3] max-w-225 mx-auto"
+>
+  <p class="text-[13px] font-semibold text-[#656565] mb-0">
+    {siteConfig.title}
+    <span>© {currentYear}</span>
   </p>
+  <div class="flex items-center gap-2.5">
+    {
+      social.map(item => (
+        <a target="_blank" href={item.link} rel="noopener" class="flex items-center">
+          <img
+            alt={`${item.title} - ${siteConfig.title}`}
+            src={`https://icongr.am/fontawesome/${item.icon}.svg?size=20&color=656565`}
+            class="w-5"
+          />
+        </a>
+      ))
+    }
+  </div>
 </footer>

@@ -4,13 +4,29 @@ import Layout from '../components/Layout.astro'
 
 <Layout title="404: Not Found" simple={true}>
   <div class="flex flex-col items-center justify-center min-h-screen text-center px-4">
-    <h1 class="text-6xl font-black text-[#052d3f] mb-4">404</h1>
-    <p class="text-lg text-[#727272] mb-8">Page not found</p>
+    <h1 class="text-7xl font-sans font-bold text-body mb-4">404</h1>
+    <p class="text-xl font-bold text-[#727272]">Oops! Page not found</p>
+    <p class="text-base text-[#727272] mb-8">The page you're looking for doesn't exist.</p>
     <a
-      href="/"
-      class="inline-block px-6 py-3 bg-[#1976d2] text-white rounded no-underline hover:bg-[#156CB8] transition-colors"
+      href="#"
+      class="group flex items-center gap-1 bg-white hover:bg-gray-200 px-7 py-2.5 text-gray-800 rounded-full mt-10 font-medium active:scale-95 transition-all"
     >
-      Go Home
+      <svg
+        class="group-hover:translate-x-0.5 transition"
+        width="22"
+        height="22"
+        viewBox="0 0 22 22"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        ><path
+          d="M4.583 11h12.833m0 0L11 4.584M17.416 11 11 17.417"
+          stroke="#1E1E1E"
+          stroke-width="1.8"
+          stroke-linecap="round"
+          stroke-linejoin="round"></path></svg
+      >
+
+      Back to Home
     </a>
   </div>
 </Layout>
