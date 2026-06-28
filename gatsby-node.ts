@@ -27,9 +27,7 @@ export const createPages = async ({ graphql, actions }) => {
       allPosts: allMdx(
         sort: { frontmatter: { date: DESC } }
         limit: 200
-        filter: {
-          frontmatter: { published: { eq: true }, model: { eq: "post" } }
-        }
+        filter: { frontmatter: { published: { eq: true }, model: { eq: "post" } } }
       ) {
         edges {
           node {
