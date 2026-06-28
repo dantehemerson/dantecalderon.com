@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 @theme {
   --font-sans: 'Open Sans', sans-serif;
@@ -6,10 +6,10 @@
   --font-mono: 'Fira Code', monospace;
   --color-brand-primary: #1976d2;
   --color-brand-primary-dark: #004ba0;
-  --color-brand-primary-hover: #156CB8;
+  --color-brand-primary-hover: #156cb8;
   --color-brand-secondary: #f44336;
   --color-brand-secondary-dark: #ba000d;
-  --color-brand-secondary-hover: #D63A2F;
+  --color-brand-secondary-hover: #d63a2f;
   --color-body: #052d3f;
   --color-link: #4a90e2;
 }
@@ -31,7 +31,12 @@
     font-family: 'Open Sans', sans-serif;
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     font-family: 'Gentium Book Basic', 'Times New Roman', Times, serif;
     color: #052d3f;
     margin-top: 1.5rem;
@@ -40,12 +45,24 @@
     font-weight: 700;
   }
 
-  h1 { font-size: 2rem; }
-  h2 { font-size: 1.5rem; }
-  h3 { font-size: 1.25rem; }
-  h4 { font-size: 1.125rem; }
-  h5 { font-size: 1rem; }
-  h6 { font-size: 0.875rem; }
+  h1 {
+    font-size: 2rem;
+  }
+  h2 {
+    font-size: 1.5rem;
+  }
+  h3 {
+    font-size: 1.25rem;
+  }
+  h4 {
+    font-size: 1.125rem;
+  }
+  h5 {
+    font-size: 1rem;
+  }
+  h6 {
+    font-size: 0.875rem;
+  }
 
   p {
     margin-bottom: 1rem;
@@ -60,7 +77,8 @@
     list-style-type: decimal;
   }
 
-  ul, ol {
+  ul,
+  ol {
     margin-bottom: 1rem;
     padding-left: 1.5rem;
   }
@@ -69,7 +87,8 @@
     margin-bottom: 0.25rem;
   }
 
-  strong, b {
+  strong,
+  b {
     font-weight: 700;
     color: #052d3f;
   }
@@ -102,14 +121,16 @@
     resize: vertical;
   }
 
-  input[type="text"], input[type="email"], textarea {
+  input[type='text'],
+  input[type='email'],
+  textarea {
     border: 2px solid #e3e8eb;
     border-radius: 3px;
     box-shadow: none;
     color: #55595c;
     outline: 0;
     background: white;
-    transition: border .3s;
+    transition: border 0.3s;
     width: 100%;
     padding: 15px 1.6rem;
     padding-right: 4.7rem;
@@ -117,7 +138,9 @@
     font-family: 'Open Sans', sans-serif;
   }
 
-  input[type="text"]:focus, input[type="email"]:focus, textarea:focus {
+  input[type='text']:focus,
+  input[type='email']:focus,
+  textarea:focus {
     border-color: #1976d2;
   }
 
@@ -130,7 +153,7 @@
   }
 
   code.language-text {
-    font-size: .9rem;
+    font-size: 0.9rem;
     top: -1px;
     position: relative;
     padding: 0 6px !important;
@@ -447,23 +470,6 @@
   .icon_svg {
     width: 21px;
     height: 21px;
-  }
-
-  .ToolbarButton {
-    text-decoration: none !important;
-    font-size: 13px;
-  }
-
-  .ToolbarButton:first-child {
-    margin-right: 6px;
-  }
-
-  .ToolbarButton .icon {
-    width: 17px;
-    top: 3px;
-    position: relative;
-    height: 100%;
-    margin-right: 6px;
   }
 
   p.para {
