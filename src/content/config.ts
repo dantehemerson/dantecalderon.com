@@ -27,25 +27,9 @@ const projectCollection = defineCollection({
     description: z.string().optional(),
     slug: z.string().optional(),
     image: z.string().optional(),
-    images: z
-      .array(
-        z.object({
-          description: z.string().optional(),
-          image: z.string(),
-        })
-      )
-      .optional(),
     model: z.literal('project'),
-    tags: z.array(z.string()).optional(),
-    stack: z.array(z.string()).optional(),
-    roles: z.array(z.string()).optional(),
-    client: z.string().optional(),
-    repository: z.string().optional(),
-    website: z.string().optional(),
     href: z.string().optional(),
     hrefText: z.string().optional(),
-    licence: z.string().optional(),
-    finished: z.boolean().optional(),
   }),
 })
 
