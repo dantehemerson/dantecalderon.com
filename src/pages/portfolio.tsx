@@ -38,6 +38,7 @@ export const queryPortfolio = graphql`
           }
           frontmatter {
             title
+            description
             slug
             image {
               childImageSharp {
@@ -49,6 +50,8 @@ export const queryPortfolio = graphql`
             repository
             website
             finished
+            href
+            hrefText
           }
         }
       }

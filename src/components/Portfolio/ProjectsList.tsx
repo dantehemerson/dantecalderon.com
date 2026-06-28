@@ -23,12 +23,15 @@ export default props => (
         <Item
           data={{
             title: node.frontmatter.title,
+            description: node.frontmatter.description,
             subtitle: node.frontmatter.subtitle,
             thumbnail: node.frontmatter.image.childImageSharp.gatsbyImageData,
             path: `/${node.fields.slug}`,
             tags: node.frontmatter.tags,
             repository: node.frontmatter.repository,
             website: node.frontmatter.website,
+            href: node.frontmatter.href,
+            hrefText: node.frontmatter.hrefText,
           }}
           key={index}
           finished={node.frontmatter.finished}
