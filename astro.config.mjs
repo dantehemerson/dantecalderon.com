@@ -4,6 +4,20 @@ import react from '@astrojs/react'
 import sitemap from '@astrojs/sitemap'
 import tailwindcss from '@tailwindcss/vite'
 
+/** Rehype plugin: wraps all MDX root children in <div class="prose"> */
+function rehypeWrapInProse() {
+  return function (tree) {
+    tree.children = [
+      {
+        type: 'element',
+        tagName: 'div',
+        properties: { className: ['prose'] },
+        children: tree.children,
+      },
+    ]
+  }
+}
+
 export default defineConfig({
   site: 'https://dantecalderon.com',
   integrations: [mdx(), react(), sitemap()],
@@ -17,6 +31,6 @@ export default defineConfig({
       wrap: true,
     },
     remarkPlugins: [],
-    rehypePlugins: [],
+    rehypePlugins: [rehypeWrapInProse],
   },
 })

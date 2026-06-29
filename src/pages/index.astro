@@ -12,7 +12,7 @@ const projects = allProjects.sort((a, b) => b.data.date.getTime() - a.data.date.
 
 <Layout title="Dante Calderon" url={siteConfig.siteUrl}>
   <HeaderHome />
-  <div class="prose max-w-282.5 mx-auto px-3">
+  <div class="max-w-282.5 mx-auto px-3">
     <AboutContent />
   </div>
   <ProjectsList projects={projects} className="mt-6" />
