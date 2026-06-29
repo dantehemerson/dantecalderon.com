@@ -6,6 +6,9 @@ import tailwindcss from '@tailwindcss/vite'
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 import rehypeSlug from 'rehype-slug'
 import rehypeExternalLinks from 'rehype-external-links'
+import remarkDirective from 'remark-directive'
+import { visit } from 'unist-util-visit'
+import { h } from 'hastscript'
 
 /** Rehype plugin: wraps all MDX root children in <div class="prose"> */
 function rehypeWrapInProse() {
@@ -18,6 +21,25 @@ function rehypeWrapInProse() {
         children: tree.children,
       },
     ]
+  }
+}
+
+/** Be careful it modifies all the nodes */
+function remarkDirectivesToHTML() {
+  return function (tree) {
+    visit(tree, function (node) {
+      if (
+        node.type === 'containerDirective' ||
+        node.type === 'leafDirective' ||
+        node.type === 'textDirective'
+      ) {
+        const data = node.data || (node.data = {})
+        const hast = h(node.name, node.attributes || {})
+
+        data.hName = hast.tagName
+        data.hProperties = hast.properties
+      }
+    })
   }
 }
 
@@ -36,7 +58,10 @@ export default defineConfig({
       // theme: 'material-theme-darker',
       wrap: true,
     },
-    remarkPlugins: [],
+    /** Allows directives, https://github.com/remarkjs/remark-directive#remark-directive
+     * test on: https://remark.js.org/
+     */
+    remarkPlugins: [remarkDirective, remarkDirectivesToHTML],
     rehypePlugins: [
       rehypeWrapInProse,
       [
