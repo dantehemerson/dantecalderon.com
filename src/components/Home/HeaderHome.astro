@@ -1,0 +1,20 @@
+---
+import SocialHome from '../SocialHome.astro'
+import { siteConfig } from '../../config'
+---
+
+<div class="bg-[#dfd5a66e]">
+  <div class="min-h-100 max-w-270 grid pt-(62px) mx-auto justify-center items-center">
+    <div class="text-center px-1.25">
+      <h1
+        class="text-[32px] font-black text-center font-serif text-body mb-0 relative sm:text-[2.4rem]"
+      >
+        {siteConfig.title}
+      </h1>
+      <h2 class="text-sm font-normal mx-0 mt-2.5 mb-5 font-mono text-center text-body">
+        {siteConfig.subtitle}
+      </h2>
+      <SocialHome />
+    </div>
+  </div>
+</div>

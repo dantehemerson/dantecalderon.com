@@ -1,0 +1,9 @@
+# Redirect default Netlify subdomain to primary domain
+
+https://dantecalderon.netlify.com/_ https://dantecalderon.com/:splat 301!
+https://dantecalderon.netlify.app/_ https://dantecalderon.com/:splat 301!
+/g https://github.com/dantehemerson 301
+/t https://twitter.com/dantehemerson 301
+/i https://www.instagram.com/dantehemerson 301
+/l https://www.linkedin.com/in/dantecalderon 301
+/about /#about-me 301

@@ -1,0 +1,27 @@
+---
+import { siteConfig } from '../config'
+
+const currentYear = new Date().getFullYear()
+---
+
+<footer
+  class="flex items-center justify-between px-6 mt-4 h-16 border-t border-[#f3f3f3] max-w-225 mx-auto"
+>
+  <p class="text-[13px] font-semibold text-[#656565] mb-0">
+    {siteConfig.title}
+    <span>© {currentYear}</span>
+  </p>
+  <div class="flex items-center gap-2.5">
+    {
+      siteConfig.social.map(item => (
+        <a target="_blank" href={item.link} rel="noopener" class="flex items-center">
+          <img
+            alt={`${item.title} - ${siteConfig.title}`}
+            src={`https://icongr.am/fontawesome/${item.icon}.svg?size=20&color=656565`}
+            class="w-5"
+          />
+        </a>
+      ))
+    }
+  </div>
+</footer>

@@ -23,6 +23,10 @@ Deployed at: https://dantecalderon.com
 See complete stack in [StackShare](https://stackshare.io/dantehemerson/dantecalderon-dev)
 
 
+## Portfolio
+
+> **Note:** Portfolio project images should use a **4:3 aspect ratio** for the best visual result. Images with other proportions will be cropped to fit the grid layout.
+
 ## 💡 Features:
 * [Blog](https://dantecalderon.dev/blog)
 * [Portfolio](https://dantecalderon.dev/portfolio)

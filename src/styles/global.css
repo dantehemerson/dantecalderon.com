@@ -1,0 +1,488 @@
+@import 'tailwindcss';
+
+@theme {
+  --font-sans: 'Open Sans', sans-serif;
+  --font-serif: 'Gentium Book Plus', serif;
+  --font-mono: 'Fira Code', monospace;
+  --color-brand-primary: #1976d2;
+  --color-brand-primary-dark: #004ba0;
+  --color-brand-primary-hover: #156cb8;
+  --color-brand-secondary: #f44336;
+  --color-brand-secondary-dark: #ba000d;
+  --color-brand-secondary-hover: #d63a2f;
+  --color-body: #052d3f;
+  --color-link: #4a90e2;
+}
+
+@layer base {
+  html {
+    font-size: 16px;
+    line-height: 1.5;
+    font-family: 'Open Sans', sans-serif;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    text-rendering: geometricPrecision;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    color: #052d3f;
+    font-family: 'Open Sans', sans-serif;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-serif);
+    color: #052d3f;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+    font-weight: 700;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+  h2 {
+    font-size: 1.5rem;
+  }
+  h3 {
+    font-size: 1.25rem;
+  }
+  h4 {
+    font-size: 1.125rem;
+  }
+  h5 {
+    font-size: 1rem;
+  }
+  h6 {
+    font-size: 0.875rem;
+  }
+
+  p {
+    margin-bottom: 1rem;
+    line-height: 1.58;
+  }
+
+  ul {
+    list-style-type: disc;
+  }
+
+  ol {
+    list-style-type: decimal;
+  }
+
+  ul,
+  ol {
+    margin-bottom: 1rem;
+    padding-left: 1.5rem;
+  }
+
+  li {
+    margin-bottom: 0.25rem;
+  }
+
+  strong,
+  b {
+    font-weight: 700;
+    color: #052d3f;
+  }
+
+  a {
+    color: #4a90e2;
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  a.default {
+    color: #4a90e2;
+    border-bottom: 1px dotted #5b9fef;
+    text-decoration: none;
+  }
+
+  a.default:hover {
+    border-bottom-style: solid;
+    text-decoration: none;
+  }
+
+  .Dyamic-container {
+    min-height: 100vh;
+  }
+
+  textarea {
+    resize: vertical;
+  }
+
+  input[type='text'],
+  input[type='email'],
+  textarea {
+    border: 2px solid #e3e8eb;
+    border-radius: 3px;
+    box-shadow: none;
+    color: #55595c;
+    outline: 0;
+    background: white;
+    transition: border 0.3s;
+    width: 100%;
+    padding: 15px 1.6rem;
+    padding-right: 4.7rem;
+    font-weight: 400;
+    font-family: 'Open Sans', sans-serif;
+  }
+
+  input[type='text']:focus,
+  input[type='email']:focus,
+  textarea:focus {
+    border-color: #1976d2;
+  }
+
+  code {
+    -moz-tab-size: 2 !important;
+    -o-tab-size: 2 !important;
+    tab-size: 2 !important;
+    text-shadow: none !important;
+    font-family: 'Fira Code', Consolas, monospace;
+  }
+
+  code.language-text {
+    font-size: 0.9rem;
+    top: -1px;
+    position: relative;
+    padding: 0 6px !important;
+    color: inherit !important;
+    border: 1px solid #acd1ff !important;
+    background: #ecf4fc !important;
+  }
+
+  pre {
+    background: #fafafa;
+    border: 1px solid #cbcbcb;
+    padding: 0.6em 0.7em;
+    overflow: auto;
+    margin-bottom: 27px;
+  }
+
+  pre code {
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+    font-size: 12px;
+    font-family: 'Fira Code', Consolas, monospace;
+  }
+
+  blockquote {
+    border-left: 3px solid #e8e8e8;
+    padding-left: 1rem;
+    margin-left: 0;
+    color: #656565;
+    font-style: italic;
+  }
+
+  img.medium-zoom-image--opened {
+    border: 1px solid #eee;
+  }
+}
+
+@layer components {
+  .container {
+    padding-left: 12px;
+    padding-right: 12px;
+    max-width: 1130px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .container--full {
+    max-width: 1280px;
+    padding-left: 12px;
+    padding-right: 12px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .container--blog {
+    max-width: 1340px;
+    padding-left: 12px;
+    padding-right: 12px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Post content styles - restored from old Markdown.tsx StyledContent */
+  .Post__content {
+    font-size: 15px;
+    line-height: 1.65;
+    font-family: var(--font-serif);
+  }
+
+  .Post__content a {
+    color: rgb(74, 144, 226);
+    border-bottom: 1px dotted rgb(91, 159, 239);
+    text-decoration: none;
+  }
+
+  .Post__content a:hover {
+    border-bottom-style: solid;
+  }
+
+  .Post__content a.anchor {
+    border-bottom: none;
+  }
+
+  .Post__content img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .Post__content figure img {
+    border: 1px solid #eee;
+  }
+
+  /* All major content blocks centered with max-width */
+  .Post__content pre,
+  .Post__content ul,
+  .Post__content ol,
+  .Post__content p,
+  .Post__content h1,
+  .Post__content h2,
+  .Post__content h3,
+  .Post__content h4,
+  .Post__content h5,
+  .Post__content h6,
+  .Post__content blockquote,
+  .Post__content table,
+  .Post__content .glitch-embed-wrap {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Text elements padding */
+  .Post__content p,
+  .Post__content h1,
+  .Post__content h2,
+  .Post__content h3,
+  .Post__content h4,
+  .Post__content h5,
+  .Post__content h6,
+  .Post__content table,
+  .Post__content .glitch-embed-wrap {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  /* Paragraph specific */
+  .Post__content p {
+    padding-left: 12px;
+    padding-right: 12px;
+    margin-bottom: 1.2rem;
+    font-size: 17px;
+    line-height: 1.4;
+    font-family: var(--font-serif);
+  }
+
+  /* Lists */
+  .Post__content ul {
+    list-style-type: disc;
+  }
+
+  .Post__content ol {
+    list-style-type: decimal;
+  }
+
+  .Post__content ul,
+  .Post__content ol {
+    padding-left: 30px;
+    padding-right: 12px;
+    margin-bottom: 1.2rem;
+    font-size: 17px;
+    line-height: 1.4;
+    font-family: var(--font-serif);
+  }
+
+  .Post__content li {
+    margin-bottom: 0.3rem;
+  }
+
+  /* Code blocks font size */
+  .Post__content pre {
+    font-size: 17px;
+  }
+
+  /* Headings */
+  .Post__content h1,
+  .Post__content h2,
+  .Post__content h3,
+  .Post__content h4,
+  .Post__content h5,
+  .Post__content h6 {
+    font-family: var(--font-serif);
+    line-height: 1.4;
+    margin-top: 1.8rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .Post__content h2 {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 21px;
+  }
+
+  .Post__content h3 {
+    margin-top: 30px;
+    font-size: 21px;
+  }
+
+  .Post__content h4 {
+    font-size: 16px;
+  }
+
+  .Post__content h6 {
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.53);
+    text-align: center;
+    font-size: 12px;
+    position: relative;
+    top: -25px;
+    margin-bottom: 0;
+  }
+
+  /* Blockquote */
+  .Post__content blockquote {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    font-style: italic;
+    padding-left: 8px;
+    border-left: 5px solid #6b6b6b;
+    color: #656565;
+  }
+
+  /* Table */
+  .Post__content table {
+    overflow-x: auto;
+    max-width: 1200px;
+    border: 1px solid #eee;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .Post__content .glitch-embed-wrap {
+    max-width: 1250px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Code block adjacent headings spacing */
+  .Post__content pre + h2,
+  .Post__content pre + h3,
+  .Post__content pre + h4 {
+    margin-top: 30px !important;
+  }
+
+  .Post__content pre a {
+    color: #69bcdb;
+  }
+
+  /* Image caption (adapted from gatsby-resp-image-figcaption) */
+  .Post__content figcaption {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 45px;
+    font-weight: 600;
+    padding-left: 12px;
+    line-height: 1.9;
+    padding-right: 12px;
+    font-family: 'Open Sans', sans-serif;
+    color: #0000008a;
+    font-size: 12px;
+    max-width: 600px !important;
+  }
+
+  /* Emoji icons */
+  .Post__content img.emoji-icon {
+    display: inline;
+    margin: 0;
+    position: relative;
+    top: 3px;
+    width: 17px;
+  }
+
+  @media (min-width: 576px) {
+    .Post__content p,
+    .Post__content pre,
+    .Post__content ul,
+    .Post__content ol {
+      font-size: 18px;
+    }
+
+    .Post__content h2,
+    .Post__content h3 {
+      margin-top: 30px;
+      font-size: 23px;
+    }
+
+    .Post__content h4 {
+      font-size: 18px;
+    }
+
+    .Post__content img.emoji-icon {
+      width: 19px;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .Post__content p,
+    .Post__content pre,
+    .Post__content ul,
+    .Post__content ol {
+      font-size: 19px;
+    }
+
+    .Post__content h2,
+    .Post__content h3 {
+      margin-top: 40px;
+      font-size: 28px;
+    }
+
+    .Post__content h4 {
+      font-size: 21px;
+    }
+
+    .Post__content img.emoji-icon {
+      width: 21px;
+    }
+  }
+}
+
+@layer base {
+  .icon_svg {
+    width: 21px;
+    height: 21px;
+  }
+
+  p.para {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+  }
+
+  .para::first-letter {
+    float: left;
+    font-size: 328%;
+    height: 0.7em;
+    line-height: 0.85em;
+    margin: 0 0 -5px;
+    padding: 0 0.08em 0 0;
+  }
+}

@@ -1,0 +1,49 @@
+---
+import { getCollection } from 'astro:content'
+import Layout from '../../components/Layout.astro'
+import PostHeader from '../../components/PostHeader.astro'
+import Share from '../../components/Share.astro'
+import { siteConfig } from '../../config'
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog')
+  return posts
+    .filter(post => post.data.published)
+    .map(post => {
+      const slug = post.data.slug || post.slug
+      return {
+        params: { slug },
+        props: { post },
+      }
+    })
+}
+
+const { post } = Astro.props
+const { Content } = await post.render()
+const slug = post.data.slug || post.slug
+const imageUrl = post.data.image
+  ? `${siteConfig.siteUrl}${post.data.image}`
+  : post.data.externalImage
+---
+
+<Layout
+  title={post.data.title}
+  description={post.data.description}
+  url={`${siteConfig.siteUrl}/blog/${slug}`}
+  image={imageUrl}
+  isPost={true}
+  active="blog"
+>
+  <div class="mt-22.5">
+    <PostHeader
+      title={post.data.title}
+      date={post.data.date}
+      image={post.data.image}
+      externalImage={post.data.externalImage}
+    />
+    <div class="Post__content max-w-225 mx-auto px-2.5">
+      <Content />
+    </div>
+    <Share title={post.data.title} path={`blog/${slug}`} />
+  </div>
+</Layout>

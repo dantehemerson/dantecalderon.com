@@ -5,7 +5,10 @@ TimeAgo.addLocale(en)
 
 const timeAgo = new TimeAgo('en-US')
 
-export const secureTimeAgo = date => {
+export const formatDate = (date: Date) =>
+  date.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })
+
+export const secureTimeAgo = (date: string) => {
   try {
     return timeAgo.format(new Date(date))
   } catch (error) {
