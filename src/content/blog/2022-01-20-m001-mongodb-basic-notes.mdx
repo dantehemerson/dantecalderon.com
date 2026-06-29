@@ -19,7 +19,7 @@ tags:
 MongoDB is a NoSQL database.
 
 
-A NoSQL Database is a database that is structured and can be accessed in a different way to SQL databases, it doesn’t use a legacy approach of related tables of data, not in rows and columns. 
+A NoSQL Database is a database that is structured and can be accessed in a different way to SQL databases, it doesn’t use a legacy approach of related tables of data, not in rows and columns.
 
 - The data in MongoDB DB is stored in Documents.
 - Documents are stored in Collections.
@@ -28,7 +28,7 @@ A NoSQL Database is a database that is structured and can be accessed in a diffe
 
 ![MongoDB actors](/images/a6dfe4142490406d84ecdf45501c378d/5fdfcc2b-de21-4cac-b680-7ecc09b72d35-Untitled-00c9ed53.png)
 
-<figcaption className="gatsby-resp-image-figcaption">MongoDB actors</figcaption>
+<figcaption className="gatsby-resp-image-figcaption font-bold">MongoDB actors</figcaption>
 </div>
 
 
@@ -55,7 +55,7 @@ _Value_ - data related to a given identifier.
 ### What is a Collection?
 
 
-An organized store of documents in MongoDB, usually with common fields between documents. 
+An organized store of documents in MongoDB, usually with common fields between documents.
 
 
 There can be many collections per-database and many documents per collection.
@@ -187,7 +187,7 @@ It means a copy of that document will exist on every machine in the Replica Set.
 ### How documents are represented?
 
 
-Documents are saved as BSON which is a binary representation of JSON. 
+Documents are saved as BSON which is a binary representation of JSON.
 
 
 <div className="mdx-image-container with-border wone g1" style={{maxWidth: '400px', borderColor: 'red'}}>
@@ -232,7 +232,7 @@ The additional types in BSON allow for easing communication.
 _MongoDB stores data in BSON internally and over the network, but this doesn’t mean you can’t think of MongoDB as a JSON Database._
 
 
-_Anything you can represent in JSON can also be stored in MongoDB._ 
+_Anything you can represent in JSON can also be stored in MongoDB._
 
 
 _We can retrieve and store data as JSON. Actually, with native SDK always use JSON, we don’t think about BSON, it’s just an internal feature that in our day-to-day we never think of._
@@ -246,7 +246,7 @@ Optional reading:
 ### Importing and Exporting Data
 
 
-> Data is Stored in **BSON** but Viewed in **JSON  
+> Data is Stored in **BSON** but Viewed in **JSON
 >BSON** is great but isn’t human-readable
 
 
@@ -356,7 +356,7 @@ db.inspections.insert([{ "_id": 1, "test": 1 },{ "_id": 1, "test": 2 },{ "_id": 
 ```
 
 
-We can avoid this behaviour by adding the option `{ ordered: false` 
+We can avoid this behaviour by adding the option `{ ordered: false`
 
 
 ```bash
@@ -493,7 +493,7 @@ Class: [https://university.mongodb.com/mercury/M001/2022_January_18/chapter/Chap
 ## **Chapter 5: Indexing and Aggregation Pipeline**
 
 
-Another way to create queries. 
+Another way to create queries.
 
 
 ![](/images/a6dfe4142490406d84ecdf45501c378d/36460ebd-ae69-4795-ace5-d64c8c0ec909-Untitled-345220b6.png)
@@ -520,10 +520,10 @@ Recap:
 ### sort() and limit()
 
 
-`sort` and `limit` are cursor methods. 
+`sort` and `limit` are cursor methods.
 
 
-A cursor method is not applied to the data in the database, instead applied to the results in the cursor after `find` command. 
+A cursor method is not applied to the data in the database, instead applied to the results in the cursor after `find` command.
 
 
 You can sort in increasing or decreasing order:
@@ -624,4 +624,3 @@ Take a look and feel free to browse for more information.
 - [Case study: Forbes](https://www.mongodb.com/blog/post/forbes-cloud-migration-helps-worlds-biggest-media-brand-continue-standard-digital-innovation)
 - [Case study: SEGA](https://www.mongodb.com/blog/post/sega-hardlight-migrates-to-mongodb-atlas-simplify-ops-improve-experience-mobile-gamers)
 - [How the Financial Sector Uses MongoDB](https://www.mongodb.com/industries/financial-services)
-

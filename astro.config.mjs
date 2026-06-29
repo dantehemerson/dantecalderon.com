@@ -27,7 +27,10 @@ export default defineConfig({
   markdown: {
     syntaxHighlight: 'shiki',
     shikiConfig: {
-      theme: 'light-plus',
+      // Themes on: https://textmate-grammars-themes.netlify.app/?theme=aurora-x&grammar=javascript
+      theme: 'dark-plus', // This over github-dark because has most noticeable comments.
+      // theme: 'github-dark',
+      // theme: 'material-theme-darker',
       wrap: true,
     },
     remarkPlugins: [],
