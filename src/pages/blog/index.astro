@@ -2,7 +2,6 @@
 import { getCollection } from 'astro:content'
 import Layout from '../../components/Layout.astro'
 import Card from '../../components/Card.astro'
-import { getAllTagsWithCount, getPostTags } from '../../helpers/tags'
 import { siteConfig } from '../../config'
 
 const allPosts = await getCollection('blog')
@@ -11,25 +10,26 @@ const publishedPosts = allPosts
   .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
 
 const posts = publishedPosts
-const tags = getAllTagsWithCount(publishedPosts.map(p => ({ data: p.data })))
 ---
 
 <Layout title="Blog" url={`${siteConfig.siteUrl}/blog`} active="blog">
-  <div class="Blog mt-22.5">
-    <div class="px-3.75 max-w-200 mx-auto mb-8.75">
+  <div class="mt-22.5">
+    <div class="grid gap-y-2 px-3.75 max-w-175 mx-auto mb-8.75">
       {
-        posts.map(post => {
+        posts.map((post, index) => {
           const slug = post.data.slug || post.slug
           return (
-            <Card
-              title={post.data.title}
-              date={post.data.date}
-              image={post.data.image}
-              externalImage={post.data.externalImage}
-              excerpt={post.data.description || ''}
-              tags={getPostTags(post.data.tags)}
-              slug={slug}
-            />
+            <>
+              <Card
+                title={post.data.title}
+                date={post.data.date}
+                image={post.data.image}
+                externalImage={post.data.externalImage}
+                excerpt={post.data.description || ''}
+                slug={slug}
+              />
+              {index < posts.length - 1 && <div class="border-b border-[#e6e6e6] mx-2" />}
+            </>
           )
         })
       }

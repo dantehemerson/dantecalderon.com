@@ -17,14 +17,14 @@ const { title, date, image, externalImage, excerpt, slug } = Astro.props
 
 <a
   href={`/blog/${slug}`}
-  class="flex items-start text-left flex-col py-5 px-2 m-0 no-underline hover:bg-[#f2f2f2] hover:shadow-[-16px_0_0_0_#f2f2f2,16px_0_0_0_#f2f2f2] md:flex-row"
+  class="flex items-start text-left flex-col py-5 px-2 m-0 rounded-sm no-underline hover:bg-[#f2f2f2] hover:shadow-[-16px_0_0_0_#f2f2f2,16px_0_0_0_#f2f2f2] md:flex-row"
 >
-  <div class="overflow-hidden w-full max-w-125 m-0 md:w-1/4">
+  <div class="overflow-hidden w-full max-w-125 m-0 md:w-1/3">
     {
       image ? (
-        <img alt={`${title} image`} src={image} class="w-full" />
+        <img alt={`${title} image`} src={image} class="w-full rounded-sm" />
       ) : externalImage ? (
-        <img src={externalImage} alt={`${title} image`} class="w-full" />
+        <img src={externalImage} alt={`${title} image`} class="w-full rounded-sm" />
       ) : null
     }
   </div>
@@ -32,7 +32,7 @@ const { title, date, image, externalImage, excerpt, slug } = Astro.props
     <h3 class="font-serif text-[#052d3e] m-0 transition duration-300 text-xl font-semibold">
       {title}
     </h3>
-    <p class="text-[#727272] m-0 text-[13px] pt-2.5 sm:text-[0.8rem]">{excerpt}</p>
+    <p class="m-0 text-sm pt-1 sm:text-[0.8rem]">{excerpt}</p>
     <p class="text-[#727272] text-[11px] m-0 py-3 px-0 pb-1.5">
       <time datetime={date.toISOString()}>{formatDate(date)}</time>
     </p>
