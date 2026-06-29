@@ -27,6 +27,7 @@
 .prose {
   @apply font-serif
     max-w-175
+    mx-auto
     prose-lg;
 }
 
