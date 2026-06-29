@@ -8,7 +8,7 @@ import { getCollection } from 'astro:content'
 import { siteConfig } from '../config'
 
 const allProjects = await getCollection('projects')
-const projects = allProjects.sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+const projects = allProjects.sort((a, b) => (a.data.order ?? 999) - (b.data.order ?? 999))
 ---
 
 <Layout title="Dante Calderon" url={siteConfig.siteUrl}>

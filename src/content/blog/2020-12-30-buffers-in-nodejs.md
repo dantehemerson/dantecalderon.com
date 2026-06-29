@@ -7,7 +7,7 @@ pathPrefix: blog
 slug: buffers-in-nodejs
 image: /images/how-to-free-up-RAM-hero.jpg
 date: '2020-12-30T00:00:00-05:00'
-published: true
+published: false
 tags:
   - Buffer
   - Nodejs
@@ -79,4 +79,3 @@ buffer.toString()
 // Output:
 // > 'Adiós'
 ```
-

@@ -7,6 +7,7 @@ pathPrefix: projects
 slug: one-thing
 image: /images/project-one-thing.png
 date: '2019-07-20T23:20:51-05:00'
+order: 4
 published: true
 href: 'https://extensions.gnome.org/extension/5072/one-thing/'
 hrefText: 'extensions.gnome.org'

@@ -7,6 +7,7 @@ pathPrefix: projects
 slug: guitar-chords
 image: /images/project-guitar-chords.png
 date: '2019-07-20T23:20:51-05:00'
+order: 3
 published: true
 href: 'https://guitar-chords-steel.vercel.app'
 hrefText: 'guitar-chords.app'

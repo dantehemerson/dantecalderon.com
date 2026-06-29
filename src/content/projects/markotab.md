@@ -8,6 +8,7 @@ pathPrefix: projects
 slug: markotab
 image: /images/project-markotab.jpg
 date: '2019-07-19T23:20:51-05:00'
+order: 1
 published: true
 href: 'https://chromewebstore.google.com/detail/markotab-new-tab-bookmark/dcnapgldggagocfpcnhpendecgjdedbh'
 hrefText: 'chromewebstore.google.com'

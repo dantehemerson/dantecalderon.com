@@ -9,7 +9,7 @@ pathPrefix: blog
 slug: improving-ux-ubuntu-workspace
 image: /images/2019_screenshot_switch_windows.png
 date: '2019-12-11T23:19:52-05:00'
-published: true
+published: false
 tags:
   - Ubuntu
   - Linux

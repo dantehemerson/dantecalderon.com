@@ -7,7 +7,7 @@ pathPrefix: blog
 slug: manipulacion-de-bits
 image: /images/bit-manipulation.png
 date: '2018-08-17T03:16:12-05:00'
-published: true
+published: false
 tags:
   - Competitive Programming
   - STLC++
@@ -113,5 +113,3 @@ S >> 2 = 001101 (bin) = 13 (dec) = S / 2²
 S >> 1 = 011010 (bin) = 6  (dec) = S / 2
 ```
 Fin.
-
-

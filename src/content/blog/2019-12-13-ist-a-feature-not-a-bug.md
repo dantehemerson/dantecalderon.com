@@ -9,7 +9,7 @@ pathPrefix: blog
 slug: its-a-feature-not-a-bug
 image: /images/its_a_feature_not_a_bug.jpeg
 date: '2019-12-13T01:17:52-05:00'
-published: true
+published: false
 tags:
   - Meme
   - Fun
@@ -18,4 +18,3 @@ tags:
 > No es importante pero...
 
 Esto me causo mucha risa. 😂
-

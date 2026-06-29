@@ -7,7 +7,7 @@ pathPrefix: blog
 slug: mejores-practicas-con-react
 image: /images/react-best-practices.png
 date: 2018-10-01T20:16:06.768Z
-published: true
+published: false
 tags:
   - ReactJS
   - Best Practices

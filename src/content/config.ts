@@ -24,6 +24,7 @@ const projectCollection = defineCollection({
     title: z.string(),
     subtitle: z.string().optional(),
     date: z.coerce.date(),
+    order: z.number().optional().default(999),
     description: z.string().optional(),
     slug: z.string().optional(),
     image: z.string().optional(),
