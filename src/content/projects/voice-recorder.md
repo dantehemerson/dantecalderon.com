@@ -7,7 +7,7 @@ pathPrefix: projects
 slug: voice-recorder
 image: /images/project-voice-recorder.gif
 date: '2019-07-20T23:20:51-05:00'
-order: 2
+order: 5
 published: true
 href: 'https://recorder.dantecalderon.com'
 hrefText: 'recorder.dantecalderon.com'
