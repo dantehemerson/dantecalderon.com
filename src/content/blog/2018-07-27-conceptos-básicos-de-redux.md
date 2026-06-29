@@ -10,10 +10,6 @@ slug: conceptos-basicos-de-redux
 image: ../../images/conceptos-basicos-redux.jpg
 date: '2018-06-29T09:56:23-05:00'
 published: true
-tags:
-   - ReactJS
-   - Redux
-   - Basics
 ---
 Redux es una pequeña librería de Javascript creada por Facebook que sirve para controlar el estado de una aplicación.
 Esta basada en la arquitectura [Flux](https://facebook.github.io/flux/) de Facebook.

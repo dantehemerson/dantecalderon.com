@@ -32,8 +32,8 @@ export const siteConfig = {
   },
   menu: [
     { title: 'Home', id: 'home', to: '/', icon: 'home' },
-    { title: 'Blog', id: 'blog', to: '/blog', icon: 'blog' },
     { title: 'Projects', id: 'projects', to: '/#projects', icon: 'projects' },
+    { title: 'Blog', id: 'blog', to: '/blog', icon: 'blog' },
   ],
 } as const
 
