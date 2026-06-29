@@ -1,6 +1,6 @@
 # Dante Calderón
 
-Dante' personal website
+Dante' personal website. Check out on [dantecalderon.com](https://dantecalderon.com).
 
 ## Tech Stack
 
@@ -16,13 +16,6 @@ Dante' personal website
 | `npm run dev` | Start dev server |
 | `npm run build` | Build for production |
 | `npm run preview` | Preview production build |
-
-## Features
-
-- 📝 Blog with tag filtering
-- 💼 Project portfolio
-- 📊 Dynamic status section (GitHub stats, listening activity)
-- 🔗 Share buttons on posts
 
 ## Tech Notes
 
