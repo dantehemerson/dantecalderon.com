@@ -1,5 +1,7 @@
 @import 'tailwindcss';
 
+@plugin "@tailwindcss/typography";
+
 @theme {
   --font-sans: 'Open Sans', sans-serif;
   --font-serif: 'Gentium Book Plus', serif;
