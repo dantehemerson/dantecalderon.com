@@ -2,24 +2,16 @@
 import { getCollection } from 'astro:content'
 import Layout from '../../components/Layout.astro'
 import Card from '../../components/Card.astro'
-import Pagination from '../../components/Pagination/Pagination'
 import { getAllTagsWithCount, getPostTags } from '../../helpers/tags'
 import { siteConfig } from '../../config'
-
-const POSTS_PER_PAGE = 20
 
 const allPosts = await getCollection('blog')
 const publishedPosts = allPosts
   .filter(post => post.data.published)
   .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
 
-const totalPages = Math.ceil(publishedPosts.length / POSTS_PER_PAGE)
-const currentPage = 0
-const posts = publishedPosts.slice(0, POSTS_PER_PAGE)
+const posts = publishedPosts
 const tags = getAllTagsWithCount(publishedPosts.map(p => ({ data: p.data })))
-
-const hasNextPage = totalPages > 1
-const hasPrevPage = false
 ---
 
 <Layout title="Blog" url={`${siteConfig.siteUrl}/blog`} active="blog">
@@ -41,13 +33,6 @@ const hasPrevPage = false
           )
         })
       }
-      <Pagination
-        pages={totalPages}
-        selected={currentPage}
-        hasNextPage={hasNextPage}
-        hasPrevPage={hasPrevPage}
-        client:load
-      />
     </div>
   </div>
 </Layout>
