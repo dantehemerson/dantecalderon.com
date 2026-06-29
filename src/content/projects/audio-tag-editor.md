@@ -2,7 +2,7 @@
 model: project
 title: Audio Tag Editor
 subtitle: nop
-description: Edit the metadata of your MP3 and other audio files with ease. Update song titles, artists, albums, cover art, and more through a simple, intuitive interface designed for quick edits.
+description: A simple but useful app that allows you to edit the metadata of your MP3 and other audio files with ease. Update song titles, artists, albums, cover art, and more through a simple, intuitive interface designed for quick edits.
 pathPrefix: projects
 slug: audio-tag-editor
 order: 8
