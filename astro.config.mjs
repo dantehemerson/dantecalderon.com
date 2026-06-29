@@ -36,6 +36,37 @@ export default defineConfig({
       wrap: true,
     },
     remarkPlugins: [],
-    rehypePlugins: [rehypeWrapInProse, rehypeSlug, rehypeAutolinkHeadings],
+    rehypePlugins: [
+      rehypeWrapInProse,
+      rehypeSlug,
+      [
+        rehypeAutolinkHeadings,
+        {
+          behavior: 'append',
+          content: [
+            {
+              type: 'element',
+              tagName: 'span',
+              properties: { className: ['icon'], ariaHidden: true },
+              children: [
+                {
+                  type: 'element',
+                  tagName: 'img',
+                  /**
+                   * Icon from: https://lucide.dev/icons/link
+                   * Customize, inspect, copy element and paste into the file.
+                   */
+                  properties: { src: '/link-16.svg', ariaHidden: true },
+                },
+              ],
+            },
+          ],
+          properties: {
+            className: ['heading-anchor'],
+            ariaLabel: 'Link',
+          },
+        },
+      ],
+    ],
   },
 })

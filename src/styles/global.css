@@ -31,14 +31,42 @@
     prose-lg;
 }
 
+/** Dots in ul: */
 .prose li::marker {
   color: var(--color-body);
 }
 
-/** Styles for links */
-/*.prose a {
-  text-[#e15248];
-}*/
+/** Style the button link to headings */
+/* Target the anchor link image inside any prose header */
+.prose h1 .heading-anchor,
+.prose h2 .heading-anchor,
+.prose h3 .heading-anchor,
+.prose h4 .heading-anchor {
+  @apply m-0 inline-block;
+
+  opacity: 0;
+
+  /* 2. Style the icon size and alignment */
+  width: 1.125rem; /* Adjust size to match your font scale */
+  height: 1.125rem;
+  vertical-align: middle;
+  margin-left: 0.5rem; /* Adds spacing between the text and the icon */
+  user-select: none;
+
+  @apply duration-200;
+}
+
+.heading-anchor img {
+  margin: 0;
+}
+
+/* Brighten the icon when hovering anywhere over the header or the link */
+.prose h1:hover .heading-anchor,
+.prose h2:hover .heading-anchor,
+.prose h3:hover .heading-anchor,
+.prose h4:hover .heading-anchor {
+  opacity: 1;
+}
 
 /** Styles for inline code */
 .prose :not(pre) > code {
@@ -50,6 +78,7 @@
   font-size: 0.78em;
 }
 
+/** Margin to headings urls to anchor, to avoid being hidden behind the sticky header */
 [id] {
   scroll-margin-top: 80px;
 }
