@@ -9,7 +9,7 @@ export interface Props {
 const { date, avatar } = Astro.props
 ---
 
-<div class="flex mb-3.25 px-2.5 mt-5 items-center font-sans">
+<div class="flex mb-3.25 px-2.5 mt-4 items-center font-sans">
   {
     avatar && (
       <img alt="Author post avatar" src={avatar} class="m-0 w-10 h-10 rounded-full mr-3.25" />
@@ -19,11 +19,7 @@ const { date, avatar } = Astro.props
     <p class="m-0 text-[11px] sm:text-[13px] font-semibold text-[#767676] uppercase">
       <a href="/#about-me" class="text-[#0077b5] no-underline block sm:inline"> Dante Calderón </a>
       <b class="hidden sm:inline text-[#575757] font-normal"> | </b>
-      <span
-        >{
-          formatDate(date)
-        }</span
-      >
+      <span>{formatDate(date)}</span>
     </p>
   </div>
 </div>

@@ -31,6 +31,10 @@
     prose-lg;
 }
 
+.prose li::marker {
+  color: var(--color-body);
+}
+
 /** Styles for links */
 /*.prose a {
   text-[#e15248];
