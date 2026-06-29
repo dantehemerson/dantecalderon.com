@@ -15,18 +15,10 @@ export interface Props {
   simple?: boolean
 }
 
-const {
-  title,
-  description,
-  image,
-  url,
-  isPost = false,
-  active = '',
-  simple = false,
-} = Astro.props
+const { title, description, image, url, isPost = false, active = '', simple = false } = Astro.props
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -36,8 +28,13 @@ const {
     <link rel="manifest" href="/manifest.webmanifest" />
   </head>
   <body>
-    <Navbar active={active} menu={siteConfig.menu} title={siteConfig.title} subtitle={siteConfig.subtitle} />
-    <div class="Dyamic-container">
+    <Navbar
+      active={active}
+      menu={siteConfig.menu}
+      title={siteConfig.title}
+      subtitle={siteConfig.subtitle}
+    />
+    <div class="min-h-100vh">
       <slot />
     </div>
     {!simple && <Footer />}
