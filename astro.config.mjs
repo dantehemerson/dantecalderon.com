@@ -5,6 +5,7 @@ import sitemap from '@astrojs/sitemap'
 import tailwindcss from '@tailwindcss/vite'
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 import rehypeSlug from 'rehype-slug'
+import rehypeExternalLinks from 'rehype-external-links'
 
 /** Rehype plugin: wraps all MDX root children in <div class="prose"> */
 function rehypeWrapInProse() {
@@ -38,6 +39,13 @@ export default defineConfig({
     remarkPlugins: [],
     rehypePlugins: [
       rehypeWrapInProse,
+      [
+        rehypeExternalLinks,
+        {
+          target: '_blank',
+          rel: ['noreferrer', 'noopener'],
+        },
+      ],
       rehypeSlug,
       [
         rehypeAutolinkHeadings,
