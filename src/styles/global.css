@@ -16,7 +16,6 @@
 
 @layer base {
   body {
-    text-rendering: geometricPrecision;
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
     color: var(--color-body);
