@@ -6,7 +6,7 @@ description: A simple but useful app that allows you to edit the metadata of you
 pathPrefix: projects
 slug: audio-tag-editor
 order: 8
-image: ../images/audio_tag_editor02.png
+image: ../../images/audio_tag_editor02.png
 date: '2019-07-20T23:20:51-05:00'
 href: 'https://github.com/dantehemerson/audio-tag-editor'
 hrefText: 'Source code on GitHub'

@@ -7,7 +7,7 @@ description: >-
 author: Dante Calderón
 pathPrefix: blog
 slug: conceptos-basicos-de-redux
-image: /images/conceptos-basicos-redux.jpg
+image: ../../images/conceptos-basicos-redux.jpg
 date: '2018-06-29T09:56:23-05:00'
 published: true
 tags:

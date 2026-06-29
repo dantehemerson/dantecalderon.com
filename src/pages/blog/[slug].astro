@@ -23,7 +23,7 @@ const { post } = Astro.props
 const { Content } = await post.render()
 const slug = post.data.slug || post.slug
 const imageUrl = post.data.image
-  ? `${siteConfig.siteUrl}${post.data.image}`
+  ? `${siteConfig.siteUrl}${post.data.image.src}`
   : post.data.externalImage
 ---
 
