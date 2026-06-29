@@ -1,6 +1,8 @@
 # Dante Calderón
 
-Dante' personal website. Check out on [dantecalderon.com](https://dantecalderon.com).
+Welcome! This is the source code for my personal website.
+
+🌐 Visit it at **[dantecalderon.com](https://dantecalderon.com)**.
 
 ## Tech Stack
 
@@ -13,14 +15,13 @@ Dante' personal website. Check out on [dantecalderon.com](https://dantecalderon.
 
 | Command | Action |
 |---------|--------|
-| `npm run dev` | Start dev server |
+| `npm run dev` | Start the development server |
 | `npm run build` | Build for production |
-| `npm run preview` | Preview production build |
+| `npm run preview` | Preview the production build |
 
 ## Tech Notes
 
-* Portfolio thumbnails should use a **4:3 aspect ratio** for a better visual fit in the grid layout.
-
+- Portfolio thumbnails should use a **4:3 aspect ratio** for the best fit in the grid layout.
 
 ## License
 
