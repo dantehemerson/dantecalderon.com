@@ -1,51 +1,34 @@
-# Dante Calderón's Personal Website
+# Dante Calderón
 
-Deployed at: https://dantecalderon.com
+Dante' personal website
 
-## 💪 Powered by:
+## Tech Stack
 
-* Built with [Astro](https://astro.build/)
-* Hosted in [Netlify](https://www.netlify.com/)
+- **Framework:** Astro
+- **Styling:** Tailwind CSS
+- **Content:** MDX + Astro Content Collections
+- **Deploy:** Netlify
 
-See complete stack in [StackShare](https://stackshare.io/dantehemerson/dantecalderon-dev)
+## Commands
 
-## Portfolio
+| Command | Action |
+|---------|--------|
+| `npm run dev` | Start dev server |
+| `npm run build` | Build for production |
+| `npm run preview` | Preview production build |
 
-> **Note:** Portfolio project images should use a **4:3 aspect ratio** for the best visual result. Images with other proportions will be cropped to fit the grid layout.
+## Features
 
-## 💡 Features:
-* [Blog](https://dantecalderon.dev/blog)
-* [Portfolio](https://dantecalderon.dev/portfolio)
-* [Dynamic status section](https://dantecalderon.dev/) supported via [my API](https://github.com/dantehemerson/api):
-  - Github Status
-  - Contributions in last year
-  - Latest commit
-  - Listening
-* [Tech Stack Section](https://dantecalderon.dev/#my-stack)
-* Share Post buttons
-* TypeScript support
-* [Page for each Tag](https://dantecalderon.dev/blog/tags/backend)
+- 📝 Blog with tag filtering
+- 💼 Project portfolio
+- 📊 Dynamic status section (GitHub stats, listening activity)
+- 🔗 Share buttons on posts
 
-## 🚀 Run
+## Tech Notes
 
-Install packages
-```bash
-npm install
-```
+* Portfolio thumbnails should use a **4:3 aspect ratio** for a better visual fit in the grid layout.
 
-And run:
-```bash
-npm run dev
-```
 
-## 💱 Changelog
+## License
 
-**Screenshots**
-
-- https://drive.google.com/drive/folders/1SKe0XkNrWMfgsuf66BzjWmVScmDZ95U5
-
-## ⚖️ License
-
-[MIT](./LICENSE)
-
-[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fdantehemerson%2Fdantecalderon.dev.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fdantehemerson%2Fdantecalderon.dev?ref=badge_large)
+MIT
