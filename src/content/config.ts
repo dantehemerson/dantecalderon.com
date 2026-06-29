@@ -15,7 +15,6 @@ const blogCollection = defineCollection({
       model: z.literal('post'),
       style: z.string().optional(),
       published: z.boolean().default(false),
-      tags: z.array(z.string()).optional(),
     }),
 })
 

@@ -16,7 +16,6 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-
     "format": "prettier --config .prettierrc --write 'src/**/*.{ts,tsx,astro}'",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -37,6 +36,8 @@
     "astro": "^5.7.13",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
+    "rehype-autolink-headings": "^7.1.0",
+    "rehype-slug": "^6.0.0",
     "tailwindcss": "^4.1.5"
   },
   "devDependencies": {
