@@ -1,5 +1,6 @@
 ---
 import Layout from '../components/Layout.astro'
+import MDXContainer from '../components/MDXContainer.astro'
 import HeaderHome from '../components/Home/HeaderHome.astro'
 import AboutContent from '../../content/sections/about.mdx'
 import ProjectsList from '../components/Portfolio/ProjectsList.astro'
@@ -12,8 +13,8 @@ const projects = allProjects.sort((a, b) => b.data.date.getTime() - a.data.date.
 
 <Layout title="Dante Calderon" url={siteConfig.siteUrl}>
   <HeaderHome />
-  <div class="prose max-w-282.5 mx-auto px-3">
+  <MDXContainer>
     <AboutContent />
-  </div>
+  </MDXContainer>
   <ProjectsList projects={projects} className="mt-6" />
 </Layout>

@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content'
 import Layout from '../../components/Layout.astro'
+import MDXContainer from '../../components/MDXContainer.astro'
 import PostHeader from '../../components/PostHeader.astro'
 import Share from '../../components/Share.astro'
 import { siteConfig } from '../../config'
@@ -41,9 +42,9 @@ const imageUrl = post.data.image
       image={post.data.image}
       externalImage={post.data.externalImage}
     />
-    <div class="max-w-225 mx-auto px-2.5">
+    <MDXContainer>
       <Content />
-    </div>
+    </MDXContainer>
     <Share title={post.data.title} path={`blog/${slug}`} />
   </div>
 </Layout>
