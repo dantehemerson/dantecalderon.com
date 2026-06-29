@@ -71,7 +71,6 @@ const icons: Record<string, string> = {
               <a
                 href={item.to}
                 class="text-[15px] font-semibold py-2.5 px-2 text-center rounded-[3px] flex items-center justify-center hover:!bg-[rgba(195,195,195,0.22)] md:py-1.5 md:!px-4 no-underline text-body"
-                class:list={{ '!text-brand-primary': active === item.id }}
               >
                 <span class="pr-1 relative w-5.25 h-4.25">
                   <Fragment set:html={icons[item.icon]} />

@@ -36,7 +36,7 @@ const { title, date, image, externalImage, excerpt, tags, slug } = Astro.props
       tags && tags.length > 0 && (
         <div class="flex gap-1 mt-1">
           {tags.slice(0, 4).map(tag => (
-            <span class="text-xs font-semibold px-2 py-0.5 rounded capitalize bg-[#f7f7f7] text-[#6a6a6a]">
+            <span class="text-xs font-semibold px-2 py-0.5 rounded capitalize bg-[#f2f2f2] text-[#6a6a6a]">
               {tag.title}
             </span>
           ))}
