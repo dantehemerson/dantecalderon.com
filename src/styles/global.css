@@ -49,3 +49,7 @@
 .astro-code {
   font-size: 0.78em;
 }
+
+[id] {
+  scroll-margin-top: 80px;
+}
