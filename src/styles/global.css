@@ -23,3 +23,24 @@
     color: var(--color-body);
   }
 }
+
+.prose {
+  @apply font-serif
+    max-w-175
+    prose-lg;
+}
+
+/** Styles for links */
+/*.prose a {
+  text-[#e15248];
+}*/
+
+/** Styles for inline code */
+.prose :not(pre) > code {
+  @apply font-normal px-1.5 py-0.5 rounded-sm text-[78%] bg-[#f0f0f0] before:content-none after:content-none;
+}
+
+/** Make code blocks smaller */
+.astro-code {
+  font-size: 0.78em;
+}

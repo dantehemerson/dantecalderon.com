@@ -12,7 +12,7 @@ export interface Props {
   slug: string
 }
 
-const { title, date, image, externalImage, excerpt, tags, slug } = Astro.props
+const { title, date, image, externalImage, excerpt, slug } = Astro.props
 ---
 
 <a
@@ -29,20 +29,9 @@ const { title, date, image, externalImage, excerpt, tags, slug } = Astro.props
     }
   </div>
   <div class="w-full h-full m-0 max-w-140 pt-3 md:pl-7.5 md:pt-0 md:w-3/4 md:max-w-full">
-    <h3 class="font-serif text-[#052d3e] m-0 transition duration-300 text-lg sm:text-[1.3rem]">
+    <h3 class="font-serif text-[#052d3e] m-0 transition duration-300 text-xl font-semibold">
       {title}
     </h3>
-    {
-      tags && tags.length > 0 && (
-        <div class="flex gap-1 mt-1">
-          {tags.slice(0, 4).map(tag => (
-            <span class="text-xs font-semibold px-2 py-0.5 rounded capitalize bg-[#f2f2f2] text-[#6a6a6a]">
-              {tag.title}
-            </span>
-          ))}
-        </div>
-      )
-    }
     <p class="text-[#727272] m-0 text-[13px] pt-2.5 sm:text-[0.8rem]">{excerpt}</p>
     <p class="text-[#727272] text-[11px] m-0 py-3 px-0 pb-1.5">
       <time datetime={date.toISOString()}>{formatDate(date)}</time>
