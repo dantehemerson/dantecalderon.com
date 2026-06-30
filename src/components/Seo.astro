@@ -5,6 +5,7 @@ export interface Props {
   image?: string
   url?: string
   isPost?: boolean
+  date?: string | Date
 }
 
 const {
@@ -13,40 +14,51 @@ const {
   image = 'https://dantecalderon.com/logo.png',
   url = 'https://dantecalderon.com',
   isPost = false,
+  date,
 } = Astro.props
 
-const fullTitle = title === 'Dante Calderon' ? title : `${title} · Dante Calderon`
+const siteName = 'Dante Calderon'
+const fullTitle = title === siteName ? title : `${title} · ${siteName}`
 
-// Fix absolute image URL: (https://dantecalderon.com/_astro/....)
 const imageUrl = image.startsWith('http') ? image : `https://dantecalderon.com${image}`
 
-const schemaOrgJSONLD = [
-  {
-    '@context': 'http://schema.org',
-    '@type': 'WebSite',
-    '@id': url + '#website',
-    sameAs: [
-      'https://twitter.com/dantehemerson',
-      'https://www.github.com/dantehemerson',
-      'https://www.instagram.com/dantehemerson',
-      'https://www.linkedin.com/in/dantecalderon',
-    ],
-    url: url,
-    name: fullTitle,
-  },
-]
+const publishedDate = date instanceof Date ? date.toISOString() : date
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Person',
+      '@id': 'https://dantecalderon.com#person',
+      name: 'Dante Calderon',
+      url: 'https://dantecalderon.com',
+      sameAs: [
+        'https://twitter.com/dantehemerson',
+        'https://github.com/dantehemerson',
+        'https://www.linkedin.com/in/dantecalderon',
+      ],
+    },
+    {
+      '@type': 'WebSite',
+      '@id': 'https://dantecalderon.com#website',
+      url: 'https://dantecalderon.com',
+      name: siteName,
+      author: { '@id': 'https://dantecalderon.com#person' },
+    },
+  ],
+}
 
 if (isPost) {
-  schemaOrgJSONLD.push({
-    '@context': 'http://schema.org',
+  schema['@graph'].push({
     '@type': 'BlogPosting',
-    url: url,
-    name: fullTitle,
-    image: {
-      '@type': 'ImageObject',
-      url: imageUrl,
-    },
+    '@id': url + '#article',
+    mainEntityOfPage: url,
+    headline: title,
+    name: title,
     description,
+    image: { '@type': 'ImageObject', url: imageUrl },
+    ...(publishedDate && { datePublished: publishedDate }),
+    author: { '@id': 'https://dantecalderon.com#person' },
   })
 }
 ---
@@ -55,6 +67,8 @@ if (isPost) {
 <meta name="description" content={description} />
 <meta name="image" content={imageUrl} />
 <meta name="distribution" content="global" />
+
+<link rel="canonical" href={url} />
 
 <meta property="og:url" content={url} />
 <meta property="og:type" content={isPost ? 'article' : 'website'} />
@@ -69,13 +83,4 @@ if (isPost) {
 <meta name="twitter:description" content={description} />
 <meta name="twitter:image" content={imageUrl} />
 
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link
-  href="https://fonts.googleapis.com/css2?family=Gentium+Book+Plus:ital,wght@0,400;0,700;1,400;1,700&family=Open+Sans:wght@300..800&display=swap"
-  rel="stylesheet"
-/>
-
-<link rel="manifest" href="/manifest.webmanifest" />
-
-<script is:inline type="application/ld+json" set:html={JSON.stringify(schemaOrgJSONLD)} />
+<script is:inline type="application/ld+json" set:html={JSON.stringify(schema)} />
