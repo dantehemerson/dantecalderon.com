@@ -22,9 +22,7 @@ export async function getStaticPaths() {
 const { post } = Astro.props
 const { Content } = await post.render()
 const slug = post.data.slug || post.slug
-const imageUrl = post.data.image
-  ? `${siteConfig.siteUrl}${post.data.image.src}`
-  : post.data.externalImage
+const imageUrl = post.data.image?.src
 ---
 
 <Layout
@@ -36,12 +34,7 @@ const imageUrl = post.data.image
   active="blog"
 >
   <div class="mt-22.5">
-    <PostHeader
-      title={post.data.title}
-      date={post.data.date}
-      image={post.data.image}
-      externalImage={post.data.externalImage}
-    />
+    <PostHeader title={post.data.title} date={post.data.date} image={post.data.image} />
     <MDXContainer>
       <Content />
     </MDXContainer>

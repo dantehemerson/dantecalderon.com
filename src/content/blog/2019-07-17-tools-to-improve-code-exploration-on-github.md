@@ -11,11 +11,6 @@ slug: tools-to-improve-code-exploration-on-github
 image: ../../images/explore-code-github.jpg
 date: '2019-07-20T01:42:52-05:00'
 published: true
-style: normal-img
-tags:
-  - Github
-  - Tools
-  - Gitpod
 ---
 
 Los programadores pasamos mucho tiempo en Github explorando código, hoy te voy a compartir algunas herramientas que me han sido utiles para la exploracion de código en Github.

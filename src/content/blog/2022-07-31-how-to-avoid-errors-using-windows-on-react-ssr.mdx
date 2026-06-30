@@ -8,9 +8,6 @@ slug: how-to-avoid-errors-using-windows-on-react-ssr
 image: ../../images/bec050c11cb94c83a8117c3f6b54ceb7/a6eb4661-14ef-42f3-9ccc-58cc9432da77-Screenshot-20220730192845-1897x1033-45a4c04f.png
 date: '2022-07-31T00:01:00.000Z'
 published: true
-tags:
-  - reactjs
-  - how-to
 ---
 
 Sometimes when you are developing your React components on SSR frameworks like [Gatsby](https://www.gatsbyjs.com/) or [Next.js](https://nextjs.org/), you run into this error:
@@ -35,7 +32,7 @@ Fortunately, there is a useful library that helps us solve this issue easily, it
 import { window } from 'browser-monads-ts';
 
 export function MyComponent() {
-	
+
 	useEffect(() => {
 		// You can use window anywhere in your code
 		window.addEventListener(...
@@ -47,5 +44,3 @@ export function MyComponent() {
 
 
 What this library does is when it is on the client it will return the real value of `window` otherwise it will return a non-functional value preventing you from getting a **reference error**.
-
-

@@ -9,11 +9,6 @@ slug: configure-travis-ci-for-monorepos
 image: ../../images/travis_ci_subdirs.jpg
 date: '2019-09-07T13:10:52-05:00'
 published: true
-tags:
-  - Continuous Integration
-  - Git
-  - DevOps
-  - Github
 ---
 
 ### Lo primero: ¿Qué son los monorepos?
