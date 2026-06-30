@@ -2,245 +2,27 @@
 
 ---
 
-<style is:global>
-  /* --- 0. 基础：解决 Markdown 标签干扰 --- */
-  .media-album-container p,
-  .media-gallery-masonry p,
-  .media-slider-container p {
-    display: contents !important;
-  }
-
-  /* --- 1. Album: 零裁剪自适应 --- */
-  .media-album-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px !important;
-    margin: 2.5rem auto;
-    min-height: 100px; /* 防塌陷 */
-  }
-  .album-item {
-    flex-grow: 1;
-    position: relative;
-    overflow: hidden;
-  }
-  .album-item img {
-    width: 100% !important;
-    height: auto !important;
-    object-fit: contain !important;
-    display: block;
-    margin: 0 !important;
-  }
-
-  /* --- 2. Masonry Gallery: 两列瀑布流 --- */
-  .media-gallery-masonry {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 40px 30px;
-    margin: 2.5rem auto;
-    align-items: start;
-  }
-  .masonry-item {
-    display: flex;
-    flex-direction: column;
-  }
-  .masonry-item img {
-    width: 100%;
-    height: auto;
-    display: block;
-    margin: 0 !important;
-  }
-  .masonry-caption {
-    margin-top: 12px;
-    font-size: 0.85rem;
-    color: #71717a;
-  }
-
-  /* --- 3. Single Image: 文章正文单图 --- */
-  .single-image-container {
-    margin: 2rem auto;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .single-image-caption {
-    margin-top: 8px;
-    font-size: 0.75rem;
-    font-weight: 600;
-    color: #777;
-    font-family: var(--font-sans);
-  }
-
-  /* --- 4. Slider: 图片在上文字在下 --- */
-  .media-slider-wrapper {
-    margin: 3.5rem auto;
-    display: flex;
-    flex-direction: column;
-  }
-  .media-slider-container {
-    width: 100%;
-    order: 1;
-    overflow: hidden;
-    position: relative;
-  }
-  .slider-footer {
-    order: 2;
-    margin-top: 0.5em;
-    text-align: center;
-  }
-  .slider-caption-text {
-    font-size: 0.95rem;
-    color: #3f3f46;
-    min-height: 1.2em;
-  }
-  .swiper-pagination-custom {
-    margin-top: 12px;
-  }
-
-  /* Lightbox 底部文字 */
-  .pswp__caption {
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    padding: 20px;
-    background: rgba(0, 0, 0, 0.7);
-    color: white;
-    text-align: center;
-  }
-
-  @media (max-width: 768px) {
-    .media-gallery-masonry {
-      grid-template-columns: 1fr;
-    }
-    .album-item {
-      flex-basis: 100% !important;
-    }
-  }
-</style>
-
 <script>
   import PhotoSwipeLightbox from 'photoswipe/lightbox'
   import 'photoswipe/style.css'
-  import Swiper from 'swiper'
-  import { Navigation, Pagination, Autoplay } from 'swiper/modules'
-  import 'swiper/css'
-  import 'swiper/css/navigation'
-  import 'swiper/css/pagination'
 
   function initMediaSystem() {
-    // Atributo para imagenes procesadas y evitar procesamiento duplicado
-    const MARKER = 'data-media-enhanced'
-
-    // 辅助函数：安全包装灯箱链接
-    function wrapLightbox(img, parent) {
-      if (img.hasAttribute(MARKER) || img.hasAttribute('aria-hidden')) return
-
-      const a = document.createElement('a')
-      a.className = 'pswp-link'
-      a.href = img.src
-      a.dataset.pswpWidth = img.getAttribute('width')
-      a.dataset.pswpHeight = img.getAttribute('height')
-
-      a.dataset.caption = img.alt || ''
-      img.setAttribute(MARKER, 'true')
-
-      img.parentNode.insertBefore(a, img)
-      a.appendChild(img)
-      parent.appendChild(a)
-    }
-
-    // --- 1. 处理 Album ---
-    document.querySelectorAll('.media-album-container img').forEach(img => {
-      if (img.hasAttribute(MARKER)) return
-      const container = img.closest('.media-album-container')
-      const item = document.createElement('div')
-      item.className = 'album-item'
-
-      const setStyles = () => {
-        const ratio = img.naturalWidth / img.naturalHeight || 1.5
-        item.style.flexGrow = ratio.toString()
-        item.style.flexBasis = ratio * 280 + 'px'
-        wrapLightbox(img, item)
-      }
-
-      container.appendChild(item) // 移动到容器内
-      if (img.complete) setStyles()
-      else img.onload = setStyles
-    })
-
-    // --- 2. 处理 Masonry ---
-    document.querySelectorAll('.media-gallery-masonry img').forEach(img => {
-      if (img.hasAttribute(MARKER)) return
-      const container = img.closest('.media-gallery-masonry')
-      const item = document.createElement('div')
-      item.className = 'masonry-item'
-
-      const cap = document.createElement('div')
-      cap.className = 'masonry-caption'
-      cap.innerText = img.alt || ''
-
-      container.appendChild(item)
-      wrapLightbox(img, item)
-      item.appendChild(cap)
-    })
-
-    // --- 3. 处理 Slider ---
-    document.querySelectorAll('.media-slider-container').forEach(el => {
-      if (el.classList.contains('swiper-initialized')) return
-
-      const wrapper = document.createElement('div')
-      wrapper.className = 'media-slider-wrapper'
-      el.parentNode.insertBefore(wrapper, el)
-      wrapper.appendChild(el)
-
-      const images = Array.from(el.querySelectorAll('img'))
-      const swiperWrapper = document.createElement('div')
-      swiperWrapper.className = 'swiper-wrapper'
-
-      images.forEach(img => {
-        const slide = document.createElement('div')
-        slide.className = 'swiper-slide'
-        const a = document.createElement('a')
-        a.className = 'pswp-link'
+    // --- Sync pswp-link href to resolved img.src ---
+    document.querySelectorAll<HTMLAnchorElement>('.pswp-link').forEach(a => {
+      const img = a.querySelector('img')
+      if (img) {
+        // These fields cannot be generated on build time because rehype plugins run
+        // before astro image optimization.
         a.href = img.src
-        a.dataset.pswpWidth = (img.naturalWidth || 1200).toString()
-        a.dataset.pswpHeight = (img.naturalHeight || 800).toString()
-        a.dataset.caption = img.alt || ''
-        const newImg = img.cloneNode(true)
-        newImg.setAttribute(MARKER, 'true')
-        a.appendChild(newImg)
-        slide.appendChild(a)
-        swiperWrapper.appendChild(slide)
-      })
 
-      el.innerHTML = ''
-      el.appendChild(swiperWrapper)
-
-      const footer = document.createElement('div')
-      footer.className = 'slider-footer'
-      footer.innerHTML = `<div class="slider-caption-text"></div><div class="swiper-pagination-custom"></div>`
-      wrapper.appendChild(footer)
-
-      new Swiper(el, {
-        modules: [Navigation, Pagination, Autoplay],
-        loop: true,
-        navigation: true,
-        pagination: { el: footer.querySelector('.swiper-pagination-custom'), clickable: true },
-        on: {
-          init: s => {
-            footer.querySelector('.slider-caption-text').innerText = images[s.realIndex]?.alt || ''
-          },
-          slideChange: s => {
-            footer.querySelector('.slider-caption-text').innerText = images[s.realIndex]?.alt || ''
-          },
-        },
-      })
-      el.querySelectorAll('img').forEach(i => i.setAttribute(MARKER, 'true'))
+        const width = img.getAttribute('width') ?? undefined
+        const height = img.getAttribute('height') ?? undefined
+        a.dataset.pswpWidth = width
+        a.dataset.pswpHeight = height
+      }
     })
 
-    // --- 4. Init PhotoSwipe ---
+    // --- Init PhotoSwipe ---
     const lightbox = new PhotoSwipeLightbox({
       gallery: '.prose',
       children: '.pswp-link',
@@ -259,6 +41,7 @@
         },
       })
     })
+
     lightbox.init()
   }
 

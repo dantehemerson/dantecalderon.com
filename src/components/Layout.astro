@@ -11,11 +11,12 @@ export interface Props {
   image?: string
   url?: string
   isPost?: boolean
+  date?: string | Date
   active?: string
   simple?: boolean
 }
 
-const { title, description, image, url, isPost = false, active = '', simple = false } = Astro.props
+const { title, description, image, url, isPost = false, date, active = '', simple = false } = Astro.props
 ---
 
 <!doctype html>
@@ -23,9 +24,15 @@ const { title, description, image, url, isPost = false, active = '', simple = fa
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <Seo title={title} description={description} image={image} url={url} isPost={isPost} />
+    <Seo title={title} description={description} image={image} url={url} isPost={isPost} date={date} />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="manifest" href="/manifest.webmanifest" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Gentium+Book+Plus:ital,wght@0,400;0,700;1,400;1,700&family=Open+Sans:wght@300..800&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <Navbar
