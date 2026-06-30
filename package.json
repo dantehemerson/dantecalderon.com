@@ -35,6 +35,7 @@
     "@tailwindcss/vite": "^4.1.5",
     "astro": "^5.7.13",
     "hastscript": "^9.0.1",
+    "photoswipe": "^5.4.4",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "rehype-autolink-headings": "^7.1.0",
