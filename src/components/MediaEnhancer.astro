@@ -1,8 +1,5 @@
 ---
-/**
- * MediaEnhancer.astro - 最终稳定版
- * 整合：Album, Gallery(Masonry), Slider, 单图自动 Caption, Lightbox(底端文字)
- */
+
 ---
 
 <style is:global>
@@ -66,10 +63,13 @@
     flex-direction: column;
     align-items: center;
   }
+
   .single-image-caption {
-    margin-top: 12px;
-    font-size: 0.85rem;
-    color: #71717a;
+    margin-top: 8px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #777;
+    font-family: var(--font-sans);
   }
 
   /* --- 4. Slider: 图片在上文字在下 --- */
@@ -99,7 +99,7 @@
   }
 
   /* Lightbox 底部文字 */
-  .pswp__custom-caption {
+  .pswp__caption {
     position: absolute;
     left: 0;
     right: 0;
@@ -130,7 +130,7 @@
   import 'swiper/css/pagination'
 
   function initMediaSystem() {
-    // 标记位：防止重复处理
+    // Atributo para imagenes procesadas y evitar procesamiento duplicado
     const MARKER = 'data-media-enhanced'
 
     // 辅助函数：安全包装灯箱链接
@@ -246,44 +246,45 @@
     })
 
     // --- 4. 处理单图 ---
-    document.querySelectorAll('.prose img').forEach(img => {
-      if (img.hasAttribute(MARKER)) return
-
-      console.log('IMAGE IS: ', img.attributes.src)
+    document.querySelectorAll<HTMLImageElement>('.prose img').forEach(img => {
+      // Ignore processed images and hidden images
+      if (img.hasAttribute(MARKER) || img.hasAttribute('aria-hidden')) return
 
       const container = document.createElement('div')
       container.className = 'single-image-container not-prose'
       const parentP = img.closest('p')
       const target = parentP || img
 
-      target.parentNode.insertBefore(container, target)
+      target.parentNode!.insertBefore(container, target)
       wrapLightbox(img, container)
 
-      if (img.alt) {
+      const altText = img.alt
+
+      if (altText) {
         const cap = document.createElement('div')
         cap.className = 'single-image-caption'
-        cap.innerText = img.alt
+        cap.innerText = altText
         container.appendChild(cap)
       }
+
       if (parentP && parentP.innerText.trim() === '') parentP.remove()
     })
 
-    // --- 5. 初始化 PhotoSwipe ---
+    // --- 5. Init PhotoSwipe ---
     const lightbox = new PhotoSwipeLightbox({
       gallery: '.prose',
       children: '.pswp-link',
       pswpModule: () => import('photoswipe'),
     })
     lightbox.on('uiRegister', function () {
-      lightbox.pswp.ui.registerElement({
-        name: 'custom-caption',
+      lightbox.pswp!.ui!.registerElement({
+        name: 'caption',
         order: 9,
         tagName: 'div',
-        alignment: 'bottom',
         onInit: (el, pswp) => {
           pswp.on('change', () => {
-            const curr = pswp.currSlide.data.element
-            el.innerHTML = curr ? curr.dataset.caption : ''
+            const currentEl = pswp.currSlide!.data.element
+            el.innerHTML = currentEl?.dataset?.caption ?? ''
           })
         },
       })
@@ -291,7 +292,6 @@
     lightbox.init()
   }
 
-  // 确保执行
   document.addEventListener('astro:page-load', initMediaSystem)
   initMediaSystem()
 </script>
