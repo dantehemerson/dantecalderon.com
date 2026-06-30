@@ -31,6 +31,36 @@
     prose-lg;
 }
 
+/** ----/START: Images with photoswipe ----- */
+.prose .single-image-container {
+  margin: 2rem auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.prose .single-image-caption {
+  margin-top: 8px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #777;
+  font-family: var(--font-sans);
+}
+
+/** Photoswipe caption in previewer */
+.pswp__caption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  text-align: center;
+}
+/** ----/END: Images with photoswipe ------ */
+
 /** Dots in ul: */
 .prose li::marker {
   color: var(--color-body);
@@ -55,11 +85,9 @@
 
   @apply duration-200;
 }
-
 .heading-anchor img {
   margin: 0;
 }
-
 /* Brighten the icon when hovering anywhere over the header or the link */
 .prose h1:hover .heading-anchor,
 .prose h2:hover .heading-anchor,

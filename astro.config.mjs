@@ -48,29 +48,8 @@ function rehypeEnhanceSingleImages() {
 
       const img = meaningful[0]
       const alt = img.properties?.alt || ''
-      const width = img.properties?.width
-      const height = img.properties?.height
       const src = img.properties?.src || ''
-
-      // Extract original image path from /_image?href=... URL
-      let originalHref = src
-      try {
-        // src looks like: /_image?href=%2F%40fs%2F...%2Fsrc%2Fimages%2Ffoo.png%3F...
-        const url = new URL(src, 'http://localhost')
-        const hrefParam = url.searchParams.get('href')
-        if (hrefParam) {
-          // hrefParam is like: /@fs/Users/d/.../src/images/foo.png?origWidth=...
-          const decoded = decodeURIComponent(hrefParam)
-          // Strip the /@fs/.../ filesystem prefix, keep from /src/ onward
-          const srcIndex = decoded.indexOf('/src/')
-          if (srcIndex !== -1) {
-            // Remove any query string from the original path
-            originalHref = decoded.slice(srcIndex).split('?')[0]
-          }
-        }
-      } catch (_) {
-        // If parsing fails, fall back to the img src as-is
-      }
+      const title = img.properties?.title
 
       // Mark image as already processed
       img.properties = { ...img.properties, 'data-media-enhanced': 'true' }
@@ -80,10 +59,9 @@ function rehypeEnhanceSingleImages() {
         tagName: 'a',
         properties: {
           className: ['pswp-link'],
-          href: originalHref,
-          'data-pswp-width': width ? String(width) : undefined,
-          'data-pswp-height': height ? String(height) : undefined,
+          href: src,
           'data-caption': alt,
+          'data-title': title,
         },
         children: [img],
       }
