@@ -11,7 +11,7 @@ const {
   title = 'Dante Calderon',
   description = 'Dante Calderon - Backend Node.js Developer',
   image = 'https://dantecalderon.com/logo.png',
-  url = 'https://dantecalderon.com/',
+  url = 'https://dantecalderon.com',
   isPost = false,
 } = Astro.props
 
@@ -24,67 +24,30 @@ const schemaOrgJSONLD = [
   {
     '@context': 'http://schema.org',
     '@type': 'WebSite',
+    '@id': url + '#website',
     sameAs: [
       'https://twitter.com/dantehemerson',
-      'https://www.facebook.com/Dante-Calder%C3%B3n-600909820246917/',
-      'https://plus.google.com/u/0/101542534057875808813',
-      'https://www.instagram.com/dantehemerson',
       'https://www.github.com/dantehemerson',
+      'https://www.instagram.com/dantehemerson',
       'https://www.linkedin.com/in/dantecalderon',
     ],
     url: url,
     name: fullTitle,
-    alternateName: description,
   },
 ]
 
 if (isPost) {
-  schemaOrgJSONLD.push(
-    {
-      '@context': 'http://schema.org',
-      '@type': 'BreadcrumbList',
-      sameAs: [
-        'https://twitter.com/dantehemerson',
-        'https://www.facebook.com/Dante-Calder%C3%B3n-600909820246917/',
-        'https://plus.google.com/u/0/101542534057875808813',
-        'https://www.instagram.com/dantehemerson',
-        'https://www.github.com/dantehemerson',
-        'https://www.linkedin.com/in/dantecalderon',
-      ],
-      itemListElement: [
-        {
-          '@type': 'ListItem',
-          position: 1,
-          item: {
-            '@id': url,
-            name: fullTitle,
-            image: image,
-          },
-        },
-      ],
+  schemaOrgJSONLD.push({
+    '@context': 'http://schema.org',
+    '@type': 'BlogPosting',
+    url: url,
+    name: fullTitle,
+    image: {
+      '@type': 'ImageObject',
+      url: imageUrl,
     },
-    {
-      '@context': 'http://schema.org',
-      '@type': 'BlogPosting',
-      sameAs: [
-        'https://twitter.com/dantehemerson',
-        'https://www.facebook.com/Dante-Calder%C3%B3n-600909820246917/',
-        'https://plus.google.com/u/0/101542534057875808813',
-        'https://www.instagram.com/dantehemerson',
-        'https://www.github.com/dantehemerson',
-        'https://www.linkedin.com/in/dantecalderon',
-      ],
-      url: url,
-      name: fullTitle,
-      alternateName: `${url} | Dante Calderon`,
-      headline: fullTitle,
-      image: {
-        '@type': 'ImageObject',
-        url: image,
-      },
-      description,
-    }
-  )
+    description,
+  })
 }
 ---
 
@@ -92,9 +55,7 @@ if (isPost) {
 <meta name="description" content={description} />
 <meta name="image" content={imageUrl} />
 <meta name="distribution" content="global" />
-<meta name="p:domain_verify" content="c397688e54fbd5c1a5dc40a1db9b809f" />
 
-<meta property="fb:app_id" content="302184056577324" />
 <meta property="og:url" content={url} />
 <meta property="og:type" content={isPost ? 'article' : 'website'} />
 <meta property="og:title" content={fullTitle} />
