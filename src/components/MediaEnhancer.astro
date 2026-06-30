@@ -7,9 +7,6 @@
   import 'photoswipe/style.css'
 
   function initMediaSystem() {
-    // Attribute to mark processed images and avoid duplicate processing
-    const MARKER = 'data-media-enhanced'
-
     // --- Sync pswp-link href to resolved img.src ---
     document.querySelectorAll<HTMLAnchorElement>('.pswp-link').forEach(a => {
       const img = a.querySelector('img')

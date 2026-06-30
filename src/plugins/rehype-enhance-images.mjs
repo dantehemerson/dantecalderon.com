@@ -17,8 +17,6 @@ export default function rehypeEnhanceSingleImages() {
       const src = img.properties?.src || ''
       const title = img.properties?.title
 
-      img.properties = { ...img.properties, 'data-media-enhanced': 'true' }
-
       const anchor = {
         type: 'element',
         tagName: 'a',
