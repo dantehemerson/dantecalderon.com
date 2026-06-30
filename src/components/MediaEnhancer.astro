@@ -135,18 +135,13 @@
 
     // 辅助函数：安全包装灯箱链接
     function wrapLightbox(img, parent) {
-      if (img.hasAttribute(MARKER)) return
+      if (img.hasAttribute(MARKER) || img.hasAttribute('aria-hidden')) return
 
       const a = document.createElement('a')
       a.className = 'pswp-link'
       a.href = img.src
-
-      const updateSize = () => {
-        a.dataset.pswpWidth = img.naturalWidth.toString()
-        a.dataset.pswpHeight = img.naturalHeight.toString()
-      }
-      if (img.complete) updateSize()
-      else img.onload = updateSize
+      a.dataset.pswpWidth = img.getAttribute('width')
+      a.dataset.pswpHeight = img.getAttribute('height')
 
       a.dataset.caption = img.alt || ''
       img.setAttribute(MARKER, 'true')
@@ -245,32 +240,7 @@
       el.querySelectorAll('img').forEach(i => i.setAttribute(MARKER, 'true'))
     })
 
-    // --- 4. 处理单图 ---
-    document.querySelectorAll<HTMLImageElement>('.prose img').forEach(img => {
-      // Ignore processed images and hidden images
-      if (img.hasAttribute(MARKER) || img.hasAttribute('aria-hidden')) return
-
-      const container = document.createElement('div')
-      container.className = 'single-image-container not-prose'
-      const parentP = img.closest('p')
-      const target = parentP || img
-
-      target.parentNode!.insertBefore(container, target)
-      wrapLightbox(img, container)
-
-      const altText = img.alt
-
-      if (altText) {
-        const cap = document.createElement('div')
-        cap.className = 'single-image-caption'
-        cap.innerText = altText
-        container.appendChild(cap)
-      }
-
-      if (parentP && parentP.innerText.trim() === '') parentP.remove()
-    })
-
-    // --- 5. Init PhotoSwipe ---
+    // --- 4. Init PhotoSwipe ---
     const lightbox = new PhotoSwipeLightbox({
       gallery: '.prose',
       children: '.pswp-link',
