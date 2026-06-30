@@ -249,6 +249,8 @@
     document.querySelectorAll('.prose img').forEach(img => {
       if (img.hasAttribute(MARKER)) return
 
+      console.log('IMAGE IS: ', img.attributes.src)
+
       const container = document.createElement('div')
       container.className = 'single-image-container not-prose'
       const parentP = img.closest('p')
