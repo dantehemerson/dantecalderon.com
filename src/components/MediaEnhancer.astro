@@ -13,7 +13,7 @@
     // --- Sync pswp-link href to resolved img.src ---
     document.querySelectorAll<HTMLAnchorElement>('.pswp-link').forEach(a => {
       const img = a.querySelector('img')
-      if (img && !img.hasAttribute(MARKER)) {
+      if (img) {
         // These fields cannot be generated on build time because rehype plugins run
         // before astro image optimization.
         a.href = img.src
