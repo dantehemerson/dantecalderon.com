@@ -17,6 +17,9 @@ const {
 
 const fullTitle = title === 'Dante Calderon' ? title : `${title} · Dante Calderon`
 
+// Fix absolute image URL: (https://dantecalderon.com/_astro/....)
+const imageUrl = image.startsWith('http') ? image : `https://dantecalderon.com${image}`
+
 const schemaOrgJSONLD = [
   {
     '@context': 'http://schema.org',
@@ -87,7 +90,7 @@ if (isPost) {
 
 <title>{fullTitle}</title>
 <meta name="description" content={description} />
-<meta name="image" content={image} />
+<meta name="image" content={imageUrl} />
 <meta name="distribution" content="global" />
 <meta name="p:domain_verify" content="c397688e54fbd5c1a5dc40a1db9b809f" />
 
@@ -96,14 +99,14 @@ if (isPost) {
 <meta property="og:type" content={isPost ? 'article' : 'website'} />
 <meta property="og:title" content={fullTitle} />
 <meta property="og:description" content={description} />
-<meta property="og:image" content={image} />
+<meta property="og:image" content={imageUrl} />
 
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:site" content="@dantehemerson" />
 <meta name="twitter:creator" content="@dantehemerson" />
 <meta name="twitter:title" content={fullTitle} />
 <meta name="twitter:description" content={description} />
-<meta name="twitter:image" content={image} />
+<meta name="twitter:image" content={imageUrl} />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
