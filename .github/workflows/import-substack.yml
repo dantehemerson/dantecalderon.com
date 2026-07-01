@@ -1,0 +1,47 @@
+name: Import Substack Post
+
+on:
+  workflow_dispatch:
+    inputs:
+      substack_url:
+        description: 'URL of the Substack post to import (e.g. https://example.substack.com/p/my-post)'
+        required: true
+        type: string
+
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Clone Substack2Markdown & install deps
+        run: |
+          git clone https://github.com/timf34/Substack2Markdown.git /tmp/substack2md
+          pip install -r /tmp/substack2md/requirements.txt
+
+      - name: Scrape post
+        run: |
+          python /tmp/substack2md/substack_scraper.py \
+            --url "${{ github.event.inputs.substack_url }}" \
+            --directory /tmp/output \
+            --frontmatter mdx
+
+      - name: Copy generated file to blog folder
+        run: |
+          cp /tmp/output/*/*.md src/content/blog/
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v7
+        with:
+          commit-message: 'Import Substack post'
+          title: 'New blog post from Substack'
+          body: |
+            Imported from ${{ github.event.inputs.substack_url }}
+          branch: substack-post-${{ github.run_id }}
+          delete-branch: true
