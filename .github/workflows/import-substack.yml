@@ -26,12 +26,26 @@ jobs:
           pip install -r /tmp/substack2md/requirements.txt
 
       - name: Scrape post
+        continue-on-error: true
+        id: scrape
         run: |
           cd /tmp/substack2md && python substack_scraper.py \
             --url "${{ github.event.inputs.substack_url }}" \
             --directory "/tmp/output" --headless --premium --skip-login
 
+      - name: Debug - dump page HTML
+        if: always()
+        run: |
+          DEBUG_FILE=$(find /tmp/output/_debug -name "*.html" 2>/dev/null | head -1)
+          if [ -n "$DEBUG_FILE" ]; then
+            echo "=== Debug HTML: $DEBUG_FILE ==="
+            cat "$DEBUG_FILE"
+          else
+            echo "No debug HTML found"
+          fi
+
       - name: Copy generated file to blog folder
+        if: steps.scrape.outcome == 'success'
         run: |
           cp /tmp/output/*/*.md src/content/blog/
 
