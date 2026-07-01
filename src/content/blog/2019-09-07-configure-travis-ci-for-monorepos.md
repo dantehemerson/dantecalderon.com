@@ -30,6 +30,7 @@ Los repositorios multiproyectos o [monorepos](https://en.wikipedia.org/wiki/Mono
 Si no tienes una cuenta en TravisCI puedes loguearte con tu cuenta de Github ingresando a https://travis-ci.org.
 
 Una vez dentro añadimos un nuevo repositorio haciendo click en el boton con el simbolo `+`:
+
 ![Resultados del build en travis-ci.org](../../images/travis-new-repo.jpg)
 
 Y activamos el repositorio:
