@@ -27,7 +27,7 @@ jobs:
 
       - name: Scrape post
         run: |
-          python /tmp/substack2md/substack_scraper.py \
+          cd /tmp/substack2md && python substack_scraper.py \
             --url "${{ github.event.inputs.substack_url }}" \
             --directory /tmp/output \
             --frontmatter mdx
