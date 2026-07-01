@@ -22,7 +22,8 @@ export default function rehypeEnhanceSingleImages() {
         tagName: 'a',
         properties: {
           className: ['pswp-link'],
-          href: src,
+          // do nothing if photoswipe not loaded:
+          href: 'javascript:void(0)',
           'data-caption': alt,
           'data-title': title,
         },
