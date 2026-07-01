@@ -29,8 +29,7 @@ jobs:
         run: |
           cd /tmp/substack2md && python substack_scraper.py \
             --url "${{ github.event.inputs.substack_url }}" \
-            --directory /tmp/output \
-            --frontmatter mdx
+            --directory /tmp/output
 
       - name: Copy generated file to blog folder
         run: |
