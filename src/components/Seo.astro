@@ -33,6 +33,7 @@ const optimizedOpenGraphImage = image
 
 const siteName = 'Dante Calderon'
 const fullTitle = title === siteName ? title : `${title} · ${siteName}`
+const openGraphTitle = title
 
 const openGraphImageUrl =
   optimizedOpenGraphImage?.src ?? image?.src ?? 'https://dantecalderon.com/logo.png'
@@ -87,14 +88,15 @@ if (isPost) {
 
 <meta property="og:url" content={url} />
 <meta property="og:type" content={isPost ? 'article' : 'website'} />
-<meta property="og:title" content={fullTitle} />
+<meta property="og:title" content={openGraphTitle} />
 <meta property="og:description" content={description} />
 <meta property="og:image" content={openGraphImageUrl} />
+<meta property="og:site_name" content={siteName} />
 
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:site" content="@dantehemerson" />
 <meta name="twitter:creator" content="@dantehemerson" />
-<meta name="twitter:title" content={fullTitle} />
+<meta name="twitter:title" content={openGraphTitle} />
 <meta name="twitter:description" content={description} />
 <meta name="twitter:image" content={openGraphImageUrl} />
 
