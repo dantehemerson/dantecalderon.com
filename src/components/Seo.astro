@@ -1,8 +1,10 @@
 ---
+import { getImage } from 'astro:assets'
+
 export interface Props {
   title?: string
   description?: string
-  image?: string
+  image?: ImageMetadata
   url?: string
   isPost?: boolean
   date?: string | Date
@@ -11,20 +13,33 @@ export interface Props {
 const {
   title = 'Dante Calderon',
   description = 'Dante Calderon - Backend Node.js Developer',
-  image = 'https://dantecalderon.com/logo.png',
+  image,
   url = 'https://dantecalderon.com',
   isPost = false,
   date,
 } = Astro.props
 
+// Create image for OpenGraph. Aspect Ratio: 1.91:1
+const optimizedOpenGraphImage = image
+  ? await getImage({
+      src: image,
+      width: 1200,
+      height: 630,
+      format: 'jpeg', // JPEGs are widely supported by OG parsers
+      fit: 'cover',
+      position: 'center',
+    })
+  : null
+
 const siteName = 'Dante Calderon'
 const fullTitle = title === siteName ? title : `${title} · ${siteName}`
 
-const imageUrl = image.startsWith('http') ? image : `https://dantecalderon.com${image}`
+const openGraphImageUrl =
+  optimizedOpenGraphImage?.src ?? image?.src ?? 'https://dantecalderon.com/logo.png'
 
 const publishedDate = date instanceof Date ? date.toISOString() : date
 
-const schema = {
+const schema: any = {
   '@context': 'https://schema.org',
   '@graph': [
     {
@@ -56,7 +71,7 @@ if (isPost) {
     headline: title,
     name: title,
     description,
-    image: { '@type': 'ImageObject', url: imageUrl },
+    image: { '@type': 'ImageObject', url: openGraphImageUrl },
     ...(publishedDate && { datePublished: publishedDate }),
     author: { '@id': 'https://dantecalderon.com#person' },
   })
@@ -65,7 +80,7 @@ if (isPost) {
 
 <title>{fullTitle}</title>
 <meta name="description" content={description} />
-<meta name="image" content={imageUrl} />
+<meta name="image" content={openGraphImageUrl} />
 <meta name="distribution" content="global" />
 
 <link rel="canonical" href={url} />
@@ -74,13 +89,13 @@ if (isPost) {
 <meta property="og:type" content={isPost ? 'article' : 'website'} />
 <meta property="og:title" content={fullTitle} />
 <meta property="og:description" content={description} />
-<meta property="og:image" content={imageUrl} />
+<meta property="og:image" content={openGraphImageUrl} />
 
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:site" content="@dantehemerson" />
 <meta name="twitter:creator" content="@dantehemerson" />
 <meta name="twitter:title" content={fullTitle} />
 <meta name="twitter:description" content={description} />
-<meta name="twitter:image" content={imageUrl} />
+<meta name="twitter:image" content={openGraphImageUrl} />
 
 <script is:inline type="application/ld+json" set:html={JSON.stringify(schema)} />

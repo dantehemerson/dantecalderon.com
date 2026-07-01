@@ -22,14 +22,13 @@ export async function getStaticPaths() {
 const { post } = Astro.props
 const { Content } = await post.render()
 const slug = post.data.slug || post.slug
-const imageUrl = post.data.image?.src
 ---
 
 <Layout
   title={post.data.title}
   description={post.data.description}
   url={`${siteConfig.siteUrl}/blog/${slug}`}
-  image={imageUrl}
+  image={post.data.image}
   isPost={true}
   date={post.data.date}
   active="blog"

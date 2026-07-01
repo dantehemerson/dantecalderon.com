@@ -8,7 +8,7 @@ import { siteConfig } from '../config'
 export interface Props {
   title?: string
   description?: string
-  image?: string
+  image?: ImageMetadata
   url?: string
   isPost?: boolean
   date?: string | Date
@@ -16,7 +16,16 @@ export interface Props {
   simple?: boolean
 }
 
-const { title, description, image, url, isPost = false, date, active = '', simple = false } = Astro.props
+const {
+  title,
+  description,
+  image,
+  url,
+  isPost = false,
+  date,
+  active = '',
+  simple = false,
+} = Astro.props
 ---
 
 <!doctype html>
@@ -24,7 +33,14 @@ const { title, description, image, url, isPost = false, date, active = '', simpl
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <Seo title={title} description={description} image={image} url={url} isPost={isPost} date={date} />
+    <Seo
+      title={title}
+      description={description}
+      image={image}
+      url={url}
+      isPost={isPost}
+      date={date}
+    />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="manifest" href="/manifest.webmanifest" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
