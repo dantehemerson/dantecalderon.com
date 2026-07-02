@@ -1,5 +1,5 @@
 ---
-date: 2026-07-02T02:30:27.690Z
+date: 2026-07-02T02:41:11.427Z
 image: ../../images/conceptos-basicos-redux.jpg
 published: true
 pathPrefix: blog
@@ -13,7 +13,7 @@ Hace un par de `semanas` hice un viaje en auto solo hacia la sierra del Peru, mi
 
 ![](https://substackcdn.com/image/fetch/$s_!2nkV!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fea5035de-e48f-4a32-972f-8d9b0ced9a07_1275x1233.png)
 
-Hola A todos quiero _decir que esto es imposible de realizar ademas_ es imposible de lo que tu quieras asi de imple mejor que nunca
+Hola A todos quiero _decir que esto es imposible de realizar ~~ademas~~_ es ~~imposible~~ de lo que tu quieras asi de imple mejor que nunca
 
 ![My Toyota Tercel 1995 in the andes of Peru.](https://substackcdn.com/image/fetch/$s_!aqrL!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fc07df311-4baf-4006-800e-c515203d06d5_3024x4032.heic)
 
@@ -29,7 +29,7 @@ const allProjects = await getCollection('projects')
 const projects = allProjects.sort((a, b) => (a.data.order ?? 999) - (b.data.order ?? 999))
 ```
 
-* * *
+---
 
 After separator
 
@@ -42,3 +42,7 @@ _Creare una persona de siempr jjaja_
 :::hola
 
 :::
+
+  
+
+`hola mejor que nunca jajjaj `
