@@ -1,5 +1,5 @@
 ---
-import { getCollection } from 'astro:content'
+import { getCollection, render } from 'astro:content'
 import Layout from '../../components/Layout.astro'
 import MDXContainer from '../../components/MDXContainer.astro'
 import PostHeader from '../../components/PostHeader.astro'
@@ -21,7 +21,7 @@ export async function getStaticPaths() {
 }
 
 const { post } = Astro.props
-const { Content } = await post.render()
+const { Content } = await render(post)
 const slug = Astro.params.slug
 ---
 
