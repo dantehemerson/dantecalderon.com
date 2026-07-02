@@ -3,8 +3,10 @@
 ---
 
 <script>
-  import PhotoSwipeLightbox from 'photoswipe/lightbox'
   import 'photoswipe/style.css'
+  import { parseSubstackDimensions } from '@/helpers/media'
+
+  import PhotoSwipeLightbox from 'photoswipe/lightbox'
 
   function initMediaSystem() {
     // --- Sync pswp-link href to resolved img.src ---
@@ -15,10 +17,12 @@
         // before astro image optimization.
         a.href = img.src
 
-        const width = img.getAttribute('width') ?? undefined
-        const height = img.getAttribute('height') ?? undefined
-        a.dataset.pswpWidth = width
-        a.dataset.pswpHeight = height
+        const dims = parseSubstackDimensions(img.src)
+        const width = img.getAttribute('width') ?? dims?.width
+        const height = img.getAttribute('height') ?? dims?.height
+
+        width && (a.dataset.pswpWidth = width)
+        height && (a.dataset.pswpHeight = height)
       }
     })
 

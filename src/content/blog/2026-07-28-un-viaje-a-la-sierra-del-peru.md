@@ -1,5 +1,5 @@
 ---
-date: 2026-07-02T02:41:11.427Z
+date: 2026-07-02T02:56:27.575Z
 image: ../../images/conceptos-basicos-redux.jpg
 published: true
 pathPrefix: blog
@@ -9,7 +9,7 @@ author: Dante Calderon
 slug: un-viaje-a-la-sierra-del-peru
 ---
 
-Hace un par de `semanas` hice un viaje en auto solo hacia la sierra del Peru, mi auto, un **Toyota Tercel** 1995, un auto viejo pero bastante confiable y barato de mantener.
+Hace un par de `semanas` hice un viaje en auto solo hacia la sierra del Peru, mi auto, un [**Toyota Tercel** 1995](https://es.wikipedia.org/wiki/Toyota_Tercel), un auto viejo pero bastante confiable y barato de mantener.
 
 ![](https://substackcdn.com/image/fetch/$s_!2nkV!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fea5035de-e48f-4a32-972f-8d9b0ced9a07_1275x1233.png)
 
@@ -45,4 +45,8 @@ _Creare una persona de siempr jjaja_
 
   
 
-`hola mejor que nunca jajjaj `
+`hola mejor que nunca jajjaj`
+
+  
+
+> Era una de esos tiempo en lo que no tienas laksdfjasd flka sdlfkja lsdkfjasdf alskd jflaksjdf laksdjf lasdf laksdjf laksdjf lkasjd flaksj dfalsdkfj klj
