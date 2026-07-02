@@ -8,7 +8,7 @@ pathPrefix: blog
 slug: the-best-cms-in-the-world
 image: ../../images/header-substack.webp
 date: '2026-07-01T09:00:00-05:00'
-published: true
+published: false
 ---
 
 After migrate my blog from Gatsby.js to Astro, which, by the way is amazing, I wanted to

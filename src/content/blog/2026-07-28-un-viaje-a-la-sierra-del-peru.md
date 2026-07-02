@@ -1,7 +1,7 @@
 ---
 date: 2026-07-02T02:56:27.575Z
 image: ../../images/conceptos-basicos-redux.jpg
-published: true
+published: false
 pathPrefix: blog
 title: Un viaje a la sierra del Peru
 description: Te cuento sobre un viaje inspiracional que tuve cuanto empeze a desarrollar cosas en mi viaje de Lima a Trujillo.
