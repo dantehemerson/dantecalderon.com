@@ -1,5 +1,4 @@
 ---
-model: project
 title: Voice Recorder
 subtitle: nothing
 description: An open source voice recorder that allows you to record and play back your voice for free.

@@ -1,5 +1,4 @@
 ---
-model: post
 title: Conceptos Básicos de Redux
 description: >-
   Redux es una pequeña librería de Javascript creada por Facebook que sirve para

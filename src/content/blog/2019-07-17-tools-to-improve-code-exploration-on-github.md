@@ -1,5 +1,4 @@
 ---
-model: post
 title: Herramientas para mejorar la exploracion de código en Github
 description: >-
   Los programadores pasamos mucho tiempo en Github explorando código, hoy te voy

@@ -1,5 +1,4 @@
 ---
-model: project
 title: Guitar Chords
 subtitle: nothing
 description: An interactive guitar chord library featuring searchable diagrams, audio playback, and everything you need to learn and practice chords.
