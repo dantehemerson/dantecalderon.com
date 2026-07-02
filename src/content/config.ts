@@ -10,7 +10,6 @@ const blogCollection = defineCollection({
       slug: z.string().optional(),
       pathPrefix: z.string().optional(),
       image: image().optional(),
-      model: z.literal('post'),
       published: z.boolean().default(false),
     }),
 })
@@ -26,7 +25,6 @@ const projectCollection = defineCollection({
       description: z.string().optional(),
       slug: z.string().optional(),
       image: image().optional(),
-      model: z.literal('project'),
       href: z.string().optional(),
       hrefText: z.string().optional(),
     }),

@@ -1,5 +1,4 @@
 ---
-model: project
 title: dolarsol.pe
 subtitle: nothing
 description: Compare USD/PEN exchange rates from multiple exchange houses in Peru. Instantly find the best rate and maximize your savings.

@@ -1,5 +1,4 @@
 ---
-model: project
 title: One Thing
 subtitle: nothing
 description: A GNOME Shell extension that keeps a single task or goal visible in your top bar, helping you stay focused throughout the day.

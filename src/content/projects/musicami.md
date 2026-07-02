@@ -1,5 +1,4 @@
 ---
-model: project
 title: Musicami
 subtitle: nop
 description: An open-source music streaming player with playlists, collections, search, and seamless audio playback. Built around a third-party streaming API, it showcases full-stack development and a polished user experience.

@@ -1,5 +1,4 @@
 ---
-model: project
 title: MarkoTab
 subtitle: >-
   A browser extension that replaces your new tab page with a clean, customizable dashboard.

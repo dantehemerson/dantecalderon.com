@@ -1,5 +1,4 @@
 ---
-model: post
 title: Configurar TravisCI para un repositorio multiproyecto
 description: >-
   Los repositorios multiproyectos o monorepos es una forma de organizar nuestro proyecto de tal forma que contenga múltiples subproyectos y sean sea controlados por un solo repositorio de un Sistema de Control de Versiones como Git por ejemplo.
