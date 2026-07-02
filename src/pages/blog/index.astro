@@ -1,36 +1,39 @@
 ---
 import { getCollection } from 'astro:content'
+import slugify from 'slugify'
 import Layout from '../../components/Layout.astro'
 import Card from '../../components/Card.astro'
 import { siteConfig } from '../../config'
 
 const allPosts = await getCollection('blog')
-const publishedPosts = allPosts
+const posts = allPosts
   .filter(post => post.data.published)
   .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
-
-const posts = publishedPosts
+  .map(post => ({
+    ...post,
+    data: {
+      ...post.data,
+      slug: post.data.slug || slugify(post.data.title, { lower: true }) || post.slug,
+    },
+  }))
 ---
 
 <Layout title="Blog" url={`${siteConfig.siteUrl}/blog`} active="blog">
   <div class="mt-22.5">
     <div class="grid gap-y-2 px-3.75 max-w-175 mx-auto mb-8.75">
       {
-        posts.map((post, index) => {
-          const slug = post.data.slug || post.slug
-          return (
-            <>
-              <Card
-                title={post.data.title}
-                date={post.data.date}
-                image={post.data.image}
-                excerpt={post.data.description || ''}
-                slug={slug}
-              />
-              {index < posts.length - 1 && <div class="border-b border-[#e6e6e6] mx-2" />}
-            </>
-          )
-        })
+        posts.map((post, index) => (
+          <>
+            <Card
+              title={post.data.title}
+              date={post.data.date}
+              image={post.data.image}
+              excerpt={post.data.description || ''}
+              slug={post.data.slug}
+            />
+            {index < posts.length - 1 && <div class="border-b border-[#e6e6e6] mx-2" />}
+          </>
+        ))
       }
     </div>
   </div>

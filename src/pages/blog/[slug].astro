@@ -22,7 +22,7 @@ export async function getStaticPaths() {
 
 const { post } = Astro.props
 const { Content } = await post.render()
-const slug = post.data.slug || slugify(post.data.title, { lower: true }) || post.slug
+const slug = Astro.params.slug
 ---
 
 <Layout
