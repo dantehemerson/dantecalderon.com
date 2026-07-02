@@ -4,6 +4,7 @@ import Layout from '../../components/Layout.astro'
 import MDXContainer from '../../components/MDXContainer.astro'
 import PostHeader from '../../components/PostHeader.astro'
 import Share from '../../components/Share.astro'
+import slugify from 'slugify'
 import { siteConfig } from '../../config'
 
 export async function getStaticPaths() {
@@ -11,7 +12,7 @@ export async function getStaticPaths() {
   return posts
     .filter(post => post.data.published)
     .map(post => {
-      const slug = post.data.slug || post.slug
+      const slug = post.data.slug || slugify(post.data.title, { lower: true }) || post.slug
       return {
         params: { slug },
         props: { post },
@@ -21,7 +22,7 @@ export async function getStaticPaths() {
 
 const { post } = Astro.props
 const { Content } = await post.render()
-const slug = post.data.slug || post.slug
+const slug = post.data.slug || slugify(post.data.title, { lower: true }) || post.slug
 ---
 
 <Layout
