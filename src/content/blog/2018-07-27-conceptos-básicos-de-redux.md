@@ -4,7 +4,6 @@ description: >-
   Redux es una pequeña librería de Javascript creada por Facebook que sirve para
   controlar el estado de una aplicación.
 author: Dante Calderón
-pathPrefix: blog
 slug: conceptos-basicos-de-redux
 image: ../../images/conceptos-basicos-redux.jpg
 date: '2018-06-29T09:56:23-05:00'
