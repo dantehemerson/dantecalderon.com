@@ -2,6 +2,7 @@
 import { Image } from 'astro:assets'
 import type { ImageMetadata } from 'astro'
 import AuthorPost from './AuthorPost.astro'
+import { isImageOptimizable } from '@/helpers/is-image-optimizable'
 
 export interface Props {
   title: string
@@ -11,6 +12,7 @@ export interface Props {
 }
 
 const { title, date, avatar, image } = Astro.props
+const isPostImageOptimizable = isImageOptimizable(image)
 ---
 
 <div class="max-w-225 mx-auto mb-6.5">
@@ -22,16 +24,19 @@ const { title, date, avatar, image } = Astro.props
   </h1>
   <AuthorPost date={date} avatar={avatar} />
   {
-    image && (
-      <Image
-        src={image as any}
-        alt={`${title} cover`}
-        inferSize
-        widths={[400, 800, 1200]}
-        sizes="(max-width: 900px) 100vw, 900px"
-        loading="eager"
-        class="w-full h-auto mt-6 rounded-md object-cover"
-      />
-    )
+    image &&
+      (isPostImageOptimizable ? (
+        <Image
+          src={image as any}
+          alt={`${title} cover`}
+          inferSize
+          widths={[400, 800, 1200]}
+          sizes="(max-width: 900px) 100vw, 900px"
+          loading="eager"
+          class="w-full h-auto mt-6 rounded-md object-cover"
+        />
+      ) : (
+        <img src={image as any} alt={`${title} cover`} class="w-full rounded-sm" />
+      ))
   }
 </div>
