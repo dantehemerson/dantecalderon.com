@@ -13,7 +13,7 @@ const posts = allPosts
     ...post,
     data: {
       ...post.data,
-      slug: post.data.slug || slugify(post.data.title, { lower: true }) || post.slug,
+      slug: post.data.slug || slugify(post.data.title, { lower: true }) || post.id,
     },
   }))
 ---

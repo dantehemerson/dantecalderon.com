@@ -12,7 +12,8 @@ export async function getStaticPaths() {
   return posts
     .filter(post => post.data.published)
     .map(post => {
-      const slug = post.data.slug || slugify(post.data.title, { lower: true }) || post.slug
+      console.log(post.data)
+      const slug = post.data.slug || slugify(post.data.title, { lower: true }) || post.id
       return {
         params: { slug },
         props: { post },

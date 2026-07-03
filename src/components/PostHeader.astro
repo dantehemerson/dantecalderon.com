@@ -7,7 +7,7 @@ export interface Props {
   title: string
   date: Date
   avatar?: string
-  image?: ImageMetadata
+  image?: ImageMetadata | string
 }
 
 const { title, date, avatar, image } = Astro.props
@@ -21,5 +21,11 @@ const { title, date, avatar, image } = Astro.props
     {title}
   </h1>
   <AuthorPost date={date} avatar={avatar} />
-  {image ? <Image src={image} alt={`${title} cover`} class="zoomable w-full" /> : null}
+  {
+    image && typeof image !== 'string' ? (
+      <Image src={image} alt={`${title} cover`} class="w-full" />
+    ) : typeof image === 'string' ? (
+      <img src={image} alt={`${title} cover`} class="w-full" />
+    ) : null
+  }
 </div>

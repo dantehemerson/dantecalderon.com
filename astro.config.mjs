@@ -17,6 +17,9 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
   },
+  image: {
+    domains: ['substackcdn.com', 'localhost'],
+  },
   markdown: {
     processor: unified({
       remarkPlugins: [remarkDirective, remarkDirectivesToHTML],
