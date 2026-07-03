@@ -6,13 +6,17 @@ import PostHeader from '../../components/PostHeader.astro'
 import Share from '../../components/Share.astro'
 import slugify from 'slugify'
 import { siteConfig } from '../../config'
+import { parseSubstackImageUrl } from '@/helpers/media'
+import { tryFixSubstackImageOptimization } from '@/helpers/try-fix-substack-image-optimization'
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog')
+
   return posts
     .filter(post => post.data.published)
     .map(post => {
-      console.log(post.data)
+      tryFixSubstackImageOptimization(post)
+
       const slug = post.data.slug || slugify(post.data.title, { lower: true }) || post.id
       return {
         params: { slug },
