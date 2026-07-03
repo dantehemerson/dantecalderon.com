@@ -1,5 +1,7 @@
 # Dante Calderón
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/2b2a92f6-3281-47c5-b2bb-252235f364f5/deploy-status)](https://app.netlify.com/projects/dantecalderon/deploys)
+
 Welcome! This is the source code for my personal website.
 
 🌐 Visit it at **[dantecalderon.com](https://dantecalderon.com)**.
