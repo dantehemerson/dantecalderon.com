@@ -26,11 +26,11 @@ const { title, date, avatar, image } = Astro.props
       <Image
         src={image as any}
         alt={`${title} cover`}
-        class="w-24"
         inferSize
-        layout="constrained"
-        widths={[240, 540, 720]}
-        sizes={`(max-width: 360px) 240px, (max-width: 720px) 540px, (max-width: 1600px) 720px`}
+        widths={[400, 800, 1200]}
+        sizes="(max-width: 900px) 100vw, 900px"
+        loading="eager"
+        class="w-full h-auto mt-6 rounded-md object-cover"
       />
     )
   }
