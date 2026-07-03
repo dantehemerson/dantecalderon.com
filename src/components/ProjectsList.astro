@@ -4,7 +4,6 @@ import type { ImageMetadata } from 'astro'
 
 export interface Props {
   projects: Array<{
-    slug: string
     data: {
       title: string
       description?: string
@@ -38,6 +37,7 @@ const { projects, className } = Astro.props
                 <Image
                   alt="Portfolio item cover"
                   src={project.data.image}
+                  width={800}
                   class="w-full h-full object-cover"
                 />
               ) : null}

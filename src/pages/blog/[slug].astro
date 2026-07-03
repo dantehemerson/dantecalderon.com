@@ -1,17 +1,23 @@
 ---
-import { getCollection } from 'astro:content'
+import { getCollection, render } from 'astro:content'
 import Layout from '../../components/Layout.astro'
 import MDXContainer from '../../components/MDXContainer.astro'
 import PostHeader from '../../components/PostHeader.astro'
 import Share from '../../components/Share.astro'
+import slugify from 'slugify'
 import { siteConfig } from '../../config'
+import { parseSubstackImageUrl } from '@/helpers/media'
+import { tryFixSubstackImageOptimization } from '@/helpers/try-fix-substack-image-optimization'
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog')
+
   return posts
     .filter(post => post.data.published)
     .map(post => {
-      const slug = post.data.slug || post.slug
+      tryFixSubstackImageOptimization(post)
+
+      const slug = post.data.slug || slugify(post.data.title, { lower: true }) || post.id
       return {
         params: { slug },
         props: { post },
@@ -20,8 +26,8 @@ export async function getStaticPaths() {
 }
 
 const { post } = Astro.props
-const { Content } = await post.render()
-const slug = post.data.slug || post.slug
+const { Content } = await render(post)
+const slug = Astro.params.slug
 ---
 
 <Layout

@@ -1,4 +1,5 @@
 import { defineConfig } from 'astro/config'
+import { unified } from '@astrojs/markdown-remark'
 import mdx from '@astrojs/mdx'
 import sitemap from '@astrojs/sitemap'
 import tailwindcss from '@tailwindcss/vite'
@@ -16,7 +17,53 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
   },
+  image: {
+    domains: ['substackcdn.com', 'dantecalderon.com', 'localhost'],
+  },
   markdown: {
+    processor: unified({
+      remarkPlugins: [remarkDirective, remarkDirectivesToHTML],
+      rehypePlugins: [
+        rehypeWrapInProse,
+        rehypeEnhanceSingleImages,
+        [
+          rehypeExternalLinks,
+          {
+            target: '_blank',
+            rel: ['noreferrer', 'noopener'],
+          },
+        ],
+        rehypeSlug,
+        [
+          rehypeAutolinkHeadings,
+          {
+            behavior: 'append',
+            content: [
+              {
+                type: 'element',
+                tagName: 'span',
+                properties: { className: ['icon'], ariaHidden: true },
+                children: [
+                  {
+                    type: 'element',
+                    tagName: 'img',
+                    /**
+                     * Icon from: https://lucide.dev/icons/link
+                     * Customize, inspect, copy element and paste into the file.
+                     */
+                    properties: { src: '/link-16.svg', ariaHidden: true },
+                  },
+                ],
+              },
+            ],
+            properties: {
+              className: ['heading-anchor'],
+              ariaLabel: 'Link',
+            },
+          },
+        ],
+      ],
+    }),
     syntaxHighlight: 'shiki',
     shikiConfig: {
       // Themes on: https://textmate-grammars-themes.netlify.app/?theme=aurora-x&grammar=javascript
@@ -25,49 +72,5 @@ export default defineConfig({
       // theme: 'material-theme-darker',
       wrap: true,
     },
-    /** Allows directives, https://github.com/remarkjs/remark-directive#remark-directive
-     * test on: https://remark.js.org/
-     */
-    remarkPlugins: [remarkDirective, remarkDirectivesToHTML],
-    rehypePlugins: [
-      rehypeWrapInProse,
-      rehypeEnhanceSingleImages,
-      [
-        rehypeExternalLinks,
-        {
-          target: '_blank',
-          rel: ['noreferrer', 'noopener'],
-        },
-      ],
-      rehypeSlug,
-      [
-        rehypeAutolinkHeadings,
-        {
-          behavior: 'append',
-          content: [
-            {
-              type: 'element',
-              tagName: 'span',
-              properties: { className: ['icon'], ariaHidden: true },
-              children: [
-                {
-                  type: 'element',
-                  tagName: 'img',
-                  /**
-                   * Icon from: https://lucide.dev/icons/link
-                   * Customize, inspect, copy element and paste into the file.
-                   */
-                  properties: { src: '/link-16.svg', ariaHidden: true },
-                },
-              ],
-            },
-          ],
-          properties: {
-            className: ['heading-anchor'],
-            ariaLabel: 'Link',
-          },
-        },
-      ],
-    ],
   },
 })
