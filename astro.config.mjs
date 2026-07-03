@@ -18,7 +18,7 @@ export default defineConfig({
     plugins: [tailwindcss()],
   },
   image: {
-    domains: ['substackcdn.com', 'localhost'],
+    domains: ['substackcdn.com', 'dantecalderon.com', 'localhost'],
   },
   markdown: {
     processor: unified({
