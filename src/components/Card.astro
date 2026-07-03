@@ -12,6 +12,7 @@ export interface Props {
 }
 
 const { title, date, image, excerpt, slug } = Astro.props
+console.log('IMAGE OF ', title, image)
 ---
 
 <a
@@ -19,15 +20,19 @@ const { title, date, image, excerpt, slug } = Astro.props
   class="flex items-start text-left flex-col py-5 px-2 m-0 rounded-sm no-underline hover:bg-[#f2f2f2] hover:shadow-[-16px_0_0_0_#f2f2f2,16px_0_0_0_#f2f2f2] md:flex-row"
 >
   {
-    image ? (
-      <div class="overflow-hidden w-full max-w-125 m-0 md:w-1/3">
-        {typeof image === 'string' ? (
-          <img src={image} alt={title} class="w-full rounded-sm" />
-        ) : (
-          <Image src={image} width={400} alt={title} class="w-full rounded-sm" />
-        )}
+    image && (
+      <div class="overflow-hidden w-full m-0 md:w-1/3">
+        <Image
+          src={image as any}
+          alt={title}
+          class="w-full rounded-sm"
+          inferSize
+          widths={[400]}
+          layout="fixed"
+          sizes={`(max-width: 400px) 100vw, 400px`}
+        />
       </div>
-    ) : null
+    )
   }
   <div class="w-full h-full m-0 max-w-140 pt-3 md:pl-7.5 md:pt-0 md:w-3/4 md:max-w-full">
     <h3 class="font-serif text-[#052d3e] m-0 transition duration-300 text-xl font-semibold">

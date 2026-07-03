@@ -22,10 +22,16 @@ const { title, date, avatar, image } = Astro.props
   </h1>
   <AuthorPost date={date} avatar={avatar} />
   {
-    image && typeof image !== 'string' ? (
-      <Image src={image} alt={`${title} cover`} class="w-full" />
-    ) : typeof image === 'string' ? (
-      <img src={image} alt={`${title} cover`} class="w-full" />
-    ) : null
+    image && (
+      <Image
+        src={image as any}
+        alt={`${title} cover`}
+        inferSize
+        widths={[400, 800, 1200]}
+        sizes="(max-width: 900px) 100vw, 900px"
+        loading="eager"
+        class="w-full h-auto mt-6 rounded-md object-cover"
+      />
+    )
   }
 </div>
