@@ -4,6 +4,7 @@ import { visit } from 'unist-util-visit'
 export default function remarkDirectivesToHTML() {
   return function (tree) {
     visit(tree, function (node) {
+      console.log(node)
       if (
         node.type === 'containerDirective' ||
         node.type === 'leafDirective' ||

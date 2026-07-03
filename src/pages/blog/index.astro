@@ -4,23 +4,18 @@ import slugify from 'slugify'
 import Layout from '../../components/Layout.astro'
 import Card from '../../components/Card.astro'
 import { siteConfig } from '../../config'
-import { tryFixSubstackImageOptimization } from '@/helpers/try-fix-substack-image-optimization'
 
 const allPosts = await getCollection('blog')
 const posts = allPosts
   .filter(post => post.data.published)
   .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
-  .map(post => {
-    tryFixSubstackImageOptimization(post)
-
-    return {
-      ...post,
-      data: {
-        ...post.data,
-        slug: post.data.slug || slugify(post.data.title, { lower: true }) || post.id,
-      },
-    }
-  })
+  .map(post => ({
+    ...post,
+    data: {
+      ...post.data,
+      slug: post.data.slug || slugify(post.data.title, { lower: true }) || post.id,
+    },
+  }))
 ---
 
 <Layout title="Blog" url={`${siteConfig.siteUrl}/blog`} active="blog">

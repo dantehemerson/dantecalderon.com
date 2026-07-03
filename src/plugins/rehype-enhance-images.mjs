@@ -14,7 +14,6 @@ export default function rehypeEnhanceSingleImages() {
 
       const img = meaningful[0]
       const alt = img.properties?.alt || ''
-      const src = img.properties?.src || ''
       const title = img.properties?.title
 
       const anchor = {

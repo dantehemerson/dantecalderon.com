@@ -4,7 +4,7 @@ import { getImage } from 'astro:assets'
 export interface Props {
   title?: string
   description?: string
-  image?: ImageMetadata
+  image?: ImageMetadata | string
   url?: string
   isPost?: boolean
   date?: string | Date
@@ -35,8 +35,9 @@ const siteName = 'Dante Calderon'
 const fullTitle = title === siteName ? title : `${title} · ${siteName}`
 const openGraphTitle = title
 
-const openGraphImageUrl =
-  optimizedOpenGraphImage?.src ?? image?.src ?? 'https://dantecalderon.com/logo.png'
+const openGraphImageUrl = image
+  ? (optimizedOpenGraphImage?.src ?? (typeof image === 'string' ? image : image.src))
+  : 'https://dantecalderon.com/logo.png'
 
 const publishedDate = date instanceof Date ? date.toISOString() : date
 
