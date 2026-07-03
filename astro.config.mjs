@@ -1,14 +1,15 @@
-import { defineConfig } from 'astro/config'
 import { unified } from '@astrojs/markdown-remark'
 import mdx from '@astrojs/mdx'
 import sitemap from '@astrojs/sitemap'
 import tailwindcss from '@tailwindcss/vite'
+import { defineConfig } from 'astro/config'
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
-import rehypeSlug from 'rehype-slug'
 import rehypeExternalLinks from 'rehype-external-links'
+import rehypeSlug from 'rehype-slug'
 import remarkDirective from 'remark-directive'
-import rehypeWrapInProse from './src/plugins/rehype-wrap-prose.mjs'
+import { IMAGE_DOMAINS } from './src/consts'
 import rehypeEnhanceSingleImages from './src/plugins/rehype-enhance-images.mjs'
+import rehypeWrapInProse from './src/plugins/rehype-wrap-prose.mjs'
 import remarkDirectivesToHTML from './src/plugins/remark-directives-to-html.mjs'
 
 export default defineConfig({
