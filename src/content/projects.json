@@ -1,0 +1,58 @@
+[
+  {
+    "id": "markotab",
+    "title": "MarkoTab",
+    "description": "MarkoTab is a beautiful browser extension that replaces your new tab page with a clean, customizable dashboard. Keep your bookmarks front and center, organize your favorite sites, and access everything you need with ease.",
+    "image": "../images/project-markotab.jpg",
+    "href": "https://chromewebstore.google.com/detail/markotab-new-tab-bookmark/dcnapgldggagocfpcnhpendecgjdedbh",
+    "hrefText": "chromewebstore.google.com"
+  },
+  {
+    "id": "dolarsol-pe",
+    "title": "dolarsol.pe",
+    "description": "Compare USD/PEN exchange rates from multiple exchange houses in Peru. Instantly find the best rate and maximize your savings.",
+    "image": "../images/project-dolarsol-pe.png",
+    "href": "https://dolar-peru.vercel.app",
+    "hrefText": "dolarsol.pe"
+  },
+  {
+    "id": "guitar-chords",
+    "title": "Guitar Chords",
+    "description": "An interactive guitar chord library featuring searchable diagrams, audio playback, and everything you need to learn and practice chords.",
+    "image": "../images/project-guitar-chords.png",
+    "href": "https://guitar-chords-steel.vercel.app",
+    "hrefText": "guitar-chords.app"
+  },
+  {
+    "id": "one-thing",
+    "title": "One Thing",
+    "description": "A GNOME Shell extension that keeps a single task or goal visible in your top bar, helping you stay focused throughout the day.",
+    "image": "../images/project-one-thing.png",
+    "href": "https://extensions.gnome.org/extension/5072/one-thing/",
+    "hrefText": "extensions.gnome.org"
+  },
+  {
+    "id": "voice-recorder",
+    "title": "Voice Recorder",
+    "description": "An open source voice recorder that allows you to record and play back your voice for free.",
+    "image": "../images/project-voice-recorder.gif",
+    "href": "https://recorder.dantecalderon.com",
+    "hrefText": "recorder.dantecalderon.com"
+  },
+  {
+    "id": "musicami",
+    "title": "Musicami",
+    "description": "An open-source music streaming player with playlists, collections, search, and seamless audio playback. Built around a third-party streaming API, it showcases full-stack development and a polished user experience.",
+    "image": "../images/project_musicami.png",
+    "href": "https://github.com/dantehemerson/musicami",
+    "hrefText": "Source code on Github"
+  },
+  {
+    "id": "audio-tag-editor",
+    "title": "Audio Tag Editor",
+    "description": "A simple but useful app that allows you to edit the metadata of your MP3 and other audio files with ease. Update song titles, artists, albums, cover art, and more through a simple, intuitive interface designed for quick edits.",
+    "image": "../images/audio_tag_editor02.png",
+    "href": "https://github.com/dantehemerson/audio-tag-editor",
+    "hrefText": "Source code on GitHub"
+  }
+]
