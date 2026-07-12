@@ -30,7 +30,7 @@
     "id": "substackmd",
     "order": 4,
     "title": "SubstackMD",
-    "description": "A browser extension that allows you to export your Substack posts to clean Markdown in one click.",
+    "description": "A browser extension that allows you to export your Substack posts to clean Markdown or publish to a Github repository in one click.",
     "image": "../images/project-substackmd.jpg",
     "href": "https://chromewebstore.google.com/detail/substackmd-%E2%80%94-markdown-exp/kmfjafmefnefnlmgbinaamibabflcibp?authuser=0&hl=en",
     "hrefText": "chromewebstore.google.com"
