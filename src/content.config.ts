@@ -18,6 +18,7 @@ const projectCollection = defineCollection({
   loader: file('./src/content/projects.json'),
   schema: ({ image }) =>
     z.object({
+      order: z.number(),
       title: z.string(),
       description: z.string().optional(),
       image: image().optional(),

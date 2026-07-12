@@ -4,7 +4,9 @@ import ProjectsList from '../components/ProjectsList.astro'
 import { getCollection } from 'astro:content'
 import { siteConfig } from '../config'
 
-const projects = await getCollection('projects')
+const projects = (await getCollection('projects')).sort(
+  (a, b) => a.data.order - b.data.order
+)
 ---
 
 <Layout title="Projects" url={`${siteConfig.siteUrl}/projects`} active="projects">

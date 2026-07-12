@@ -1,6 +1,7 @@
 [
   {
     "id": "markotab",
+    "order": 1,
     "title": "MarkoTab",
     "description": "MarkoTab is a beautiful browser extension that replaces your new tab page with a clean, customizable dashboard. Keep your bookmarks front and center, organize your favorite sites, and access everything you need with ease.",
     "image": "../images/project-markotab.jpg",
@@ -9,6 +10,7 @@
   },
   {
     "id": "dolarsol-pe",
+    "order": 2,
     "title": "dolarsol.pe",
     "description": "Compare USD/PEN exchange rates from multiple exchange houses in Peru. Instantly find the best rate and maximize your savings.",
     "image": "../images/project-dolarsol-pe.png",
@@ -17,6 +19,7 @@
   },
   {
     "id": "guitar-chords",
+    "order": 3,
     "title": "Guitar Chords",
     "description": "An interactive guitar chord library featuring searchable diagrams, audio playback, and everything you need to learn and practice chords.",
     "image": "../images/project-guitar-chords.png",
@@ -24,7 +27,17 @@
     "hrefText": "guitar-chords.app"
   },
   {
+    "id": "substackmd",
+    "order": 4,
+    "title": "SubstackMD",
+    "description": "A browser extension that allows you to export your Substack posts to clean Markdown in one click.",
+    "image": "../images/project-substackmd.jpg",
+    "href": "https://chromewebstore.google.com/detail/substackmd-%E2%80%94-markdown-exp/kmfjafmefnefnlmgbinaamibabflcibp?authuser=0&hl=en",
+    "hrefText": "chromewebstore.google.com"
+  },
+  {
     "id": "one-thing",
+    "order": 5,
     "title": "One Thing",
     "description": "A GNOME Shell extension that keeps a single task or goal visible in your top bar, helping you stay focused throughout the day.",
     "image": "../images/project-one-thing.png",
@@ -33,6 +46,7 @@
   },
   {
     "id": "voice-recorder",
+    "order": 6,
     "title": "Voice Recorder",
     "description": "An open source voice recorder that allows you to record and play back your voice for free.",
     "image": "../images/project-voice-recorder.gif",
@@ -41,6 +55,7 @@
   },
   {
     "id": "musicami",
+    "order": 7,
     "title": "Musicami",
     "description": "An open-source music streaming player with playlists, collections, search, and seamless audio playback. Built around a third-party streaming API, it showcases full-stack development and a polished user experience.",
     "image": "../images/project_musicami.png",
@@ -49,6 +64,7 @@
   },
   {
     "id": "audio-tag-editor",
+    "order": 8,
     "title": "Audio Tag Editor",
     "description": "A simple but useful app that allows you to edit the metadata of your MP3 and other audio files with ease. Update song titles, artists, albums, cover art, and more through a simple, intuitive interface designed for quick edits.",
     "image": "../images/audio_tag_editor02.png",
