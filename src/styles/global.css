@@ -66,6 +66,16 @@
   color: var(--color-body);
 }
 
+.prose a {
+  color: #ff5722;
+  text-underline-offset: .08em;
+  text-decoration: none;
+}
+
+.prose a:hover {
+  text-decoration: underline;
+}
+
 /** Style the button link to headings */
 /* Target the anchor link image inside any prose header */
 .prose h1 .heading-anchor,
