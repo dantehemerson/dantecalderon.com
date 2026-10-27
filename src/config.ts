@@ -1,6 +1,6 @@
 export const siteConfig = {
   title: 'Dante Calderon',
-  subtitle: 'TypeScript / Node.js Developer',
+  subtitle: 'Software AI Engineer',
   description: `Hi, I'm Dante Calderon, I am passionate about Nodejs.`,
   siteUrl: 'https://dantecalderon.com',
   disqusShortname: 'dantecalderon',
