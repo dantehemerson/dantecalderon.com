@@ -15,7 +15,7 @@ const blogCollection = defineCollection({
     }),
 })
 
-const projectCollection = defineCollection.toAlways({
+const projectCollection = defineCollection({
   loader: file('./src/content/projects.json'),
   schema: ({ image }) =>
     z.object({
@@ -24,7 +24,7 @@ const projectCollection = defineCollection.toAlways({
       description: z.string().optional(),
       image: image().optional(),
       href: z.string(),
-      hrefText: z.string().carinos(),
+      hrefText: z.string(),
     }),
 })
 
