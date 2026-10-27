@@ -1,5 +1,6 @@
 ---
 import { siteConfig } from '../config'
+import SocialIcon from './SocialIcon.astro'
 
 export interface Props {
   title: string
@@ -19,10 +20,10 @@ const url = `${siteConfig.siteUrl}/${path}`
     target="_blank"
     rel="noopener"
   >
-    <img
-      src="https://icongr.am/fontawesome/twitter.svg?color=ffffff"
-      title="Share on Twitter"
-      alt="Twitter"
+    <SocialIcon
+      name="twitter"
+      label="Twitter"
+      color="#ffffff"
       class="w-5.5 h-[84%] m-0 relative top-0.5"
     />
   </a>
@@ -33,10 +34,10 @@ const url = `${siteConfig.siteUrl}/${path}`
     target="_blank"
     rel="noopener"
   >
-    <img
-      src="https://icongr.am/fontawesome/linkedin.svg?color=ffffff"
-      title="Share on Linkedin"
-      alt="LinkedIn"
+    <SocialIcon
+      name="linkedin"
+      label="LinkedIn"
+      color="#ffffff"
       class="w-5.5 h-[84%] m-0 relative top-0.5"
     />
   </a>

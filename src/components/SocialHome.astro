@@ -1,5 +1,6 @@
 ---
 import { siteConfig } from '../config'
+import SocialIcon from './SocialIcon.astro'
 ---
 
 <div class="text-center">
@@ -12,11 +13,7 @@ import { siteConfig } from '../config'
         target="_blank"
         class="mx-0.5 w-6.5 h-6.5 p-1 transition duration-300 inline-block"
       >
-        <img
-          alt={item.title}
-          src={`https://icongr.am/fontawesome/${item.icon}.svg?color=052d3f`}
-          class="w-full m-0"
-        />
+        <SocialIcon name={item.icon} label={item.title} class="w-full h-auto m-0" />
       </a>
     ))
   }
