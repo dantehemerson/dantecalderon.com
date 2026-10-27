@@ -10,15 +10,18 @@ import { siteConfig } from '../../config'
 export async function getStaticPaths() {
   const posts = await getCollection('blog')
 
-  return posts
-    .filter(post => post.data.published)
-    .map(post => {
-      const slug = post.data.slug || slugify(post.data.title, { lower: true }) || post.id
-      return {
-        params: { slug },
-        props: { post },
-      }
-    })
+  return (
+    posts
+      // Generate pages for not published posts too, but this won't be shown in the list.
+      // .filter(post => post.data.published)
+      .map(post => {
+        const slug = post.data.slug || slugify(post.data.title, { lower: true }) || post.id
+        return {
+          params: { slug },
+          props: { post },
+        }
+      })
+  )
 }
 
 const { post } = Astro.props
