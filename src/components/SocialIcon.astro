@@ -1,0 +1,33 @@
+---
+import { faGithub, faLinkedinIn, faTwitter } from '@fortawesome/free-brands-svg-icons'
+
+interface Props {
+  name: string
+  label: string
+  color?: string
+  class?: string
+}
+
+const icons: Record<string, typeof faGithub> = {
+  github: faGithub,
+  twitter: faTwitter,
+  linkedin: faLinkedinIn,
+}
+
+const { name, label, color = '#052d3f', class: className } = Astro.props
+const [width, height, , , paths] = icons[name].icon
+const size = Math.max(width, height)
+---
+
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox={`${(width - size) / 2} ${(height - size) / 2} ${size} ${size}`}
+  width="24"
+  height="24"
+  fill={color}
+  role="img"
+  aria-label={label}
+  class={className}
+>
+  {Array.isArray(paths) ? paths.map(path => <path d={path} />) : <path d={paths} />}
+</svg>

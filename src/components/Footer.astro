@@ -1,5 +1,6 @@
 ---
 import { siteConfig } from '../config'
+import SocialIcon from './SocialIcon.astro'
 
 const currentYear = new Date().getFullYear()
 ---
@@ -15,10 +16,11 @@ const currentYear = new Date().getFullYear()
     {
       siteConfig.social.map(item => (
         <a target="_blank" href={item.link} rel="noopener" class="flex items-center">
-          <img
-            alt={`${item.title} - ${siteConfig.title}`}
-            src={`https://icongr.am/fontawesome/${item.icon}.svg?size=20&color=656565`}
-            class="w-5"
+          <SocialIcon
+            name={item.icon}
+            label={`${item.title} - ${siteConfig.title}`}
+            color="#656565"
+            class="w-5 h-5"
           />
         </a>
       ))

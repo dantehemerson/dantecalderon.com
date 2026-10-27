@@ -17,7 +17,7 @@ describe('parseSubstackImageUrl', () => {
   it('returns undefined for non-substack domains', () => {
     expect(parseSubstackImageUrl('https://example.com/image.png')).toBeUndefined()
     expect(
-      parseSubstackImageUrl('https://icongr.am/fontawesome/twitter.svg')
+      parseSubstackImageUrl('https://example.com/icons/twitter.svg')
     ).toBeUndefined()
     expect(parseSubstackImageUrl('/images/local.jpg')).toBeUndefined()
   })
