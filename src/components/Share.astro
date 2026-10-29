@@ -14,7 +14,7 @@ const url = `${siteConfig.siteUrl}/${path}`
 <div class="max-w-225 mx-auto flex flex-wrap pt-0 pb-3.75 justify-center">
   <span class="w-full text-center font-semibold text-[15px] leading-0 mb-5">Share:</span>
   <a
-    class="m-1 bg-[#caced2] rounded p-[0em_0.2em] transition duration-300 ease-in-out hover:bg-[#a9adb1]"
+    class="m-1 inline-flex w-11 h-11 shrink-0 items-center justify-center bg-[#caced2] rounded-[50%] transition duration-300 ease-in-out hover:bg-[#a9adb1]"
     href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(title)} by Dante Calderón(@dantehemerson) ${encodeURIComponent(url)}`}
     title="Share on Twitter"
     target="_blank"
@@ -24,11 +24,11 @@ const url = `${siteConfig.siteUrl}/${path}`
       name="twitter"
       label="Twitter"
       color="#ffffff"
-      class="w-5.5 h-[84%] m-0 relative top-0.5"
+      class="w-5.5 h-5.5 m-0"
     />
   </a>
   <a
-    class="m-1 bg-[#caced2] rounded p-[0em_0.2em] transition duration-300 ease-in-out hover:bg-[#a9adb1]"
+    class="m-1 inline-flex w-11 h-11 shrink-0 items-center justify-center bg-[#caced2] rounded-[50%] transition duration-300 ease-in-out hover:bg-[#a9adb1]"
     href={`http://www.linkedin.com/shareArticle?url=${encodeURIComponent(url)}&isFramed=true`}
     title="Share on Linkedin"
     target="_blank"
@@ -38,7 +38,7 @@ const url = `${siteConfig.siteUrl}/${path}`
       name="linkedin"
       label="LinkedIn"
       color="#ffffff"
-      class="w-5.5 h-[84%] m-0 relative top-0.5"
+      class="w-5.5 h-5.5 m-0"
     />
   </a>
 </div>
